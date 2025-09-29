@@ -1,0 +1,556 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*A day in life start*/
+
+.adayinlife {
+    display: flex;
+    align-items: end;
+    gap: 121px;
+    margin-top: 82px;
+}
+
+.a-day-in-life {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 40px;
+    line-height: 90px;
+    letter-spacing: -5%;
+    color: #801B53;
+}
+
+.everydayat {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 25px;
+    padding-bottom: 14px;
+}
+
+/*A day in life end*/
+
+/*Card start */
+/* #card {
+    margin-top: 50px;
+} */
+
+.card-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 60px;
+}
+
+.card1 {
+    width: 350px;
+    position: relative;
+}
+
+.card1 img {
+    max-width: 100%;
+    border-radius: 20px;
+    height: 100%;
+    /* background: url('../assets/images/lifestyle images/card1.png');
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%); */
+}
+
+.time {
+    border-radius: 10px;
+    background: #C42785;
+    position: absolute;
+    z-index: 1;
+    bottom: 50px;
+    left: 20px;
+}
+
+.time p {
+    color: white;
+    font-family: Lato;
+    font-weight: 900;
+    font-style: Black;
+    font-size: 16px;
+    line-height: 18.39px;
+    padding: 8px 15px;
+}
+
+.card-para {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.card-para p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 25px;
+    color: #fff;
+}
+
+/*Card end */
+
+/*Talk to us start*/
+#talk-to-us {
+    margin-top: 50px;
+}
+
+.talktous {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+}
+
+.talktoustxt p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.talktousbtn button {
+    font-family: Montserrat;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 20px;
+    line-height: 25px;
+    color: #fff;
+    padding: 8px 25px;
+    text-align: center;
+    background: #801B53;
+    border: 1px solid #801B53;
+    border-radius: 15px;
+    width: 185px;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+/*Talk to us end*/
+
+/*From festive start*/
+
+#fromfestive {
+    margin-top: 60px;
+}
+
+.from-festive {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.fromfestive-txt h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 70px;
+    line-height: 85px;
+    letter-spacing: -5%;
+    color: #801B53;
+}
+
+.fromfestive-txt p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 25px;
+    margin-top: 35px;
+}
+
+/*From festive end*/
+
+/*Hear it from start*/
+#hear-it-from {
+    margin-top: 100px;
+}
+
+.hearitfrom h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: -5%;
+    text-align: center;
+    color: #801B53;
+}
+
+.hearitfrom p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    margin-top: 45px;
+}
+
+.live-senior {
+    display: flex;
+    gap: 22px;
+    margin-top: 40px;
+}
+
+.livesenior-1 img {
+    max-width: 100%;
+    border-radius: 50px;
+}
+
+/*Hear it from end*/
+
+
+@media screen and (min-width: 1366px) and (max-width:1920px) {
+    /*A day in life start*/
+
+    .adayinlife {
+        gap: 80px;
+        margin-top: 82px;
+    }
+
+    .a-day-in-life {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 25px;
+        line-height: 50px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    .everydayat {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px;
+        line-height: 20px;
+        padding-bottom: 14px;
+    }
+
+    /*A day in life end*/
+
+    /*Card start */
+    .time {
+        border-radius: 10px;
+        background: #C42785;
+        position: absolute;
+        z-index: 1;
+        bottom: 35px;
+        left: 20px;
+    }
+
+    .time p {
+        color: white;
+        font-family: Lato;
+        font-weight: 900;
+        font-style: Black;
+        font-size: 10px;
+        line-height: 15px;
+        padding: 5px 10px;
+    }
+
+    .card-para {
+        position: absolute;
+        bottom: 15px;
+        left: 20px;
+    }
+
+    .card-para p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 12px;
+        line-height: 15px;
+        color: #fff;
+    }
+
+    /*Card end */
+
+    /* Talk to us start*/
+    .talktousimg {
+        width: 725px;
+    }
+
+    .talktousimg img {
+        max-width: 100%;
+    }
+
+    .talktoustxt p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .talktousbtn button {
+        font-family: Montserrat;
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 15px;
+        line-height: 20px;
+        color: #fff;
+        padding: 5px 17px;
+        text-align: center;
+        background: #801B53;
+        border: 1px solid #801B53;
+        border-radius: 10px;
+        width: 130px;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+
+    /* Talk to us end*/
+
+    /*From festive start*/
+    .fromfestive-img {
+        width: 725px;
+    }
+
+    .fromfestive-img img {
+        max-width: 100%;
+    }
+
+    .fromfestive-txt h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 50px;
+        line-height: 55px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    .fromfestive-txt p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px;
+        line-height: 20px;
+        margin-top: 30px;
+    }
+
+    /*From festive end*/
+
+    /*Hear it from start*/
+    #hear-it-from {
+        margin-top: 60px;
+    }
+
+    .hearitfrom h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 60px;
+        line-height: 70px;
+        letter-spacing: -5%;
+        text-align: center;
+        color: #801B53;
+    }
+
+    .hearitfrom p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px;
+        line-height: 20px;
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1365px) {
+
+    /*A day in life start*/
+
+    .adayinlife {
+        gap: 40px;
+        margin-top: 42px;
+    }
+
+    .a-day-in-life {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 15px;
+        line-height: 30px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    .everydayat {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 10px;
+        line-height: 12px;
+        padding-bottom: 2px;
+    }
+
+    /*A day in life end*/
+
+    /*Card start */
+    .card-group {
+        gap: 10px;
+        margin-top: 45px;
+    }
+
+    .time {
+        border-radius: 10px;
+        bottom: 30px;
+        left: 10px;
+    }
+
+    .time p {
+        color: white;
+        font-family: Lato;
+        font-weight: 900;
+        font-style: Black;
+        font-size: 8px;
+        line-height: 12px;
+        padding: 3px 8px;
+    }
+
+    .card-para {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .card-para p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 10px;
+        line-height: 15px;
+        color: #fff;
+    }
+
+    /*Card end */
+
+
+    /* Talk to us start*/
+
+    #talk-to-us {
+        margin-top: 25px;
+    }
+
+    .talktous {
+        gap: 25px;
+    }
+
+    .talktousimg {
+        width: 420px;
+    }
+
+    .talktousimg img {
+        max-width: 100%;
+    }
+
+    .talktoustxt p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 10px;
+        line-height: 15px;
+    }
+
+    .talktousbtn button {
+        font-family: Montserrat;
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 10px;
+        line-height: 15px;
+        color: #fff;
+        padding: 8px 15px;
+        text-align: center;
+        background: #801B53;
+        border: 1px solid #801B53;
+        border-radius: 15px;
+        width: 95px;
+        cursor: pointer;
+        margin-top: 25px;
+    }
+
+    /* Talk to us end*/
+
+    /*From festive start*/
+
+    #fromfestive {
+        margin-top: 30px;
+    }
+
+    .fromfestive-img {
+        width: 420px;
+    }
+
+    .fromfestive-img img {
+        max-width: 100%;
+    }
+
+    .fromfestive-txt h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 25px;
+        line-height: 30px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    .fromfestive-txt p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 10px;
+        line-height: 15px;
+        margin-top: 20px;
+    }
+
+    /*From festive end*/
+
+    /*Hear it from start*/
+    #hear-it-from {
+        margin-top: 30px;
+    }
+
+    .hearitfrom h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 30px;
+        line-height: 35px;
+        letter-spacing: -5%;
+        text-align: center;
+        color: #801B53;
+    }
+
+    .hearitfrom p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .live-senior {
+        gap: 11px;
+        margin-top: 20px;
+    }
+
+    .livesenior-1 img {
+        max-width: 100%;
+        border-radius: 25px;
+    }
+
+    /*Hear it from end*/
+}

@@ -1,0 +1,1142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* .primary-headings {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: -5%;
+}
+
+.primary-para {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    leading-trim: NONE;
+    line-height: 25px;
+    letter-spacing: 0%;
+    text-align: center;
+
+} */
+
+/*A day in life start*/
+
+
+.adayinlife {
+    display: flex;
+    align-items: end;
+    gap: 121px;
+    margin-top: 82px;
+}
+
+.a-day-in-life h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 80px;
+    line-height: 75px;
+    letter-spacing: -5%;
+    color: #801B53;
+
+
+}
+
+.everydayat p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 22px;
+    line-height: 25px;
+    padding-bottom: 14px;
+}
+
+/*A day in life end*/
+
+/*Card start */
+/* #card {
+    margin-top: 50px;
+} */
+
+.card-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 60px;
+}
+
+.card1 {
+    max-width: 350px;
+    position: relative;
+}
+
+.card1 img {
+    width: 100%;
+    border-radius: 20px;
+    height: 100%;
+    /* background: url('../assets/images/lifestyle images/card1.png');
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%); */
+}
+
+.time {
+    border-radius: 10px;
+    background: #C42785;
+    position: absolute;
+    z-index: 1;
+    bottom: 50px;
+    left: 20px;
+}
+
+.time p {
+    color: white;
+    font-family: Lato;
+    font-weight: 900;
+    font-style: Black;
+    font-size: 16px;
+    line-height: 18.39px;
+    padding: 8px 15px;
+}
+
+.card-para {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.card-para p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 25px;
+    color: #fff;
+}
+
+/*Card end */
+
+/*Talk to us start*/
+#talk-to-us {
+    margin-top: 50px;
+}
+
+.talktous {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+}
+
+.talktoustxt p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 22px;
+    line-height: 25px;
+}
+
+.talktousbtn button {
+    font-family: Montserrat;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 20px;
+    line-height: 25px;
+    color: #fff;
+    padding: 8px 25px;
+    text-align: center;
+    background: #801B53;
+    border: 1px solid #801B53;
+    border-radius: 15px;
+    width: 185px;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+/*Talk to us end*/
+
+/*From festive start*/
+
+#fromfestive {
+    margin-top: 60px;
+}
+
+.from-festive {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.fromfestive-txt h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 67px;
+    line-height: 75px;
+    letter-spacing: -5%;
+    color: #801B53;
+}
+
+.fromfestive-txt p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 21px;
+    line-height: 25px;
+    margin-top: 35px;
+}
+
+/*From festive end*/
+
+/*A Peekk Into Our Celebrations style start */
+
+.vertical {
+    max-height: 400px;
+}
+
+.vertical::part(base) {
+    grid-template-areas: 'slides slides pagination';
+}
+
+.vertical::part(pagination) {
+    flex-direction: column;
+}
+
+.vertical::part(navigation) {
+    transform: rotate(90deg);
+    display: flex;
+}
+
+#apeeksec {
+    /* padding: 5rem !important; */
+    background: #801B53;
+    margin-bottom: 8rem;
+    margin-top: 120px;
+}
+
+#apeeksec .multigenerationalcont {
+    align-items: center;
+    display: flex;
+    padding: 10rem 0;
+}
+
+.multigenerationalsecone {
+    /* flex: 2; */
+    width: 30%;
+}
+
+.multigenerationalsectwo {
+    /* flex: 1; */
+    width: 70%;
+}
+
+#apeeksec .multigenerationalsecone {
+    border-right: 1px solid #fff;
+}
+
+#apeeksec .multigenerationalsecone h1 {
+    margin-bottom: 2rem;
+    color: #fff;
+    padding-right: 3rem;
+    font-size: 3.7rem;
+    line-height: 5rem;
+}
+
+#apeeksec .multigenerationalsecone p {
+    color: #fff;
+}
+
+#apeeksec .multigenerationalsectwo {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: palegoldenrod; */
+    padding: 2rem;
+}
+
+#apeeksec .multigenerationalsectwo .secboxdiv {
+    /* background-color: red; */
+    display: flex;
+    padding: 2rem 4rem;
+    align-items: center;
+    gap: 2rem;
+}
+
+#apeeksec .multigenerationalsectwo .secboxdiv:not(:last-child) {
+    border-right: 1px solid #fff;
+}
+
+#apeeksec .multigenerationalsectwo .secboxdiv h3 {
+    color: #fff;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 25px;
+    line-height: 30px;
+}
+
+
+/* A Peekk Into Our Celebrations style  end */
+
+/*Hear it from start*/
+#hear-it-from {
+    margin-top: 100px;
+}
+
+.hearitfrom h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 80px;
+    line-height: 75px;
+    letter-spacing: -5%;
+    text-align: center;
+    color: #801B53;
+}
+
+.hearitfrom p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 22px;
+    line-height: 25px;
+    text-align: center;
+    margin-top: 45px;
+}
+
+.live-senior {
+    display: flex;
+    gap: 22px;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.livesenior-1 img {
+    width: 100%;
+    border-radius: 50px;
+}
+
+/*Hear it from end*/
+
+@media screen and (min-width: 1024px) and (max-width:1366px) {
+
+
+
+    /*A day in life start*/
+
+    .adayinlife {
+        gap: 80px;
+        margin-top: 82px;
+    }
+
+    .a-day-in-life h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 50px;
+        line-height: 70px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    /* .everydayat {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px;
+        line-height: 20px;
+        padding-bottom: 14px;
+    } */
+
+    /*A day in life end*/
+
+    /*Card start */
+    .time {
+        border-radius: 10px;
+        background: #C42785;
+        position: absolute;
+        z-index: 1;
+        bottom: 35px;
+        left: 20px;
+    }
+
+    .time p {
+        color: white;
+        font-family: Lato;
+        font-weight: 900;
+        font-style: Black;
+        font-size: 10px;
+        line-height: 15px;
+        padding: 5px 10px;
+    }
+
+
+    .card-para {
+        position: absolute;
+        bottom: 15px;
+        left: 20px;
+    }
+
+    .card-para p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 12px;
+        line-height: 15px;
+        color: #fff;
+    }
+
+    /*Card end */
+
+    /* Talk to us start*/
+    /* .talktousimg {
+        width: 725px;
+    } */
+
+    .talktousimg img {
+        width: 100%;
+    }
+
+    .talktoustxt p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 22px;
+        line-height: 25px;
+        letter-spacing: 0%;
+
+    }
+
+    .talktousbtn button {
+        font-family: Montserrat;
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 15px;
+        line-height: 20px;
+        color: #fff;
+        padding: 5px 17px;
+        text-align: center;
+        background: #801B53;
+        border: 1px solid #801B53;
+        border-radius: 10px;
+        width: 130px;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+
+    /* Talk to us end*/
+
+    /*From festive start*/
+    /* .fromfestive-img {
+        width: 725px;
+    } */
+
+    .fromfestive-img img {
+        width: 100%;
+    }
+
+    .fromfestive-txt h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 50px;
+        line-height: 55px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    /* .fromfestive-txt p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px;
+        line-height: 20px;
+        margin-top: 30px;
+    } */
+
+    /*From festive end*/
+
+    /*Hear it from start*/
+    #hear-it-from {
+        margin-top: 60px;
+    }
+
+    #apeeksec .multigenerationalsecone h1 {
+        font-size: 2.2rem;
+        line-height: 4rem;
+    }
+
+    #apeeksec .multigenerationalcont {
+        align-items: center;
+        padding: 0rem 0;
+    }
+
+    #apeeksec .multigenerationalsectwo .secboxdiv {
+        padding: 0rem 1rem;
+
+    }
+
+    .hearitfrom h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 60px;
+        line-height: 70px;
+        letter-spacing: -5%;
+        text-align: center;
+        color: #801B53;
+    }
+
+    /* .hearitfrom p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px;
+        line-height: 20px;
+        text-align: center;
+        margin-top: 30px;
+    } */
+}
+
+
+@media screen and (max-width: 768px) {
+
+    #header-mobile {
+        display: none;
+    }
+
+    #talk-to-us-mob {
+        display: none;
+        margin-top: 35px;
+    }
+
+    .banner {
+        display: none;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    #footersec {
+        display: none;
+    }
+
+    .main-container {
+        padding-inline: 1rem;
+    }
+
+
+    /*A day in life start*/
+
+    .adayinlife {
+        gap: 20px;
+        margin-top: 45px;
+        flex-direction: column;
+        align-items: start;
+        margin: 0px 20px;
+    }
+
+    .a-day-in-life h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 50px;
+        line-height: 60px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    .everydayat p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 22px;
+        line-height: 25px;
+        padding-bottom: 2px;
+    }
+
+    /*A day in life end*/
+
+    /*Card start */
+    .carousel-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-group {
+        gap: 5px;
+        margin-top: 45px;
+    }
+
+    .time {
+        border-radius: 10px;
+        bottom: 35px;
+        left: 10px;
+    }
+
+    .time p {
+        color: white;
+        font-family: Lato;
+        font-weight: 900;
+        font-style: Black;
+        font-size: 16px;
+        line-height: 20px;
+        padding: 3px 8px;
+    }
+
+    .card-para {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .card-para p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 20px;
+        line-height: 25px;
+        color: #fff;
+    }
+
+    /*Card end */
+
+
+    /* Talk to us start*/
+
+    #talk-to-us {
+        margin-top: 25px;
+    }
+
+    .talktous-mob {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+        margin: 0px 20px;
+    }
+
+    .talktous {
+        gap: 15px;
+    }
+
+
+    .talktousimgmob {
+        max-width: 680px;
+    }
+
+    .talktousimgmob img {
+        width: 100%;
+    }
+
+    .talktoustxtmobile p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 22px;
+        line-height: 25px;
+    }
+
+    .talktousbtnmob button {
+        font-family: Montserrat;
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 20px;
+        line-height: 25px;
+        padding: 8px 0px;
+        border-radius: 15px;
+        width: 175px;
+        margin-top: 25px;
+        background: #801B53;
+        border: #801B53;
+        color: white;
+    }
+
+    /* Talk to us end*/
+
+    /*From festive start*/
+
+    #fromfestive {
+        margin-top: 30px;
+    }
+
+    .from-festive {
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+        margin: 0px 20px;
+    }
+
+
+    .fromfestive-img {
+        max-width: 680px;
+    }
+
+    .fromfestive-img img {
+        width: 100%;
+    }
+
+    .fromfestive-txt h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 50px;
+        line-height: 60px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    .fromfestive-txt p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 22px;
+        line-height: 25px;
+        margin-top: 20px;
+    }
+
+    /*From festive end*/
+
+    /*A Peek Section start mobile*/
+
+    #apeeksec-mob {
+    /* padding: 5rem !important; */
+    background: #801B53;
+    margin-bottom: 4rem;
+    margin-top: 60px;
+}
+
+.multigenerationalcont {
+    padding: 20px;
+} 
+
+#apeeksec-mob .multigenerationalsecone h1 {
+ color: white;
+ font-family: Montserrat;
+font-weight: 700;
+font-style: Bold;
+font-size: 22px;
+line-height: 35px;
+letter-spacing: -5%;
+margin-left: 25px;
+}
+
+.apeekicongrp {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 20px; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 50px;
+    margin: 20px;
+}
+
+.apeekicongrp-1 img {
+    max-width: 30px;
+    width: 100%;
+}
+
+.apeekicongrp-1 h3 {
+font-family: Montserrat;
+font-weight: 700;
+font-style: Bold;
+font-size: 8.79px;
+line-height: 10.55px;
+color: white;
+}
+
+.apeekicongrp h3 {
+font-family: Montserrat;
+font-weight: 700;
+font-style: Bold;
+font-size: 8.79px;
+line-height: 10.55px;
+color: white;
+}
+
+.apeekicongrp-1 {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.apeekicongrp-1:not(:last-child) {
+    border-right: 1px solid #fff;
+}
+
+/*A Peek Section end mobile*/
+
+    /*Hear it from start*/
+    #hear-it-from {
+        margin-top: 30px;
+    }
+
+    .hearitfrommob {
+        align-items: start;
+        display: flex;
+        flex-direction: column;
+        margin: 0px 20px;
+    }
+
+    .hearitfrommob h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 50px;
+        line-height: 60px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    .hearitfrommob p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 22px;
+        line-height: 25px;
+        margin-top: 20px;
+    }
+
+    .live-senior {
+        gap: 11px;
+        margin-top: 20px;
+    }
+
+    .live-senior {
+        max-width: 680px;
+    }
+
+    .livesenior-1 img {
+        width: 100%;
+        border-radius: 25px;
+    }
+
+    /*Hear it from end*/
+
+    /*Carousel part*/
+    .carousel {
+        width: 100%;
+        max-width: 250px;
+        overflow: hidden;
+        border-radius: 15px;
+        position: relative;
+        margin-top: 20px;
+    }
+
+    .carousel-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .carousel-slide.active {
+        opacity: 1;
+        z-index: 1;
+        position: relative;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        /* height: 200px; */
+        object-fit: cover;
+        display: block;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    /* Text under image */
+    /* .carousel-text h3 {
+        padding: 12px 0px;
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 25px;
+        line-height: 30px;
+        text-align: left;
+    } */
+
+    /* .carousel-text p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: left;
+    } */
+
+    /* Dots */
+    .carousel-dots {
+        display: flex;
+        justify-content: start;
+        margin-top: 25px;
+        padding: 0px 80px;
+    }
+
+    .dot {
+        height: 10px;
+        width: 10px;
+        margin: 0 6px;
+        background-color: #000;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .dot.active {
+        background-color: #000;
+    }
+
+    .dot.active::after {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #000;
+        border-radius: 50%;
+    }
+}
+
+
+    @media screen and (max-width: 480px) {
+        
+
+        /* #header-mobile {
+            margin-top: 15px;
+        }
+
+        #header-mobile img {
+            width: 100%;
+        } */
+
+        /*A day in life start*/
+
+        .adayinlife {
+            gap: 30px;
+            margin-top: 72px;
+        }
+
+        .adayinlife {
+            flex-direction: column;
+            align-items: start;
+
+        }
+
+        .a-day-in-life h1 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 30px;
+            line-height: 35px;
+            letter-spacing: -5%;
+        }
+
+        .everydayat p {
+            font-family: Lato;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 20px;
+            line-height: 25px;
+        }
+
+        /*A day in life end*/
+
+
+        /*Talk to us start*/
+        .talktoustxtmobile p {
+            font-family: Lato;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 20px;
+            line-height: 25px;
+        }
+
+        .talktous-mob {
+            padding: 10px 20px;
+        }
+
+        .talktousimgmob {
+            max-width: 355px;
+        }
+
+        .talktousimgmob img {
+            width: 100%;
+            margin-top: 25px;
+        }
+
+        .talktousbtnmob button {
+            font-family: Montserrat;
+            font-weight: 600;
+            font-style: SemiBold;
+            font-size: 20px;
+            line-height: 25px;
+            color: #fff;
+            padding: 8px 15px;
+            text-align: center;
+            background: #801B53;
+            border: 1px solid #801B53;
+            border-radius: 15px;
+            width: 185px;
+            cursor: pointer;
+            margin-top: 25px;
+        }
+
+        /*Talk to us end*/
+
+        /*From festive start*/
+
+        #fromfestive {
+            margin-top: 40px;
+        }
+
+        .from-festive {
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .fromfestive-txt h1 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 30px;
+            line-height: 35px;
+            letter-spacing: -5%;
+            color: #801B53;
+        }
+
+        .fromfestive-txt-mob p {
+            font-family: Lato;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 20px;
+            line-height: 25px;
+            margin-top: 22px;
+        }
+
+        .fromfestive-img {
+            max-width: 360px;
+        }
+
+
+        .fromfestive-img img {
+            width: 100%;
+        }
+
+        /*From festive end*/
+
+        /*A Peek Section start mobile*/
+
+    #apeeksec-mob {
+    /* padding: 5rem !important; */
+    background: #801B53;
+    margin-bottom: 4rem;
+    margin-top: 60px;
+}
+
+.multigenerationalcont {
+    padding: 20px;
+} 
+
+#apeeksec-mob .multigenerationalsecone h1 {
+ color: white;
+ font-family: Montserrat;
+font-weight: 700;
+font-style: Bold;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -5%;
+margin-left: 25px;
+width: 400px;
+}
+
+.apeekicongrp {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 20px; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin: 15px;
+    row-gap: 40px;
+    align-items: center;
+}
+
+.apeekicongrp-1 img {
+    max-width: 30px;
+    width: 100%;
+}
+
+.apeekicongrp-1 h3 {
+font-family: Montserrat;
+font-weight: 700;
+font-style: Bold;
+font-size: 8.79px;
+line-height: 10.55px;
+color: white;
+}
+
+.apeekicongrp-2 h3 {
+font-family: Montserrat;
+font-weight: 700;
+font-style: Bold;
+font-size: 8.79px;
+line-height: 10.55px;
+color: white;
+}
+
+.apeekicongrp-1 {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.apeekicongrp-1:not(:last-child) {
+    border-right: 1px solid #fff;
+}
+
+/*A Peek Section end mobile*/
+
+
+        /*Hear it from start*/
+        #hear-it-from {
+            margin-top: 62px;
+        }
+
+        .hearitfrommob h1 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 30px;
+            line-height: 35px;
+            letter-spacing: -5%;
+            text-align: left;
+            color: #801B53;
+        }
+
+        .hearitfrommob p {
+            font-family: Lato;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 20px;
+            line-height: 25px;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+
+        /*Hear it from end*/
+    }

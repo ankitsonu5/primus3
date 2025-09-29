@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIMUS Accordion Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .menu-container {
+            max-width: 320px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-header {
+            background: linear-gradient(135deg, #8B4A8C, #A75DA7);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .menu-header:hover {
+            background: linear-gradient(135deg, #7A4179, #965296);
+        }
+
+        .menu-header.collapsed {
+            border-radius: 12px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-icon span {
+            width: 20px;
+            height: 2px;
+            background: white;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-icon.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-icon.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .menu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            background: white;
+        }
+
+        .menu-content.expanded {
+            max-height: 500px;
+            padding: 20px 0;
+        }
+
+        .menu-item {
+            padding: 16px 24px;
+            color: #333;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            font-size: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:hover {
+            background: #f8f8f8;
+            color: #8B4A8C;
+            padding-left: 30px;
+        }
+
+        .menu-item:active {
+            background: #f0f0f0;
+        }
+
+        .enquiry-btn {
+            margin: 20px 24px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #8B4A8C, #A75DA7);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 2px 10px rgba(139, 74, 140, 0.3);
+        }
+
+        .enquiry-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(139, 74, 140, 0.4);
+            background: linear-gradient(135deg, #7A4179, #965296);
+        }
+
+        .enquiry-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Demo container for multiple states */
+        .demo-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .demo-label {
+            text-align: center;
+            font-weight: 600;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: -20px;
+        }
+
+        @media (max-width: 480px) {
+            .menu-container {
+                margin: 0;
+                border-radius: 0;
+                max-width: 100%;
+            }
+
+            body {
+                padding: 0;
+            }
+        }
+
+        /* Subtle animation for menu items */
+        .menu-content.expanded .menu-item {
+            animation: slideInLeft 0.3s ease forwards;
+            opacity: 0;
+        }
+
+        .menu-content.expanded .menu-item:nth-child(1) { animation-delay: 0.1s; }
+        .menu-content.expanded .menu-item:nth-child(2) { animation-delay: 0.15s; }
+        .menu-content.expanded .menu-item:nth-child(3) { animation-delay: 0.2s; }
+        .menu-content.expanded .menu-item:nth-child(4) { animation-delay: 0.25s; }
+        .menu-content.expanded .menu-item:nth-child(5) { animation-delay: 0.3s; }
+        .menu-content.expanded .menu-item:nth-child(6) { animation-delay: 0.35s; }
+        .menu-content.expanded .menu-item:nth-child(7) { animation-delay: 0.4s; }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="menu-container">
+            <div class="menu-header collapsed" onclick="toggleMenu(this)">
+                <div class="logo">PRIMUS</div>
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="menu-content">
+                <a href="#" class="menu-item">Home</a>
+                <a href="#" class="menu-item">About Us</a>
+                <a href="#" class="menu-item">Our Communities</a>
+                <a href="#" class="menu-item">The Primus Lifestyle</a>
+                <a href="#" class="menu-item">Living Well Hub</a>
+                <a href="#" class="menu-item">Partner With Us</a>
+                <a href="#" class="menu-item">Contact Us</a>
+                <button class="enquiry-btn">ENQUIRY</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu(header) {
+            const menuIcon = header.querySelector('.menu-icon');
+            const menuContent = header.nextElementSibling;
+            const isExpanded = menuContent.classList.contains('expanded');
+            
+            if (isExpanded) {
+                // Collapse
+                menuContent.classList.remove('expanded');
+                menuIcon.classList.remove('active');
+                header.classList.add('collapsed');
+            } else {
+                // Expand
+                menuContent.classList.add('expanded');
+                menuIcon.classList.add('active');
+                header.classList.remove('collapsed');
+            }
+        }
+
+        // Add click handlers to menu items
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active state from all items
+                document.querySelectorAll('.menu-item').forEach(i => i.style.background = '');
+                
+                // Add active state to clicked item
+                this.style.background = '#f0f0f0';
+                this.style.color = '#8B4A8C';
+                
+                console.log('Navigating to:', this.textContent);
+            });
+        });
+
+        // Add click handler to enquiry button
+        document.querySelectorAll('.enquiry-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                console.log('Opening enquiry form...');
+                // Add your enquiry logic here
+            });
+        });
+    </script>
+</body>
+</html>
