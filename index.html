@@ -100,7 +100,7 @@
 .dd:hover .btnarrwtab {
     transform: rotate(90deg);
 }
-        
+
         .dd__panel {
             position: absolute;
             left: 0;
@@ -182,7 +182,7 @@
 
  <!-- animate css style code js -->
   <style>
-    
+
      /* .section {
       display: flex;
       justify-content: space-between;
@@ -1003,41 +1003,20 @@
                 </div>
                 <div class="buildontrustbackbyproofcontgrid">
                     <div class="contgriddiv">
-                        <h2>500+</h2>
-                        <p>Homes Managed</p>
-                    </div>
-                    <div class="contgriddiv">
-                        <h2>1000+</h2>
-                        <p>Residents Under Our Care</p>
+                        <h2>5000+</h2>
+                        <p>Residents Under Our Care
+</p>
                     </div>
                     <div class="contgriddiv">
                         <h2>12+</h2>
-                        <p>Years of Pioneering Experience</p>
+                        <p>Years of Pioneering Experience
+</p>
                     </div>
                     <div class="contgriddiv">
-                        <h2>6</h2>
-                        <p>Cities</p>
+                        <h2>30</h2>
+                        <p>lakhs square feet Homes Managed</p>
                     </div>
-                    <div class="contgriddiv">
-                        <h2>2</h2>
-                        <p>Active Communities</p>
-                    </div>
-                    <div class="contgriddiv">
-                        <h2>20</h2>
-                        <p>Upcoming Projects</p>
-                    </div>
-                    <div class="contgriddiv">
-                        <h3>One Purpose</h3>
-                        <p>Reimagining Living for Every Generation</p>
-                    </div>
-                    <div class="contgriddiv">
-                        <h3>30 Lakhs Sq. Ft.</h3>
-                        <p>Homes Managed</p>
-                    </div>
-                    <div class="contgriddiv">
-                        <h3>50 Lakhs Sq. Ft.</h3>
-                        <p>Managed</p>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -1477,7 +1456,7 @@
 
     <!-- tab -->
     <script>
-        /* When the user clicks on the button, 
+        /* When the user clicks on the button,
         toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
@@ -1775,6 +1754,52 @@
 
     elements.forEach(el => observer.observe(el));
   </script>
+  <!-- count-up on scroll for proof section -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const counters = document.querySelectorAll('.buildontrustbackbyproofcontgrid .contgriddiv h2');
+      // Initialize display to 0 (preserving any suffix like +)
+      counters.forEach(el => {
+        const raw = (el.textContent || '').trim();
+        const m = raw.match(/^(\d+)(\D*)$/);
+        const target = m ? parseInt(m[1], 10) : parseInt(raw.replace(/[^0-9]/g, ''), 10) || 0;
+        const suffix = m ? m[2] : raw.replace(/[0-9]/g, '');
+        el.dataset.target = String(target);
+        el.dataset.suffix = suffix;
+        el.textContent = '0' + (suffix || '');
+      });
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          if (el.dataset.done === '1') { io.unobserve(el); return; }
+
+          const target = parseInt(el.dataset.target || '0', 10);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1200; // ms
+          const start = performance.now();
+
+          function tick(now) {
+            const p = Math.min((now - start) / duration, 1);
+            const value = Math.floor(target * p);
+            el.textContent = value.toLocaleString() + suffix;
+            if (p < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              el.dataset.done = '1';
+              io.unobserve(el);
+            }
+          }
+
+          requestAnimationFrame(tick);
+        });
+      }, { threshold: 0.35 });
+
+      counters.forEach((el) => io.observe(el));
+    });
+  </script>
+
     <!-- section scrolling js code -->
 
 </body>
