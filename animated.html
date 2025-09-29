@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Section Scroll Animation</title>
+  <style>
+    /* Default overflow-x disable */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* horizontal scroll kabhi nahi aayega */
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+    }
+
+    section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      padding: 0 5%;
+      background: #fff;
+      margin-bottom: 50px;
+    }
+
+    .left, .right {
+      width: 45%;
+      height: 300px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: white;
+      font-weight: bold;
+      opacity: 0;
+      transition: all 1.2s ease;
+    }
+
+    .left {
+      background: tomato;
+      transform: translateX(-150px); /* thoda left se andar */
+    }
+
+    .right {
+      background: royalblue;
+      transform: translateX(150px); /* thoda right se andar */
+    }
+
+    /* Jab show class add hogi */
+    .left.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .right.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  
+  <section>
+    <div class="left">Left Section</div>
+    <div class="right">Right Section</div>
+  </section>
+
+  <section>
+    <div class="left">Another Left</div>
+    <div class="right">Another Right</div>
+  </section>
+
+  <section>
+    <div class="left">More Left</div>
+    <div class="right">More Right</div>
+  </section>
+
+  <script>
+    const elements = document.querySelectorAll('.left, .right');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 }); // 20% visible hote hi trigger
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

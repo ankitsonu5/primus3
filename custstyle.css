@@ -1,0 +1,1588 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@400;600;700&display=swap");
+
+/* footer variable code */
+:root {
+  --bg: #f2f2f2;
+  /* light grey background */
+  --ink: #2a2a2a;
+  /* body text */
+  --muted: #6a6a6a;
+  /* subtle text */
+  --brand: #7a1f50;
+  /* PRIMUS color (burgundy) */
+}
+
+.site-footer {
+  background: var(--bg);
+  border-top: 1px solid #e6e6e6;
+}
+
+/* Global reset & box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ****************** Desktop Code *********************** */
+html,
+body {
+  height: 100%;
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", "Montserrat", system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: #fff;
+  margin: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container: mobile-first */
+.main-container {
+  width: 100%;
+  max-width: 1296px;
+  /* cap at design width */
+  margin: 0 auto;
+  /* padding-inline: 16px; */
+  /* safe gutters on small screens */
+}
+
+/* Header */
+#header {
+  margin: 23px 0;
+}
+
+/* Banner */
+.banner {
+  /* position: relative; */
+  /* padding-top: 30px; */
+}
+
+.bannerimg {
+  /* position: absolute; */
+  inset: 0;
+  z-index: -1;
+}
+
+.bannerimg img {
+  width: 100%;
+  /* ensure it fills banner */
+  height: auto;
+  display: block;
+}
+
+/* Navbar: mobile-first */
+.navbar {
+  width: 100%;
+  max-width: 1120px;
+  /* cap like design */
+  background: #fff;
+  padding: 15px 23px;
+  margin: 0px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.menu ul {
+  margin-top: 0;
+  margin-bottom: 0rem !important;
+}
+
+.menu ul li {
+  display: inline;
+}
+
+.menu ul li a {
+  color: #53103c;
+  text-decoration: none;
+  margin: 0 5px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  letter-spacing: 0%;
+}
+
+
+
+/* Active living, built into every corner of your life style start */
+#activelivinglifesec {
+    /* background-color: blue; */
+    padding: 3rem 0 5rem 0;
+}
+
+ .headingcont {
+    padding-bottom: 2rem;
+    color: #801B53;
+}
+
+ .headingcont h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: -5%;
+}
+
+ .opensecretsoflivingimgcont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+ .imgcontsec {
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+#activelivinglifesec .opensecretsoflivingimgcont img {
+    background: linear-gradient(90deg, #2e2729 0%, #402e2e 100%);
+    width: 100%;
+}
+
+ .imgcontsecgradient {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 28%, rgba(0, 0, 0, 0.725) 100%);
+    z-index: 1 !important;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    display: none;
+}
+
+ .imgcontsectext {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: #fff;
+    z-index: 2;
+    overflow: hidden;
+}
+
+ .imgcontsectext h3 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0%;
+    transform: translateY(6rem);
+    transition: all 0.3s;
+}
+ .imgcontsectext p {
+    font-family: lato;
+    font-weight: 400;
+    font-style: Bold;
+    font-size: 1rem;
+    line-height: 24px;
+    letter-spacing: 5%;
+    transform: translateY(8.5rem);
+    transition: all 0.3s;
+    min-height: 7.2rem;
+}
+ .imgcontsec:hover h3{
+     transform: translateY(0);
+}
+ .imgcontsec:hover p{
+     transform: translateY(0);
+}
+/* Active living, built into every corner of your life style end */
+
+
+
+/* primus gallery design style start */
+/* .primusgallerydesignsec {
+  max-width: 1850px !important; 
+            margin: 0 auto;
+} */
+#primusgallerydesignsec {
+  margin: 6rem 0 8rem 0;
+}
+
+#primusgallerydesignsec .gallery {
+  display: flex;
+  gap: 1rem;
+  height: 75vh;
+  overflow: hidden;
+  background: white;
+}
+
+#primusgallerydesignsec .gallery-item {
+  position: relative;
+  flex: 0.2;
+  transition: flex 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+#primusgallerydesignsec .gallery-item.expanded {
+  flex: 0.5 !important;
+}
+
+#primusgallerydesignsec .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  transition: transform 0.6s ease;
+}
+
+#primusgallerydesignsec .gallery-item:hover img {
+  transform: scale(1.01);
+}
+
+#primusgallerydesignsec .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+#primusgallerydesignsec .gallery-item.expanded .overlay {
+  transform: translateY(0);
+}
+
+#primusgallerydesignsec .overlay h3 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 24px;
+  line-height: 21.52px;
+  letter-spacing: 0%;
+  margin-bottom: 8px;
+}
+
+#primusgallerydesignsec .overlay p {
+  font-family: Lato;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 18px;
+  line-height: 26.9px;
+  letter-spacing: 0%;
+  opacity: 0.9;
+  /* transform: translateY(3rem); */
+  transition: all 0.3s;
+}
+
+#primusgallerydesignsec:hover .overlay p {
+  /* transform: translateY(0); */
+}
+
+#primusgallerydesignsec .gallery-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* primus gallery design style end */
+
+/* Explore Our Communities style start */
+.exploreourcommunitieshead {
+  padding-bottom: 3rem;
+}
+
+.exploreourcommunitieshead h1 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 80px;
+  line-height: 90px;
+  letter-spacing: -5%;
+  text-align: center;
+  color: #801b53;
+  margin-bottom: 1.5rem;
+}
+
+.tabs-container {
+  margin-bottom: 64px;
+  padding: 0 0;
+}
+
+.tabs {
+  display: flex;
+  /* background: #f8f9fa; */
+  gap: 5rem;
+  border-radius: 2rem;
+  padding: 2px;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 18px 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid #000;
+  border-radius: 1rem;
+  background: #fff;
+  color: #000000;
+  position: relative;
+  z-index: 2;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.tab.active {
+  color: white;
+  background: #801b53;
+}
+
+.tab-indicator {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  /* background: linear-gradient(45deg, #667eea, #764ba2); */
+  border-radius: 45px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100%;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropbtn:hover .dropdown-content {
+  display: block !important;
+  z-index: 10;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.drparrow {
+  margin-left: 1rem;
+  transition: all 0.3s;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+.dropbtn:hover .drparrow {
+  transform: rotate(90deg);
+  margin-left: 1rem;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide {
+  min-width: 100%;
+  padding: 40px 40px;
+  text-align: center;
+  background: rgba(130, 26, 81, 0.2) !important;
+  color: white;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 5rem;
+}
+
+.slide div img {
+  width: 100%;
+}
+
+.slide h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  /* opacity: 0;
+  transform: translateY(30px);
+  animation: slideInUp 0.6s ease forwards; */
+  text-align: left;
+}
+
+.slide p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 500;
+  font-style: Regular;
+  font-size: 21.49px;
+  line-height: 26.86px;
+  letter-spacing: 0%;
+  margin-top: 1rem;
+  color: #000;
+}
+
+.sliderlocpara {
+  font-size: 1.5rem !important;
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #000000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.dot.active {
+  background: #000000;
+  transform: scale(1.2);
+}
+
+.dot::after {
+  border: 1px solid black;
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dot.active::after {
+  opacity: 1;
+}
+
+.textcontslider {
+  text-align: left;
+}
+
+.textcontslider h1 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 32.23px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #000;
+  margin-bottom: 2rem;
+}
+
+.knowmoreslider {
+  background-color: #801b53;
+  color: #fff;
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 1rem 3rem;
+  font-family: Montserrat;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: 0%;
+  border-radius: 12px;
+}
+
+/* drop down style */
+
+
+
+/* Explore Our Communities style end */
+
+/* The Primus Difference, as told by Residents style start */
+#primusdifferencesec {
+  margin-top: 5rem;
+}
+
+.primusdifferencechead {
+  margin-bottom: 2rem;
+}
+
+.primusdifferencechead h1 {
+  text-align: center;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 75px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #882a5f;
+}
+
+.primusdifferenceccont {
+  /* background-color  : #801B53; */
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.primusdifferencecdiv {
+  background-color: #efdfdf;
+  display: flex;
+  align-items: center;
+  padding: 2rem 4rem;
+  gap: 5rem;
+  border-radius: 2rem;
+}
+
+.secitemdivone {
+  position: sticky;
+  top: 5rem;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #53103c;
+  color: #fff;
+}
+
+.secitemdivtwo {
+  position: sticky;
+  top: 10rem;
+  width: 95%;
+  margin: 0 auto;
+  background-color: #821a52;
+  color: #fff;
+}
+
+.secitemdivthree {
+  position: sticky;
+  top: 15rem;
+  width: 100%;
+  margin: 0 auto;
+  border: 3px solid black;
+}
+
+.primusdifferencecdivtext p {
+  font-family: Lato;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: 0%;
+}
+
+.primusdifferencecdivtext h4 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 26px;
+  line-height: 30px;
+  letter-spacing: 0%;
+}
+
+.secitemdivthree h4 {
+  color: #801b53;
+}
+
+.primusdifferencecdivtext p:nth-child(2) {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0%;
+}
+
+/* The Primus Difference, as told by Residents style end */
+
+/*  Built on Trust. Backed by Proof style start */
+#buildontrustbackbyproofsec {
+  margin: 4rem 0;
+  overflow-x: hidden;
+}
+
+.buildontrustbackbyproofcont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 5rem;
+}
+
+.buildontrustbackbyproofimg img {
+  width: 100%;
+  border-radius: 3rem;
+}
+
+.buildontrustbackbyproofhead h1 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 77.91px;
+  line-height: 87.01px;
+  letter-spacing: -5%;
+  color: #801b53;
+}
+
+.buildontrustbackbyproofhead p {
+  font-family: Lato;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 20.78px;
+  line-height: 25.97px;
+  letter-spacing: 0%;
+  padding-right: 2rem;
+}
+
+.buildontrustbackbyproofcontgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 3rem;
+  gap: 3rem;
+}
+
+.contgriddiv h2 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 51.94px;
+  color: #801b53;
+  line-height: 31.17px;
+  letter-spacing: 0%;
+}
+
+.contgriddiv p {
+  font-family: Lato;
+  font-weight: 600;
+  font-style: Bold;
+  font-size: 20.78px;
+  line-height: 25.97px;
+  letter-spacing: 0%;
+  color: #080405;
+}
+
+.contgriddiv h3 {
+  font-family: Lato;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20.78px;
+  line-height: 25.97px;
+  letter-spacing: 0%;
+  color: #801b53;
+}
+
+/*  Built on Trust. Backed by Proof style end */
+
+/* primus video section style start */
+#primusvideosec {
+  margin-top: 2rem;
+}
+
+.primusvideocont {
+  background-color: rgba(130, 26, 81, 0.2);
+  border-radius: 48px;
+}
+
+.primusvideocontcontainer {
+  padding: 4rem 5rem;
+  display: flex;
+  gap: 3rem;
+}
+
+.primusvideocont video {
+  width: 100%;
+}
+
+/* primus video section style end */
+
+/* Backed by Visionaries. style start */
+#backedbyvisionariessec {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  overflow-x: hidden;
+}
+
+.backedbyvisionariestext h1 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 75px;
+  line-height: 124%;
+  letter-spacing: 0%;
+  color: #801b53;
+  margin-bottom: 3rem;
+}
+
+.backedbyvisionariestext p {
+  font-family: Lato;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: 0%;
+}
+
+.backedbyvisionariescont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 7rem 0;
+}
+
+.backedbyvisionariesimg {
+  width: 100%;
+}
+
+.backedbyvisionariesimg {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.backedbyvisionariesimg img:first-child {
+  position: absolute;
+  z-index: -1000;
+}
+
+/* Backed by Visionaries. style end */
+.enquiry-wrap {
+  position: relative;
+  display: inline-block;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.enquiry>summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 16px;
+  background: #7a0047;
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.enquiry>summary::-webkit-details-marker {
+  display: none;
+}
+
+.enquiry .caret {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  transition: transform 0.2s ease;
+}
+
+.enquiry[open] .caret {
+  transform: rotate(180deg);
+}
+
+.enquiry-menu {
+  position: absolute;
+  top: calc(100%);
+  left: 0;
+  min-width: 180px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+  z-index: 10;
+}
+
+.enquiry-menu li a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.enquiry-menu li+li {
+  border-top: 1px solid #eee;
+}
+
+.enquiry-menu li a:hover,
+.enquiry-menu li a:focus {
+  background: #f7f7f7;
+  outline: none;
+  border-radius: 0;
+}
+
+.enquiry[open] summary::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+}
+
+a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+/* footer page design tab section start */
+#footersec {
+  background-color: #ededed;
+}
+
+.footercont {
+  display: grid;
+  grid-template-rows: 1fr fr;
+}
+
+.mainfootercontup {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 4rem 0 0 0;
+}
+
+.footer-logo-sec {}
+
+.footer-logo-sec img {
+  padding-left: 8rem;
+  width: 22rem;
+}
+
+.footer-policy-sec {
+  justify-self: center;
+}
+
+.footer-policy-sec ul li {
+  list-style-type: none;
+}
+
+.footer-policy-sec ul li a {
+  font-family: Lato;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 45px;
+  letter-spacing: 0%;
+  color: #000000;
+}
+
+.footer-about-us {
+  justify-self: flex-start;
+}
+
+.footer-about-us ul li {
+  list-style-type: none;
+}
+
+.footer-about-us ul li a {
+  font-family: Lato;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 45px;
+  letter-spacing: 0%;
+  color: #000000;
+}
+
+.footer-social-media {
+  display: flex;
+  gap: 2rem;
+  justify-self: flex-end;
+  grid-column: span 3;
+  align-self: center;
+  padding-right: 5rem;
+}
+
+.footer-social-media div i {
+  font-size: 2rem;
+  color: #821a52;
+}
+
+.mainfootercontdown {
+  background: black;
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.mainfootercontdown p {
+  font-family: Lato;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 45px;
+  letter-spacing: 0%;
+}
+
+/* footer page design tab section end */
+
+@media (max-width: 480px) {
+  .enquiry-menu {
+    min-width: 160px;
+  }
+}
+
+/* *********************** Mobile Section Page Design Code ************************* */
+/* mobile menu design style start */
+    body.menu-open {
+            overflow: hidden;
+        }
+        #mobilemenudesignsec .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        #mobilemenudesignsec .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #mobilemenudesignsec .demo-content {
+            margin-top: 200px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        #mobilemenudesignsec .demo-content.blur {
+            filter: blur(2px);
+            pointer-events: none;
+        }
+
+        #mobilemenudesignsec .menu-container {
+            width: 80vw;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            margin-top: 2rem;
+        }
+
+        #mobilemenudesignsec .menu-header {
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        #mobilemenudesignsec .menu-header:hover {
+            /* background: linear-gradient(135deg, #7A4179, #965296); */
+        }
+
+        #mobilemenudesignsec .menu-header.collapsed {
+            border-radius: 12px;
+        }
+
+        #mobilemenudesignsec .logo {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+        #mobilemenudesignsec .logo img{
+            width: 6rem;
+        }
+
+        #mobilemenudesignsec .menu-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            transition: all 0.3s ease;
+        }
+
+        #mobilemenudesignsec .menu-icon span {
+            width: 20px;
+            height: 2px;
+            background: white;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        #mobilemenudesignsec .menu-icon.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        #mobilemenudesignsec .menu-icon.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #mobilemenudesignsec .menu-icon.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        #mobilemenudesignsec .menu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            background: white;
+        }
+
+        #mobilemenudesignsec .menu-content.expanded {
+            min-height: 100vh;
+            padding: 20px 0;
+            border-top: 2px solid #000;
+        }
+
+        #mobilemenudesignsec .menu-item {
+            padding: 16px 24px;
+            color: #333;
+            text-decoration: none;
+            display: block;
+            /* transition: all 0.2s ease; */
+            position: relative;
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 25px;
+            line-height: 20px;
+            letter-spacing: 0%;
+        }
+
+        #mobilemenudesignsec .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        #mobilemenudesignsec .menu-item:hover {
+            background: #f8f8f8;
+            color: #8B4A8C;
+            padding-left: 30px;
+        }
+
+        #mobilemenudesignsec .menu-item:active {
+            background: #f0f0f0;
+        }
+
+        #mobilemenudesignsec .enquiry-btn {
+            margin: 20px 24px;
+            padding: 12px 36px;
+            background: #821A52;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 2px 10px rgba(139, 74, 140, 0.3);
+        }
+
+        #mobilemenudesignsec .enquiry-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(139, 74, 140, 0.4);
+            background: linear-gradient(135deg, #7A4179, #965296);
+        }
+
+        #mobilemenudesignsec .enquiry-btn:active {
+            transform: translateY(0);
+        }
+        /* Subtle animation for menu items */
+        #mobilemenudesignsec .menu-content.expanded .menu-item {
+            animation: slideInLeft 0.3s ease forwards;
+            /* opacity: 0; */
+        }
+
+        .menu-content.expanded .menu-item:nth-child(1) { animation-delay: 0.1s; }
+        .menu-content.expanded .menu-item:nth-child(2) { animation-delay: 0.15s; }
+        .menu-content.expanded .menu-item:nth-child(3) { animation-delay: 0.2s; }
+        .menu-content.expanded .menu-item:nth-child(4) { animation-delay: 0.25s; }
+        .menu-content.expanded .menu-item:nth-child(5) { animation-delay: 0.3s; }
+        .menu-content.expanded .menu-item:nth-child(6) { animation-delay: 0.35s; }
+        .menu-content.expanded .menu-item:nth-child(7) { animation-delay: 0.4s; }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+/* mobile menu design style end */
+
+
+/* Mobile Active living, built into every corner of your life style start */
+#mbactivelivinglifesec {
+  margin-top: 10rem;
+  padding: 0 1rem;
+}
+#mbactivelivinglifesec h1 {
+  font-family: Montserrat;
+font-weight: 700;
+font-style: Bold;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -5%;
+text-align: center;
+color: #801B53;
+margin-bottom: 2rem;
+}
+#mbactivelivinglifesec .swiper {
+  width: 100%;
+  /* height: 48rem; */
+  /* padding: 1rem; */
+  overflow: hidden;
+}
+
+#mbactivelivinglifesec .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#mbactivelivinglifesec .swiper-slide img {
+  display: block;
+  max-width: 100%;
+  border-radius: 24px;
+  height: 36rem;
+  object-fit: cover;
+}
+
+#mbactivelivinglifesec .imgcontsecgradient {
+    /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 28%, rgba(0, 0, 0, 0.725) 100%);
+    z-index: 1 !important;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; */
+}
+
+#mbactivelivinglifesec .swiper-slider-cont h2 {
+  position: absolute;
+  bottom: 6.5rem;
+  color: #ffffff;
+  margin-left: 2rem;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 18px;
+  line-height: 10.41px;
+  letter-spacing: 0%;
+}
+
+#mbactivelivinglifesec .swiper-slider-cont p {
+  position: absolute;
+    bottom: 1rem;
+    margin-left: 2rem;
+    color: #fff;
+    font-family: Lato;
+    font-weight: 500;
+    font-style: Regular;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    letter-spacing: 0%;
+    text-align: left;
+    padding-right: 12rem;
+}
+
+/* Mobile Active living, built into every corner of your life style end */
+
+
+/* Mobile primus gallery design style start */
+#mobileprimusglrydsgnsec {
+  margin-top: 5rem;
+}
+#mobileprimusglrydsgnsec .swiper {
+  width: 100%;
+  height: 32rem;
+  padding: 1rem;
+  /* overflow: visible; */
+}
+
+#mobileprimusglrydsgnsec .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#mobileprimusglrydsgnsec .swiper-slide img {
+  display: block;
+  max-width: 100%;
+  border-radius: 24px;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+#mobileprimusglrydsgnsec .swiper-slider-cont h2 {
+  position: absolute;
+  bottom: 6.5rem;
+  color: #fff;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 18px;
+  line-height: 10.41px;
+  letter-spacing: 0%;
+}
+
+#mobileprimusglrydsgnsec .swiper-slider-cont p {
+  position: absolute;
+  bottom: 4rem;
+  margin-left: 2rem;
+  color: #fff;
+  padding-right: 11rem;
+  font-family: Lato;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+#mobileprimusglrydsgnsec .swiper-pagination {
+  margin-top: 7rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+#mobileprimusglrydsgnsec .swiper-pagination-bullet {
+  width: 1rem;
+  height: 1rem;
+  background: #000 !important;
+  opacity: 1;
+}
+
+#mobileprimusglrydsgnsec .swiper-pagination-bullet-active {
+  outline: 2px solid #000;
+  outline-offset: 5px;
+}
+
+/* Mobile primus gallery design style end */
+
+/* mobile video gallery section style start */
+#mbprimusvideosec .swiper {
+  width: 100%;
+  height: 42rem;
+  padding: 1rem;
+  /* overflow: visible; */
+}
+
+#mbprimusvideosec .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#mbprimusvideosec .swiper-slide img {
+  display: block;
+  max-width: 100%;
+  border-radius: 24px;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+#mbprimusvideosec .swiper-slider-cont h2 {
+  position: absolute;
+  bottom: 6.5rem;
+  color: #fff;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 18px;
+  line-height: 10.41px;
+  letter-spacing: 0%;
+}
+
+#mbprimusvideosec .swiper-slider-cont p {
+  position: absolute;
+  bottom: 4rem;
+  margin-left: 2rem;
+  color: #fff;
+  padding-right: 11rem;
+  font-family: Lato;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+#mbprimusvideosec .swiper-pagination {
+  margin-top: 7rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+#mbprimusvideosec .swiper-pagination-bullet {
+  width: 1rem;
+  height: 1rem;
+  background: #000 !important;
+  opacity: 1;
+}
+
+#mbprimusvideosec .swiper-pagination-bullet-active {
+  outline: 2px solid #000;
+  outline-offset: 5px;
+}
+
+#mbprimusvideosec .swiper-slider-cont video {
+  height: 60vh;
+}
+
+#mbprimusvideosec .primusvideocont {
+  width: 95% !important;
+  height: 50%;
+}
+
+/* mobile video gallery section style end */
+
+/* Mobile The Primus Difference, as told by Residents start */
+#mobileprimusdifferencesec h2 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: 0%;
+  color: #882A5F;
+  margin: 0 1rem;
+  padding-bottom: 2rem;
+}
+
+#mobileprimusdifferencesec .swiper {
+  width: 100%;
+  height: 32rem;
+  padding: 1rem;
+  /* overflow: visible; */
+}
+
+#mobileprimusdifferencesec .swiper-slide {
+  /* background-color: red; */
+  padding: 2rem;
+  border-radius: 1rem;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#mobileprimusdifferencesec .div-auther-cont {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+#mobileprimusdifferencesec .div-auther-cont div img{
+  width: 10rem;
+}
+#mobileprimusdifferencesec .swiper-slide div h3 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: 0%;
+  color: #fff;
+}
+#mobileprimusdifferencesec .swiper-slide div p {
+  font-family: Lato;
+font-weight: 400;
+font-style: Regular;
+font-size: 20px;
+line-height: 24px;
+letter-spacing: 0%;
+color: #fff;
+}
+
+#mobileprimusdifferencesec .swiper-slide .div-auth-cont-para {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0%;
+  color: #fff;
+}
+#mobileprimusdifferencesec .swiper-wrapper .swiper-slide:nth-child(1) {
+  background-color: #53103C;
+}
+#mobileprimusdifferencesec .swiper-wrapper .swiper-slide:nth-child(2) {
+  background-color: #821A52;
+}
+#mobileprimusdifferencesec .swiper-wrapper .swiper-slide:nth-child(3) {
+  background-color: #EFDFDF;
+}
+#mobileprimusdifferencesec .swiper-slide img {
+  display: block;
+  max-width: 100%;
+  border-radius: 24px;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+#mobileprimusdifferencesec .swiper-slider-cont h2 {
+  position: absolute;
+  bottom: 6.5rem;
+  color: #fff;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 18px;
+  line-height: 10.41px;
+  letter-spacing: 0%;
+}
+
+#mobileprimusdifferencesec .swiper-slider-cont p {
+  position: absolute;
+  bottom: 4rem;
+  margin-left: 2rem;
+  color: #fff;
+  padding-right: 11rem;
+  font-family: Lato;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+#mobileprimusdifferencesec .swiper-pagination {
+  margin-top: 7rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 6rem;
+}
+
+#mobileprimusdifferencesec .swiper-pagination-bullet {
+  width: 1rem;
+  height: 1rem;
+  background: #000 !important;
+  opacity: 1;
+}
+
+#mobileprimusdifferencesec .swiper-pagination-bullet-active {
+  outline: 2px solid #000;
+  outline-offset: 5px;
+}
+
+/* Mobile The Primus Difference, as told by Residents end */
+
+/* ************** code for desktop and mobile view *****************/
+.only-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .only-mobile {
+    display: block !important;
+  }
+}
+
+.only-desktop {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .only-desktop {
+    display: none !important;
+  }
+}
+
+/* ************** code for desktop and mobile view *****************/

@@ -1,0 +1,517 @@
+ /* ------ Breakpoints (mobile-first; use min-width) for main container ------ */
+ /* Small tablets and up */
+ @media (min-width: 576px) {}
+
+ /* Tablets and up */
+ @media (min-width: 768px) {
+   .navbar {}
+ }
+
+ /* Small laptops and up */
+ @media (min-width: 992px) {
+   /* add layout changes if needed */
+ }
+
+ /* Desktops and up */
+ @media (min-width: 1200px) {
+   /* optional refinements */
+ }
+
+ /* Large desktops (1440+) */
+ @media (min-width: 1440px) {
+   .main-container {
+     max-width: 1296px;
+   }
+
+   /* already set, but explicit is fine */
+   .navbar {
+     max-width: 1250px;
+   }
+ }
+
+ /* Ultra-wide (≥1920px): only if you really want wider content */
+ @media (min-width: 1920px) {
+   .main-container {
+     max-width: 1850px;
+     padding: 0 1rem;
+   }
+
+   /* gentle upscale, optional */
+   .navbar {
+     max-width: 1520px;
+   }
+   .menu ul li a {
+     font-size: 15px;
+     margin: 0 12px;
+     letter-spacing: 0%;
+   }
+   .tab {
+    padding: 31px 14px;
+    font-size: 29px;
+}
+ }
+
+
+
+
+
+ /* ***************  breakdown point for other styles start *********************** */
+ @media screen and (min-width:1367px) and (max-width: 1919px ){
+      .tab {
+    padding: 10px 14px;
+}
+ }
+ @media (max-width: 1366px) {
+   #primusgallerydesignsec .gallery {
+     padding: 0 1rem;
+   }
+  #buildontrustbackbyproofsec {
+    padding: 0 1rem;
+  }
+  #backedbyvisionariessec {
+    /* padding: 0 1rem; */
+  }
+   #activelivinglifesec .imgcontsectext p {
+    transform: translateY(8.5rem);
+    /* min-height: 4rem; */
+}
+
+   #activelivinglifesec .imgcontsectext h3 {
+    font-size: 18px;
+   }
+   .primusvideocontcontainer {
+     padding: 2.5rem 3rem;
+     display: flex;
+     gap: 3rem;
+   }
+
+   .tab {
+     padding: 1rem 1rem;
+     font-size: 1rem;
+     border: 2px solid black;
+   }
+
+   .knowmoreslider {
+     padding: 1rem 3rem !important;
+     font-size: 16px;
+   }
+
+   .exploreourcommunitieshead h1 {
+     font-size: 4.5rem;
+   }
+
+   .buildontrustbackbyproofhead h1 {
+     font-size: 50.91px;
+     line-height: 63.01px;
+   }
+
+   .buildontrustbackbyproofcontgrid {
+     gap: 2rem;
+   }
+
+   .contgriddiv h2 {
+     font-size: 42px;
+   }
+
+   .backedbyvisionariestext h1 {
+     font-size: 46px;
+     margin-bottom: 3rem;
+   }
+
+   .visionariesimgtwo {
+     width: 80%;
+   }
+
+   .visionariesimgone {
+     width: 85%;
+   }
+
+   .backedbyvisionariestext p {
+     font-size: 1.2rem;
+     line-height: 23px;
+   }
+
+   .primusdifferencechead h1 {
+     font-size: 64px;
+   }
+
+   .navbar {
+     justify-content: space-between;
+   }
+
+   .navbar .logo img {
+     width: 8rem;
+   }
+ }
+
+ @media (max-width: 1024px) {
+   .tab {
+     padding: 1rem 0rem;
+     font-size: 0.8rem;
+   }
+   #activelivinglifesec .opensecretsoflivingimgcont {
+    gap: 1rem;
+    justify-content: center;
+   }
+   #activelivinglifesec .imgcontsectext p {
+    font-size: 15px;
+   }
+       #activelivinglifesec .imgcontsectext h3 {
+        font-size: 15px;
+       }
+   .slider-container {
+     margin: 0 1rem;
+   }
+
+   .slide {
+     gap: 2rem;
+   }
+
+   .textcontslider h1 {
+     font-size: 27.23px;
+   }
+
+   .slide p {
+     font-size: 18.49px;
+     line-height: 24.86px;
+   }
+
+   .sliderlocpara {
+     font-size: 1.2rem !important;
+   }
+
+   .sliderlocpara img {
+     width: 1.2rem;
+     margin-right: 1rem;
+   }
+
+   .buildontrustbackbyproofcont {
+     gap: 1rem;
+     margin: 0 1rem;
+   }
+
+   .contgriddiv p {
+     font-size: 18px;
+   }
+
+   .buildontrustbackbyproofcontgrid {
+     gap: 0.7rem;
+   }
+
+   .contgriddiv h2 {
+     font-size: 32px;
+   }
+
+   .buildontrustbackbyproofhead h1 {
+     font-size: 38px;
+     line-height: 48px;
+   }
+
+   .buildontrustbackbyproofcontgrid {
+     margin-top: 2rem;
+   }
+
+   .buildontrustbackbyproofimg img {
+     width: 95%;
+     justify-self: center;
+   }
+
+   .backedbyvisionariescont {
+     margin: 0 1rem;
+     padding: 0 1rem;
+   }
+
+   .backedbyvisionariestext h1 {
+     font-size: 42px;
+     margin-bottom: 3rem;
+   }
+   .h-l {
+  font-size: 2.4em;
+}
+   .backedbyvisionariestext p {
+     font-size: 1rem;
+     line-height: 23px;
+   }
+
+   #backedbyvisionariessec {
+     margin-top: 3rem;
+     margin-bottom: 5rem;
+   }
+
+   .primusvideocont {
+     /* margin: 0 1rem; */
+     width: 92%;
+     margin: 0 auto;
+
+   }
+
+   .primusvideocont video {
+     width: 95%;
+   }
+
+   .primusdifferencecdivtext p {
+     font-size: 17px;
+     line-height: 26px;
+   }
+   .menu ul li a {
+    font-size: 11px !important;
+}
+
+ }
+
+ @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+   .gallery {
+     flex-direction: column;
+     height: auto;
+   }
+
+   .gallery-item {
+     flex: none;
+     height: 100px;
+     transition: height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+   }
+
+   .gallery-item.expanded {
+     height: 300px;
+   }
+
+   h1 {
+     font-size: 2rem;
+   }
+   .exploreourcommunitiessec {
+    padding: 1rem;
+    margin-top: 4rem;
+   }
+   .exploreourcommunitieshead h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 38px;
+    line-height: 46px;
+    letter-spacing: 0%;
+    text-align: left;
+   }
+   .tabs {
+    gap: 1rem;
+    padding-left: 0;
+   }
+   .tab {
+        padding: 1rem 0rem;
+        font-size: 0.8rem;
+    }
+    .tabs-container {
+    margin-bottom: 64px;
+    padding: 0;
+  }
+  .exploreourcommunitieshead {
+    padding: 0;
+  }
+  .slide {
+    min-width: 100%;
+    padding: 24px 24px;
+    display: flex;
+    flex-direction: column;
+}
+.buildontrustbackbyproofcont {
+    grid-template-columns: 1fr;
+}
+.buildontrustbackbyproofhead h1 {
+        margin-top: 2rem;
+    }
+    .buildontrustbackbyproofcontgrid {
+      grid-template-columns: 1fr 1fr;
+    }
+  .backedbyvisionariescont {
+    grid-template-columns: 1fr;
+  }
+  #mbbackedbyvisionariessec {
+    margin-right: 3rem;
+  }
+      #mbbackedbyvisionariessec .backedbyvisionariestext h1 {
+        margin-bottom: 2rem;
+    }
+    #mbbackedbyvisionariessec .backedbyvisionariesimg {
+        grid-row: 2;
+    }
+    #mbbackedbyvisionariessec .backedbyvisionariescont {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    #mbbackedbyvisionariessec .backedbyvisionariescont h1{
+      font-family: Montserrat;
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 30px;
+      line-height: 35px;
+      letter-spacing: 0%;
+      color: #821A52;
+    }
+    #mbbackedbyvisionariessec .backedbyvisionariestext p{
+      font-family: Lato;
+      font-weight: 500;
+      font-style: Regular;
+      font-size: 18px;
+      line-height: 22px;
+      letter-spacing: 0%;
+    }
+    .footer-logo-sec img {
+    padding-left: 2rem;
+    width: 12.5rem;
+    }
+    .mainfootercontup {
+      padding: 0 1rem;
+    }
+    .mainfootercontup {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    padding: 4rem 0 4rem 0;
+}
+  .footer-policy-sec {
+  justify-self: flex-start;
+  }
+    .footer-social-media {
+        grid-column: auto;
+        justify-self: flex-start;
+        grid-row: 2;
+        padding-left: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    #mbprimusvideosec .primusvideocont {
+    width: 90% !important;
+    height: 95vh;
+    margin-bottom: 5rem;
+    margin-top: 3rem;
+    overflow: hidden !important;
+  }
+#mbprimusvideosec .primusvideocont {
+    border-radius: 30px;
+    background: none;
+}
+  #mbprimusvideosec .swiper {
+  background-color: rgba(130, 26, 81, 0.2);
+  border-radius: 42px;
+  overflow: visible;
+  }
+  #mbprimusvideosec .swiper-pagination {
+  bottom: -2rem;
+}
+   .mainfootercontdown {
+    padding: 5px 0;
+}
+.primusvideocont video {
+    width: 100%;
+    }
+    #mbprimusvideosec .swiper-slider-cont video {
+    height: 76vh;
+}
+.buildontrustbackbyproofimg img {
+        width: 93%;
+        justify-self: center;
+    }
+
+    #mobileprimusglrydsgnsec .swiper-slide img {
+
+    height: 24rem;
+}
+ }
+
+ @media (max-width: 630px) {
+  #mobileprimusglrydsgnsec .swiper-slider-cont h2 {
+    /* bottom: 9.5rem; */
+}
+#mobileprimusglrydsgnsec .swiper-slider-cont p {
+
+    padding-right: 2rem;
+}
+ }
+ @media (max-width: 480px) {
+  .tabs {
+        gap: 0.5rem;
+        padding-left: 0;
+    }
+      .tab {
+        padding: 0rem 0rem;
+        font-size: 0.5rem;
+        font-weight: 900;
+        border-radius: 4px;
+    }
+    #mbactivelivinglifesec .swiper-slider-cont p {
+    padding-right: 2rem;
+}
+ .contgriddiv p {
+     font-size: 14px;
+   }
+       .tabs {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .dd__item {
+    height: 3rem;
+    }
+ }
+ @media (max-width: 425px) {
+  .p-content .p-m {
+    font-size: 32px !important;
+}
+    #mbactivelivinglifesec .swiper-slider-cont p{
+        padding-right: 1rem;
+    }
+    #mbactivelivinglifesec .swiper-slider-cont h2 {
+    margin-left: 1rem;
+}
+    #mbactivelivinglifesec .swiper-slider-cont p {
+    margin-left: 1rem;
+}
+#mobilemenudesignsec .menu-item {
+    font-size: 22px;
+}
+#mbactivelivinglifesec h1 {
+    font-size: 27px;
+}
+#mobileprimusglrydsgnsec .swiper-slider-cont h2 {
+    bottom: 9.5rem;
+    margin-left: 1rem;
+}
+    #mobileprimusglrydsgnsec .swiper-slider-cont p {
+        padding-right: 1rem;
+        margin-left: 1rem;
+        bottom: 5rem;
+    }
+    .footer-social-media {
+        gap: 1.5rem;
+    }
+    #mobileprimusdifferencesec .swiper-slide {
+    padding: 2rem 1rem;
+}
+#mobileprimusdifferencesec .div-auther-cont {
+    gap: 1rem;
+}
+#mobileprimusdifferencesec .swiper-slide img {
+    max-width: 80%;
+}
+.tab {
+    line-height: 24px;
+}
+ }
+ @media (max-width: 350px) {
+  #buildontrustbackbyproofsec {
+    margin: 4rem 0;
+    padding: 0 1rem;
+}
+  .footer-social-media {
+        gap: 1rem;
+    }
+        #mbactivelivinglifesec h1 {
+        font-size: 22px;
+    }
+        .contgriddiv p {
+        font-size: 12px !important;
+    } 
+ }
+ /* ***************  breakdown point for other styles end *********************** */

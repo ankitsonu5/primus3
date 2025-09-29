@@ -1239,7 +1239,6 @@ a {
 /* Mobile Active living, built into every corner of your life style end */
 
 
-font-size: 18px;
 /* Mobile primus gallery design style start */
 #mobileprimusglrydsgnsec {
   margin-top: 5rem;
@@ -1253,6 +1252,7 @@ font-size: 18px;
 
 #mobileprimusglrydsgnsec .swiper-slide {
   text-align: center;
+  font-size: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
