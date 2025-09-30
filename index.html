@@ -228,12 +228,369 @@
       opacity: 1;
     }
   </style>
+
+
+  <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+   
+      <style>
+      
+
+
+
+        /* Main Spinner Structure - Horizontal to Circle Animation */
+        .track-6 {
+            background-color: #fff;
+            border-radius: 10px;
+            width: 100%;
+            height: 600vh;
+            position: relative;
+        }
+
+        .main-spinner {
+            position: sticky;
+            top: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner-l-wrapper {
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+        }
+
+        .spinner-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Individual spinner columns - Initially horizontal */
+        .spinner-c {
+            perspective: 2000px;
+            flex-flow: column;
+            justify-content: space-between;
+            width: 9vw;
+            height: 100vh;
+            display: flex;
+            position: absolute;
+            transform-origin: center center;
+            will-change: transform;
+        }
+
+        .spinner-cards {
+            background-color: #8f8f8f;
+            border-radius: 22px;
+            width: 100%;
+            height: 11vw;
+            overflow: hidden;
+            cursor: pointer;
+            will-change: transform;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* White overlay for hover effect */
+        .spinner-cards::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0);
+            z-index: 2;
+            transition: background-color 0.4s ease;
+            pointer-events: none;
+        }
+
+        .spinner-cards h3 {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0;
+            z-index: 3;
+            transition: all 0.4s ease;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .spinner-cards p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #333;
+            font-size: 12px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 15px;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            text-align: center;
+            width: 90%;
+        }
+
+        .cover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Hover Effects */
+        .spinner-cards:hover::before {
+            background-color: rgba(255, 255, 255, 0.75);
+        }
+
+        .spinner-cards:hover p {
+            opacity: 1;
+        }
+
+        .spinner-cards:hover h3 {
+            opacity: 0;
+        }
+
+        /* Center content */
+        .content-spinner-wrapper {
+            z-index: 10;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            display: none !important;
+        }
+
+        .content-spinner-wrapper.visible {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+
+        .content-spinner {
+            text-align: center;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            position: relative;
+        }
+
+        .inner-heading-s {
+            text-align: center;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            padding: 2rem 3rem;
+        }
+
+        .title-tag {
+            background-color: #d2f0a3;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .h-l {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        /* Loading State */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(250, 244, 220, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #d2f0a3;
+            border-top: 3px solid #333;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .loading-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .loading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #d2f0a3, #b6db7d);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 9998;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #d2f0a3, #b6db7d, #8fbc8f);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Info Panel */
+        .info-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+            font-size: 14px;
+            color: #333;
+            max-width: 250px;
+        }
+
+        .info-panel h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .info-panel p {
+            margin: 5px 0;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .spinner-c {
+                width: 16vw;
+            }
+
+            .spinner-cards {
+                height: 20vw;
+            }
+
+            .h-l {
+                font-size: 1.8rem;
+            }
+
+            .inner-heading-s {
+                padding: 1.5rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .spinner-c {
+                width: 22vw;
+            }
+
+            .spinner-cards {
+                height: 28vw;
+            }
+
+            .h-l {
+                font-size: 1.4rem;
+            }
+
+            .inner-heading-s {
+                padding: 1rem 1.5rem;
+            }
+
+            .info-panel {
+                font-size: 12px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+
+
 </head>
 
 <body>
 
     <iframe class="only-desktop mainifr" id="mainifr" scrolling="yes" src="iframe.html"></iframe>
-    <div class="page-wrapper only-desktop">
+    <!-- <div class="page-wrapper only-desktop">
         <div class="section">
             <div data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c00e9" class="track-6">
                 <div class="main-spinner">
@@ -251,7 +608,7 @@
                                     </div>
                                 </div>
                                 <div class="imgcontsec">
-                                    <img src="./assets/images/cardtwo.png" alt="">
+                                    <img src="./assets/images/card2.png" alt="">
                                     <div class="imgcontsecgradient">
                                     </div>
                                     <div class="imgcontsectext">
@@ -430,7 +787,422 @@
 
 
         </section>
+    </div> -->
+
+      <div data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c00e9" class="track-6">
+        <div class="main-spinner">
+            <div class="spinner-l-wrapper">
+                <div class="spinner-container">
+                    <!-- Card 1 -->
+                    <div class="spinner-c" data-rotation="0">
+                        <div class="spinner-cards"> <h3>Safe Haven</h3>
+                            <p>Grab bars, anti-slip tiles, and thoughtful design in every corner. A home that protects you
+                            as you move through life.</p>
+                            <img src="images/card1.png" loading="lazy" alt="Card 1" class="cover-image"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="spinner-c" data-rotation="40">
+                        <div class="spinner-cards">
+                            <h3>Seamless Access</h3>
+                             <p>Wide corridors, ramps, and wheelchair-ready spaces at every turn. Freedom of movement
+                                built into your home.</p>
+                            <img src="images/card2.png" loading="lazy" alt="Card 2" class="cover-image"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="spinner-c" data-rotation="80">
+                        <div class="spinner-cards">
+                             <h3>Smart Comfort</h3>
+                             <p>Motion-sensor lights and voice-enabled controls that respond with ease. Technology that
+                                quietly works for you.</p>
+                            <img src="images/card3.png" loading="lazy" alt="Card 3" class="cover-image"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="spinner-c" data-rotation="120">
+                        <div class="spinner-cards">
+                             <h3>Effortless Cooking</h3>
+                             <p>Easy-reach counters, ergonomic layouts, and clever storage. Cooking that feels simple,
+                                safe, and joyful again.</p>
+                            <img src="images/card4.png" loading="lazy" alt="Card 4" class="cover-image"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5 -->
+                    <div class="spinner-c" data-rotation="160">
+                        <div class="spinner-cards">
+                             <h3>Safe Bathroom</h3>
+                             <p>Slip-resistant tiles, sturdy rails, and spacious showers. Bathrooms reimagined for
+                                comfort and dignity.</p>
+                            <img src="images/card5.png" loading="lazy" alt="Card 5" class="cover-image"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6 -->
+                    <div class="spinner-c" data-rotation="200">
+                        <div class="spinner-cards">
+                             <h3>Restfull Nights</h3>
+                             <p>Beds designed for posture, healing, and deep sleep. Wake up refreshed, every single
+                                morning.</p>
+                            <img src="images/card6.png" loading="lazy" alt="Card 6" class="cover-image"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 7 -->
+                    <div class="spinner-c" data-rotation="240">
+                        <div class="spinner-cards">
+                             <h3>Endless Learning</h3>
+                             <p>Expert-led talks and online sessions that open new doors. Because curiosity
+                                has no age limit.</p>
+                            <img src="images/card7.png" loading="lazy" alt="Card 7" class="cover-image"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 8 -->
+                    <div class="spinner-c" data-rotation="280">
+                        <div class="spinner-cards">
+                             <h3>Emergency Ready</h3>
+                             <p>Ambulance and medical support ready at a moment’s call. Care that never keeps you
+                                waiting.</p>
+                            <img src="images/card8.png" loading="lazy" alt="Card 8" class="cover-image"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 9 -->
+                    <div class="spinner-c" data-rotation="320">
+                        <div class="spinner-cards"> 
+                             <h3>Day Assistance</h3>
+                             <p>Wide corridors, ramps, and wheelchair-ready spaces at every turn. Freedom of movement
+                                built into your home.</p>
+                            <img src="images/card9.png" loading="lazy" alt="Card 9" class="cover-image"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Text -->
+            <div data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c0110" class="content-spinner-wrapper">
+                <div class="content-spinner">
+                    <div class="inner-heading-s">
+                        <div class="h-l">Active living,<br>
+                            built into every<br>
+                            corner of your life
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Register GSAP plugins
+        gsap.registerPlugin(ScrollTrigger);
+
+        class CircularSpinnerAnimation {
+            constructor() {
+                this.container = document.querySelector('[data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c00e9"]');
+                this.spinnerContainer = this.container.querySelector('.spinner-container');
+                this.columns = Array.from(this.container.querySelectorAll('.spinner-c'));
+                this.cards = Array.from(this.container.querySelectorAll('.spinner-cards'));
+                this.timeline = null;
+                this.isReversed = false;
+                this.currentSpeed = 1;
+
+                this.init();
+            }
+
+            init() {
+                this.setupInitialPositions();
+                this.createScrollAnimation();
+                this.animateCenterTextFade();
+                this.addInteractivity();
+                console.log('🎡 Horizontal to Circle Animation initialized with 9 cards!');
+            }
+
+            setupInitialPositions() {
+                // Set initial horizontal positions (like in index.html)
+                // Cards will be positioned in a horizontal line initially
+                const totalCards = this.columns.length;
+                const angleStep = 360 / totalCards;
+
+                this.columns.forEach((column, index) => {
+                    const initialAngle = index * angleStep;
+
+                    // Set initial state - horizontal line
+                    gsap.set(column, {
+                        rotation: initialAngle,
+                        transformOrigin: 'center center',
+                        willChange: 'transform'
+                    });
+                });
+
+                console.log(`✅ Initial positions set for ${this.columns.length} cards`);
+            }
+
+            createScrollAnimation() {
+                const totalCards = this.columns.length;
+                const radius = 250; // Radius of the circle in pixels
+
+                // Create scroll-triggered animation for each card
+                this.columns.forEach((column, index) => {
+                    const angleStep = 360 / totalCards;
+                    const finalAngle = index * angleStep;
+                    const radian = (finalAngle * Math.PI) / 180;
+
+                    // Calculate final circular position
+                    const finalX = Math.cos(radian) * radius;
+                    const finalY = Math.sin(radian) * radius;
+
+                    // Animate from horizontal line to circle position
+                    gsap.to(column, {
+                        x: finalX,
+                        y: finalY,
+                        rotation: finalAngle + 360, // Rotate while moving to circle
+                        ease: "power2.inOut",
+                        scrollTrigger: {
+                            trigger: this.container,
+                            start: "top bottom",
+                            end: "center center",
+                            scrub: 1,
+                            onUpdate: (self) => {
+                                if (index === 0) {
+                                    console.log(`🎯 Circle formation: ${Math.round(self.progress * 100)}%`);
+                                }
+                            }
+                        }
+                    });
+                });
+
+                // Rotate the entire circle after formation
+                gsap.to(this.spinnerContainer, {
+                    rotation: 360,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: this.container,
+                        start: "center center",
+                        end: "bottom top",
+                        scrub: 1,
+                        onUpdate: (self) => {
+                            console.log(`🔄 Circle rotation: ${Math.round(self.progress * 100)}%`);
+                        }
+                    }
+                });
+
+                // Add floating effect to cards
+                this.cards.forEach((card, index) => {
+                    gsap.to(card, {
+                        y: "+=10",
+                        duration: 2 + (index * 0.2),
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: index * 0.1
+                    });
+                });
+
+                console.log('🎯 Scroll-based circle formation animation created!');
+            }
+
+            animateCenterTextFade() {
+                const centerText = document.querySelector('.content-spinner-wrapper');
+
+                if (centerText) {
+                    // Animate text visibility and fade based on scroll
+                    gsap.timeline({
+                        scrollTrigger: {
+                            trigger: this.container,
+                            start: "top 80%",
+                            end: "30% top",
+                            scrub: 1,
+                            onEnter: () => {
+                                centerText.classList.add('visible');
+                                console.log('✨ Center text visible');
+                            },
+                            onLeave: () => {
+                                centerText.classList.remove('visible');
+                                console.log('✨ Center text hidden (scrolled past)');
+                            },
+                            onEnterBack: () => {
+                                centerText.classList.add('visible');
+                                console.log('✨ Center text visible (scrolled back)');
+                            },
+                            onLeaveBack: () => {
+                                centerText.classList.remove('visible');
+                                console.log('✨ Center text hidden (scrolled up)');
+                            },
+                            onUpdate: (self) => {
+                                console.log(`✨ Center text progress: ${Math.round(self.progress * 100)}%`);
+                            }
+                        }
+                    })
+                    .fromTo(centerText,
+                        { opacity: 0 },
+                        { opacity: 1, duration: 0.3 }
+                    )
+                    .to(centerText,
+                        { opacity: 0, duration: 0.3 }
+                    );
+                }
+
+                console.log('✨ Center text animation created!');
+            }
+
+            addInteractivity() {
+                this.cards.forEach((card, index) => {
+                    card.addEventListener('click', () => {
+                        console.log(`🎯 Card ${index + 1} clicked!`);
+                    });
+                });
+
+                console.log('✅ Interactive effects added to all cards');
+            }
+            
+            // Control methods for scroll-based animation
+            play() {
+                ScrollTrigger.getAll().forEach(st => st.enable());
+                console.log('▶️ Animation enabled');
+            }
+
+            pause() {
+                ScrollTrigger.getAll().forEach(st => st.disable());
+                console.log('⏸️ Animation paused');
+            }
+
+            setSpeed(speed) {
+                this.currentSpeed = speed;
+                ScrollTrigger.getAll().forEach(st => {
+                    st.vars.scrub = speed;
+                    st.refresh();
+                });
+                console.log(`⚡ Speed set to ${speed}x`);
+            }
+
+            reset() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                console.log('🔄 Scrolled to top');
+            }
+
+            toggleDirection() {
+                this.isReversed = !this.isReversed;
+                console.log(`🔄 Direction toggle (feature coming soon)`);
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for images to load
+            const images = document.querySelectorAll('.cover-image');
+            const progressBar = document.getElementById('loadingProgressBar');
+            let loadedImages = 0;
+            const totalImages = images.length;
+
+            const updateProgress = () => {
+                const progress = (loadedImages / totalImages) * 100;
+                if (progressBar) {
+                    progressBar.style.width = `${progress}%`;
+                }
+            };
+
+            const checkAllImagesLoaded = () => {
+                loadedImages++;
+                updateProgress();
+
+                if (loadedImages === totalImages) {
+                    // All images loaded, initialize animation
+                    window.spinnerAnimation = new CircularSpinnerAnimation();
+
+                    // Hide loading overlay
+                    setTimeout(() => {
+                        const loadingOverlay = document.getElementById('loadingOverlay');
+                        if (loadingOverlay) {
+                            loadingOverlay.classList.add('hidden');
+                            console.log(`✅ All ${totalImages} images loaded, animation ready!`);
+                        }
+                    }, 500);
+                }
+            };
+
+            // Add load event listeners to all images
+            images.forEach(img => {
+                if (img.complete) {
+                    checkAllImagesLoaded();
+                } else {
+                    img.addEventListener('load', checkAllImagesLoaded);
+                    img.addEventListener('error', () => {
+                        console.warn('⚠️ Image failed to load:', img.src);
+                        checkAllImagesLoaded(); // Handle errors gracefully
+                    });
+                }
+            });
+
+            // Fallback: If no images or all already loaded
+            if (totalImages === 0) {
+                window.spinnerAnimation = new CircularSpinnerAnimation();
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                }
+            }
+
+            // Add scroll progress tracking
+            window.addEventListener('scroll', () => {
+                const scrollProgressBar = document.getElementById('scrollProgressBar');
+                if (scrollProgressBar) {
+                    const windowHeight = window.innerHeight;
+                    const documentHeight = document.documentElement.scrollHeight;
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+                    scrollProgressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
+                }
+            });
+
+            // Add keyboard controls
+            document.addEventListener('keydown', (e) => {
+                if (!window.spinnerAnimation) return;
+
+                switch(e.key) {
+                    case ' ': // Spacebar - toggle pause/play
+                        e.preventDefault();
+                        if (window.spinnerAnimation.scrollRotation?.scrollTrigger?.isActive) {
+                            window.spinnerAnimation.pause();
+                        } else {
+                            window.spinnerAnimation.play();
+                        }
+                        console.log('⌨️ Spacebar pressed - toggled animation');
+                        break;
+                    case 'r':
+                    case 'R': // R - reset
+                        window.spinnerAnimation.reset();
+                        console.log('⌨️ R pressed - reset animation');
+                        break;
+                    case 'd':
+                    case 'D': // D - toggle direction
+                        window.spinnerAnimation.toggleDirection();
+                        console.log('⌨️ D pressed - toggled direction');
+                        break;
+                    case '1': // 1 - slow speed
+                        window.spinnerAnimation.setSpeed(0.5);
+                        console.log('⌨️ 1 pressed - slow speed');
+                        break;
+                    case '2': // 2 - normal speed
+                        window.spinnerAnimation.setSpeed(1);
+                        console.log('⌨️ 2 pressed - normal speed');
+                        break;
+                    case '3': // 3 - fast speed
+                        window.spinnerAnimation.setSpeed(2);
+                        console.log('⌨️ 3 pressed - fast speed');
+                        break;
+                }
+            });
+
+            console.log('⌨️ Keyboard controls enabled: Space (pause/play), R (reset), D (direction), 1/2/3 (speed)');
+        });
+    </script>
+
 
     <!-- mobile hero section start -->
     <section class="section only-mobile">
@@ -720,8 +1492,8 @@
                         <div class="swiper-slider-cont">
                             <img src="./assets/images/card9.png" alt="">
                             <h2>Endless Learning</h2>
-                            <p>Expert-led talks and online sessions that open new doors. Because curiosity
-                                has no age limit.</p>
+                            <p>Wide corridors, ramps, and wheelchair-ready spaces at every turn. Freedom of movement
+                                built into your home.</p>
                         </div>
                     </div>
                 </div>
@@ -763,17 +1535,16 @@
                     <div class="gallery-item expanded" data-index="0">
                         <img src="./assets/images/primus-gallery/primusglr-1.png" alt="Happy man laughing">
                         <div class="overlay">
-                            <h3>Joyful Moments</h3>
-                            <p>Sharing laughter and creating memories with friends brings the greatest happiness to our
-                                lives.</p>
+                            <h3>Playful Minds </h3>
+                            <p>Chess, carrom, and board games that sharpen the mind. Fun and focus, side by side. </p>
                         </div>
                     </div>
 
                     <div class="gallery-item" data-index="1">
                         <img src="./assets/images/primus-gallery/primusglr-2.png" alt="Cheerful man in blue shirt">
                         <div class="overlay">
-                            <h3>Warm Connections</h3>
-                            <p>Building genuine relationships through shared experiences and meaningful conversations.
+                            <h3>Cultural Delights s</h3>
+                            <p>Film nights, music shows, and cultural evenings to cherish. Fun is always close to home. 
                             </p>
                         </div>
                     </div>
@@ -781,32 +1552,33 @@
                     <div class="gallery-item" data-index="2">
                         <img src="./assets/images/primus-gallery/primusglr-3.png" alt="Woman cooking with joy">
                         <div class="overlay">
-                            <h3>Culinary Joy</h3>
-                            <p>Creating delicious moments and sharing the love of cooking with family and friends.</p>
+                            <h3>Mindful Moments </h3>
+                            <p>Morning stretches in sunlit lawns with friends by your side. Strength and serenity in every breath. </p>
                         </div>
                     </div>
 
                     <div class="gallery-item" data-index="3">
                         <img src="./assets/images/primus-gallery/primusglr-4.png" alt="Man with warm smile">
                         <div class="overlay">
-                            <h3>Gentle Souls</h3>
-                            <p>Finding beauty in simple moments and spreading kindness wherever we go.</p>
+                            <h3>Social Connections </h3>
+                            <p>Lounges, activity rooms, and shared spaces for conversation. Homes that keep loneliness at bay. </p>
                         </div>
                     </div>
 
                     <div class="gallery-item" data-index="4">
                         <img src="./assets/images/primus-gallery/primusglr-5.png" alt="Woman with bright smile">
                         <div class="overlay">
-                            <h3>Radiant Energy</h3>
-                            <p>Embracing life with positivity and inspiring others through authentic connections.</p>
+                             <h3>Creative Corners </h3>
+                            <p>Rooms for dancing, music, and everything in between. Spaces that keep passion alive every day. </p>
+                           
                         </div>
                     </div>
 
                     <div class="gallery-item" data-index="5">
                         <img src="./assets/images/primus-gallery/primusglr-6.png" alt="Man in casual wear">
                         <div class="overlay">
-                            <h3>Casual Comfort</h3>
-                            <p>Finding joy in everyday moments and comfortable conversations with loved ones.</p>
+                            <h3>Shared Moments </h3>
+                            <p>Festivals, events, and celebrations that bring everyone closer. A community where life is shared. </p>
                         </div>
                     </div>
                 </div>

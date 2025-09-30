@@ -5012,9 +5012,10 @@ figcaption {
   margin-top: 0;
   margin-bottom: 0;
   font-family: Bdogrotesk Vf, sans-serif;
-  font-size: 2.2em;
+  font-size: 2em;
   font-weight: 600;
   line-height: 1.2;
+  color: #fff;
 }
 
 .h-m.text-white {
@@ -6330,12 +6331,13 @@ figcaption {
   display: flex;
   position: relative;
   overflow: hidden;
+ 
 }
 
 .hero-wrapper-content {
   z-index: 3;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   width: 100%;
   display: flex;
   position: relative;
@@ -6526,7 +6528,7 @@ figcaption {
   order: 0;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 32px 40px 60px;
+  padding: 10px 20px 35px;
   display: flex;
 }
 

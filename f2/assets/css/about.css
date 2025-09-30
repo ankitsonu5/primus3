@@ -25,6 +25,41 @@
 }
 
 /* hero section design style start */
+.banner {
+    position: relative;
+}
+
+.banner-tagline {
+    position: absolute;
+    top: 50%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: left;
+    width: 32%;
+}
+
+.banner-tagline h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 60px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.bannerimg {
+    overflow: hidden;
+    width: 100%;
+}
+
+.bannerimg img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
 .herobannerdwn {
     background-color: #E6D1DC;
     padding: 6rem 3rem 3rem 3rem;
@@ -49,6 +84,50 @@
 
 /* hero section design style end */
 
+/* Scroll Animation Styles */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-animate-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-animate-left.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-animate-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-animate-right.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-animate-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-animate-scale.animate-in {
+    opacity: 1;
+    transform: scale(1);
+}
 
 /* howitbeginsec style start */
 #howitbeginsec {}
@@ -1027,7 +1106,12 @@
    
  }
  @media (max-width: 1024px) {
-        #trustedrecognisedsec .sectiontextdwn {
+    .banner-tagline h1 {
+        font-size: 35px;
+        line-height: 40px;
+    }
+
+    #trustedrecognisedsec .sectiontextdwn {
         transform: translateY(-9rem);
     }
     .navbar {
@@ -1091,7 +1175,11 @@
 }
  }
  @media (max-width: 768px) {
-   
+    .banner-tagline h1 {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
     .navbar {
         display: none;
     }
