@@ -236,8 +236,7 @@
     
    
       <style>
-      
-
+        
 
 
         /* Main Spinner Structure - Horizontal to Circle Animation */
@@ -382,15 +381,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             pointer-events: none;
-            opacity: 0 !important;
-            visibility: hidden !important;
-            display: none !important;
-        }
-
-        .content-spinner-wrapper.visible {
-            opacity: 1 !important;
-            visibility: visible !important;
-            display: block !important;
+            opacity: 1;
         }
 
         .content-spinner {
@@ -789,7 +780,7 @@
         </section>
     </div> -->
 
-      <div data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c00e9" class="track-6">
+       <div data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c00e9" class="track-6">
         <div class="main-spinner">
             <div class="spinner-l-wrapper">
                 <div class="spinner-container">
@@ -898,7 +889,7 @@
         </div>
     </div>
 
-    <script>
+     <script>
         // Register GSAP plugins
         gsap.registerPlugin(ScrollTrigger);
 
@@ -1011,44 +1002,23 @@
                 const centerText = document.querySelector('.content-spinner-wrapper');
 
                 if (centerText) {
-                    // Animate text visibility and fade based on scroll
-                    gsap.timeline({
+                    // Fade out center text as user scrolls down
+                    gsap.to(centerText, {
+                        opacity: 0,
+                        ease: "power2.out",
                         scrollTrigger: {
                             trigger: this.container,
-                            start: "top 80%",
+                            start: "top top",
                             end: "30% top",
                             scrub: 1,
-                            onEnter: () => {
-                                centerText.classList.add('visible');
-                                console.log('✨ Center text visible');
-                            },
-                            onLeave: () => {
-                                centerText.classList.remove('visible');
-                                console.log('✨ Center text hidden (scrolled past)');
-                            },
-                            onEnterBack: () => {
-                                centerText.classList.add('visible');
-                                console.log('✨ Center text visible (scrolled back)');
-                            },
-                            onLeaveBack: () => {
-                                centerText.classList.remove('visible');
-                                console.log('✨ Center text hidden (scrolled up)');
-                            },
                             onUpdate: (self) => {
-                                console.log(`✨ Center text progress: ${Math.round(self.progress * 100)}%`);
+                                console.log(`✨ Center text opacity: ${Math.round((1 - self.progress) * 100)}%`);
                             }
                         }
-                    })
-                    .fromTo(centerText,
-                        { opacity: 0 },
-                        { opacity: 1, duration: 0.3 }
-                    )
-                    .to(centerText,
-                        { opacity: 0, duration: 0.3 }
-                    );
+                    });
                 }
 
-                console.log('✨ Center text animation created!');
+                console.log('✨ Center text fade out animation created!');
             }
 
             addInteractivity() {
