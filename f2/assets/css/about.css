@@ -31,19 +31,19 @@
 
 .banner-tagline {
     position: absolute;
-    top: 85%;
-    left: 50%;
+    top: 50%;
+    left: 20%;
     transform: translate(-50%, -50%);
     z-index: 10;
     text-align: left;
-    width: 80%;
+    /* width: 80%;  */
 }
 
 .banner-tagline h1 {
     font-family: Montserrat;
     font-weight: 700;
-    font-size: 2.25rem !important;
-    line-height: 42px !important;
+    font-size: 3rem !important;
+    line-height: 64px !important;
     color: #fff;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     /* margin: 0; */
@@ -381,7 +381,7 @@ html, body { overflow-x: clip; }
 .trustedrecognisedimg {
     position: relative;
     overflow: visible;
-    min-height: 44vh;
+    min-height: 50vh;
 }
 
 #trustedrecognisedsec .sectiontextdwn {
@@ -1377,9 +1377,18 @@ html, body { overflow-x: clip; }
 }
  }
  @media (max-width: 768px) {
+    .banner-tagline {
+   position: absolute;
+        top: 87%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        text-align: left;
+        width: 80%;
+}
     .banner-tagline h1 {
-        font-size: 25px;
-        line-height: 30px;
+            font-size: 2rem !important;
+    line-height: 45px !important;
     }
     .footer-logo-sec img{
         padding: 0 !important;
@@ -1477,6 +1486,7 @@ letter-spacing: 0%;
 #mobiletrustedrecognisedsec .swiper-pagination {
     margin-bottom: 1rem;
  }
+}
 
  @media (max-width: 480px) {
 
