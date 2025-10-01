@@ -1305,8 +1305,8 @@ html, body { overflow-x: clip; }
  }
  @media (max-width: 1024px) {
     .banner-tagline h1 {
-        font-size: 35px;
-        line-height: 40px;
+        font-size: 35px !important;
+        line-height: 40px !important;
     }
     .howitbegincont {
         gap: 2rem;
@@ -1375,6 +1375,10 @@ html, body { overflow-x: clip; }
 .bannerimgmobile {
     display: none !important;
 }
+.menu ul li a {
+        font-size: 7px;
+        font-weight: 900;
+    }
  }
  @media (max-width: 768px) {
     .banner-tagline {
