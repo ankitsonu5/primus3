@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/css/about.css">
+    <!-- <link rel="stylesheet" href="../custstyle.css"> -->
+
+
+      <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 </head>
 
 <body>
@@ -22,9 +29,10 @@
                   <div class="banner-tagline">
                     <h1>We're all about reimagining life</h1>
                 </div>
+                  
                 <div class="bannerimg">
                     <img class="bannerimgdesktop" src="./assets/images/About/banner2.png" />
-                    <img class="bannerimgmobile" src="./assets/images/About/aboutusmb.png" />
+                    <img class="bannerimgmobile" src="./assets/images/About/aboutbgimg.png" />
                 </div>
             </div>
             <div class="herobannerdwn">
@@ -71,10 +79,33 @@
         </section>
     </div>
 
+    <!-- mobile menu design start -->
+    <section id="mobilemenudesignsec" class="only-mobile">
+        <div class="overlay" onclick="closeMenu()"></div>
 
+        <div class="menu-container">
+            <div class="menu-header collapsed">
+                <div class="logo"><img src="./assets/images/primus-logo.png" alt=""></div>
+                <div class="menu-icon" onclick="toggleMenu(this)">
+                    <img src="./assets/images/Home/mb/menu-open.png" alt="">
+                </div>
+            </div>
+            <div class="menu-content">
+                <a href="#" class="menu-item">Home</a>
+                <a href="#" class="menu-item">About Us</a>
+                <a href="#" class="menu-item">Our Communities</a>
+                <a href="#" class="menu-item">The Primus Lifestyle</a>
+                <a href="#" class="menu-item">Living Well Hub</a>
+                <a href="#" class="menu-item">Partner With Us</a>
+                <a href="#" class="menu-item">Contact Us</a>
+                <button class="enquiry-btn">ENQUIRY <i class="fa-solid fa-angle-down"></i></button>
+            </div>
+        </div>
+    </section>
+    <!-- mobile menu design end -->
     
     <!-- How it all begin section start -->
-    <section id="howitbeginsec">
+    <section id="howitbeginsec" class="only-desktop">
         <div class="howitbegincont main-container">
             <div class="howitbegintext scroll-animate-left">
                 <h1 class="primary-heading">How it all began</h1>
@@ -86,6 +117,27 @@
             <div class="howitbeginimg scroll-animate-right">
                 <img src="./assets/images/About/begin.png" alt="">
             </div>
+        </div>
+
+    </section>
+    <!-- How it all begin section end -->
+
+        <!-- mobile How it all begin section start -->
+    <section id="mbhowitbeginsec" class="only-mobile">
+        <div class="main-container">
+            <h1 class="primary-heading">How it all began</h1>
+            <div class="mbhowitbegincont">
+            <div class="howitbegintext scroll-animate-left">
+                <p class="primary-para">It started with our founder Adarsh Narahari’s ajji. She wanted independence with
+                    dignity — and
+                    inspired Adarsh to study the best senior living communities worldwide. In 2013, that vision
+                    became Primus: Indian homes where community and freedom thrive side by side.</p>
+            </div>
+            <div class="howitbeginimg scroll-animate-right">
+                <img src="./assets/images/About/begin.png" alt="">
+            </div>
+            </div>
+
         </div>
 
     </section>
@@ -430,7 +482,7 @@
     <!-- The Primus Difference end -->
 
     <!-- Discover a new way to live, together start -->
-    <section id="discovernewwaytolivesec">
+    <section id="discovernewwaytolivesec" class="only-desktop">
         <div class="discovernewwaytolivecont main-container">
             <div class="discovernewwaytextsec scroll-animate-left">
                 <h1 class="primary-heading">Discover a new way to live, together</h1>
@@ -443,6 +495,23 @@
         </div>
     </section>
     <!-- Discover a new way to live, together end -->
+
+        <!-- Mobile Discover a new way to live, together start -->
+    <section id="mbdiscovernewwaytolivesec" class="only-mobile">
+        <div class="main-container">
+            <h1 class="primary-heading">Discover a new way to live, together</h1>
+            <div class="discovernewwaytolivecont">
+                <div class="discovernewwaytextsec scroll-animate-left">
+                    <p class="primary-para">Because when generations live together with dignity, freedom, and purpose,
+                    everyone wins.</p>
+                 </div>
+                 <div class="discovernewwayimgsec scroll-animate-right">
+                    <img src="./assets/images/About/discovernewwaybg.png" alt="">
+                 </div>
+            </div>
+        </div>
+    </section>
+    <!-- Mobile Discover a new way to live, together end -->
 
     <!-- footer page design tab section start -->
     <footer id="footersec">
@@ -462,7 +531,7 @@
                 <div class="footer-about-us">
                     <ul>
                         <li><a href="">About Us</a></li>
-                        <li><a href="">terms & Conditions</a></li>
+                        <li><a href="">Terms & Conditions</a></li>
                         <li><a href="">Contact Us</a></li>
                     </ul>
                 </div>
@@ -526,6 +595,100 @@
         window.addEventListener('load', handleScrollAnimation);
         handleScrollAnimation();
     </script>
+
+        <!-- mobile menu responsive design js code start -->
+    <script>
+        function toggleMenu(menuIcon) {
+            const header = menuIcon.parentElement;
+            const menuContent = header.nextElementSibling;
+            const isExpanded = menuContent.classList.contains('expanded');
+            const overlay = document.querySelector('.overlay');
+            const demoContent = document.querySelector('.demo-content');
+            const body = document.body;
+
+            if (isExpanded) {
+                // Collapse
+                menuContent.classList.remove('expanded');
+                menuIcon.classList.remove('active');
+                header.classList.add('collapsed');
+                overlay.classList.remove('active');
+                demoContent.classList.remove('blur');
+                body.classList.remove('menu-open');
+            } else {
+                // Expand
+                menuContent.classList.add('expanded');
+                menuIcon.classList.add('active');
+                header.classList.remove('collapsed');
+                overlay.classList.add('active');
+                demoContent.classList.add('blur');
+                body.classList.add('menu-open');
+            }
+        }
+
+        function closeMenu() {
+            const menuIcon = document.querySelector('.menu-icon');
+            const header = menuIcon.parentElement;
+            const menuContent = header.nextElementSibling;
+            const overlay = document.querySelector('.overlay');
+            const demoContent = document.querySelector('.demo-content');
+            const body = document.body;
+
+            // Collapse menu when clicking overlay
+            menuContent.classList.remove('expanded');
+            menuIcon.classList.remove('active');
+            header.classList.add('collapsed');
+            overlay.classList.remove('active');
+            demoContent.classList.remove('blur');
+            body.classList.remove('menu-open');
+        }
+
+        // Add click handlers to menu items
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Remove active state from all items
+                document.querySelectorAll('.menu-item').forEach(i => i.style.background = '');
+
+                // Add active state to clicked item
+                this.style.background = '#f0f0f0';
+                this.style.color = '#8B4A8C';
+
+                console.log('Navigating to:', this.textContent);
+            });
+        });
+
+        // Add click handler to enquiry button
+        document.querySelector('.enquiry-btn').addEventListener('click', function () {
+            console.log('Opening enquiry form...');
+            // Add your enquiry logic here
+        });
+    </script>
+    <!-- mobile menu responsive design js code end -->
+
+
+<!-- gsap animation Complete code for animation and remove scroll starting........... -->
+     <script>
+  const io = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in");
+      } else {
+        // reverse chahiye to enable rakho, one-time ke liye comment kar do
+        entry.target.classList.remove("animate-in");
+      }
+    }
+  }, { threshold: 0.15 });
+
+  document
+    .querySelectorAll(".scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale")
+    .forEach(el => io.observe(el));
+</script>
+
+<!-- gsap animation Complete code for animation and remove scroll ending........... -->
+
+
+
 
 </body>
 
