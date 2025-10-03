@@ -510,6 +510,37 @@ body {
   padding: 0 2rem;
 }
 
+.dd__panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  /* background: #fff; */
+  /* border: 1px solid #ddd; */
+  min-width: 220px;
+  z-index: 20;
+  border-radius: 10px;
+  /* box-shadow: 0 8px 18px rgba(0,0,0,0.15); */
+  padding: 8px 0;
+}
+.tab.dd:hover .dd__panel {
+  display: block;
+}
+.dd__item {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  color: #000;
+}
+.dd__panel.show { display: block; }
+
+.dd__btn[aria-expanded="true"] .btnarrwtab {
+  transform: rotate(90deg);
+  transition: transform .2s ease;
+}
+
+
 .tab {
   flex: 1;
   text-align: center;
@@ -529,6 +560,9 @@ body {
   line-height: 30px;
   letter-spacing: 0%;
   text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .tab.active {
@@ -711,10 +745,6 @@ body {
   letter-spacing: 0%;
   border-radius: 12px;
 }
-
-/* drop down style */
-
-
 
 /* Explore Our Communities style end */
 
@@ -1150,205 +1180,7 @@ a {
 
 /* Mobile Trusted & Recognised style start  */
 /* Mobile Trusted & Recognised style end  */
-/* mobile menu design style start */
-    body.menu-open {
-            overflow: hidden;
-        }
-        #mobilemenudesignsec .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
 
-        #mobilemenudesignsec .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #mobilemenudesignsec .demo-content {
-            margin-top: 200px;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        #mobilemenudesignsec .demo-content.blur {
-            filter: blur(2px);
-            pointer-events: none;
-        }
-
-        #mobilemenudesignsec .menu-container {
-            width: 80vw;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            margin-top: 2rem;
-        }
-
-        #mobilemenudesignsec .menu-header {
-            padding: 16px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            user-select: none;
-        }
-
-        #mobilemenudesignsec .menu-header:hover {
-            /* background: linear-gradient(135deg, #7A4179, #965296); */
-        }
-
-        #mobilemenudesignsec .menu-header.collapsed {
-            border-radius: 12px;
-        }
-
-        #mobilemenudesignsec .logo {
-            font-weight: 700;
-            font-size: 18px;
-            letter-spacing: 2px;
-        }
-        #mobilemenudesignsec .logo img{
-            width: 6rem;
-        }
-
-        #mobilemenudesignsec .menu-icon {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-            transition: all 0.3s ease;
-        }
-
-        #mobilemenudesignsec .menu-icon span {
-            width: 20px;
-            height: 2px;
-            background: white;
-            border-radius: 1px;
-            transition: all 0.3s ease;
-        }
-
-        #mobilemenudesignsec .menu-icon.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        #mobilemenudesignsec .menu-icon.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        #mobilemenudesignsec .menu-icon.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
-        #mobilemenudesignsec .menu-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            background: white;
-        }
-
-        #mobilemenudesignsec .menu-content.expanded {
-            min-height: 100vh;
-            padding: 20px 0;
-            border-top: 2px solid #000;
-        }
-
-        #mobilemenudesignsec .menu-item {
-            padding: 16px 24px;
-            color: #333;
-            text-decoration: none;
-            display: block;
-            /* transition: all 0.2s ease; */
-            position: relative;
-            font-family: Montserrat;
-            font-weight: 700;
-            font-style: Bold;
-            font-size: 25px;
-            line-height: 20px;
-            letter-spacing: 0%;
-        }
-
-        #mobilemenudesignsec .menu-item:last-child {
-            border-bottom: none;
-        }
-
-        #mobilemenudesignsec .menu-item:hover {
-            background: #f8f8f8;
-            color: #8B4A8C;
-            padding-left: 30px;
-        }
-
-        #mobilemenudesignsec .menu-item:active {
-            background: #f0f0f0;
-        }
-
-        #mobilemenudesignsec .enquiry-btn {
-            margin: 20px 24px;
-            padding: 12px 36px;
-            background: #821A52;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            box-shadow: 0 2px 10px rgba(139, 74, 140, 0.3);
-        }
-
-        #mobilemenudesignsec .enquiry-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(139, 74, 140, 0.4);
-            background: linear-gradient(135deg, #7A4179, #965296);
-        }
-
-        #mobilemenudesignsec .enquiry-btn:active {
-            transform: translateY(0);
-        }
-        /* Subtle animation for menu items */
-        #mobilemenudesignsec .menu-content.expanded .menu-item {
-            animation: slideInLeft 0.3s ease forwards;
-            /* opacity: 0; */
-        }
-
-        .menu-content.expanded .menu-item:nth-child(1) { animation-delay: 0.1s; }
-        .menu-content.expanded .menu-item:nth-child(2) { animation-delay: 0.15s; }
-        .menu-content.expanded .menu-item:nth-child(3) { animation-delay: 0.2s; }
-        .menu-content.expanded .menu-item:nth-child(4) { animation-delay: 0.25s; }
-        .menu-content.expanded .menu-item:nth-child(5) { animation-delay: 0.3s; }
-        .menu-content.expanded .menu-item:nth-child(6) { animation-delay: 0.35s; }
-        .menu-content.expanded .menu-item:nth-child(7) { animation-delay: 0.4s; }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-/* mobile menu design style end */
 
 
 /* Mobile Active living, built into every corner of your life style start */

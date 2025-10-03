@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-wf-page="67eff3c056f51058375a5547" data-wf-site="675c8e48ca0e0fb5ab421239"  lang="en">
+<html data-wf-page="67eff3c056f51058375a5547" data-wf-site="675c8e48ca0e0fb5ab421239" lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -36,6 +36,16 @@
             -moz-osx-font-smoothing: grayscale;
         }
     </style>
+    <!-- instagram primus video code  -->
+    
+<style>
+    .instagram-media footer,   /* caption, comments, likes */
+    .instagram-media header {  /* profile info */
+        display: none !important;
+    }
+</style>
+    <script async src="//www.instagram.com/embed.js"></script>
+</style>
 
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="./css/style.css"> -->
@@ -43,6 +53,7 @@
     <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./custstyle.css">
     <link rel="stylesheet" href="./custresponsive.css">
+    <link rel="stylesheet" href="./mobmenustyle.css">
 
     <!-- main index style start -->
 
@@ -56,8 +67,10 @@
             overflow: hidden;
             /* iframe box pe koi bar nahi */
 
-            overflow: auto; /* allow scroll */
-            scroll-behavior: smooth; /* smooth scroll */
+            overflow: auto;
+            /* allow scroll */
+            scroll-behavior: smooth;
+            /* smooth scroll */
         }
 
         /* Chrome, Safari, Edge ke liye */
@@ -80,10 +93,11 @@
         }
 
         .dd__btn {
-           display: flex;
-           justify-content: space-around;
-           align-items: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             z-index: 20011 !important;
+            gap: 1rem;
         }
 
         .dd__chev {
@@ -92,14 +106,15 @@
             transition: transform 360ms cubic-bezier(.18, .9, .22, 1);
         }
 
-.dd .btnarrwtab {
-    transform: rotate(0);
-    transition: all 0.3s;
+        .dd .btnarrwtab {
+            transform: rotate(0);
+            transition: all 0.3s;
 
-}
-.dd:hover .btnarrwtab {
-    transform: rotate(90deg);
-}
+        }
+
+        .dd:hover .btnarrwtab {
+            transform: rotate(90deg);
+        }
 
         .dd__panel {
             position: absolute;
@@ -162,6 +177,7 @@
         .dd__item:nth-child(1) {
             transition-delay: 20ms;
         }
+
         .dd:hover .dd__panel {
             pointer-events: auto;
             opacity: 1;
@@ -180,10 +196,9 @@
     </style>
 
 
- <!-- animate css style code js -->
-  <style>
-
-     /* .section {
+    <!-- animate css style code js -->
+    <style>
+        /* .section {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -193,52 +208,52 @@
       margin-bottom: 50px;
     } */
 
-    .left, .right {
-      /* width: 45%; */
-      /* height: 300px; */
-      /* border-radius: 10px; */
-      /* display: flex; */
-      /* justify-content: center; */
-      /* align-items: center; */
-      /* font-size: 24px; */
-      /* color: white; */
-      /* font-weight: bold; */
-      opacity: 0;
-      transition: all 1.2s ease;
-    }
+        .left,
+        .right {
+            /* width: 45%; */
+            /* height: 300px; */
+            /* border-radius: 10px; */
+            /* display: flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
+            /* font-size: 24px; */
+            /* color: white; */
+            /* font-weight: bold; */
+            opacity: 0;
+            transition: all 1.2s ease;
+        }
 
-    .left {
-      /* background: tomato; */
-      transform: translateX(-150px); /* thoda left se andar */
-    }
+        .left {
+            /* background: tomato; */
+            transform: translateX(-150px);
+            /* thoda left se andar */
+        }
 
-    .right {
-      /* background: royalblue; */
-      transform: translateX(150px); /* thoda right se andar */
-    }
+        .right {
+            /* background: royalblue; */
+            transform: translateX(150px);
+            /* thoda right se andar */
+        }
 
-    /* Jab show class add hogi */
-    .left.show {
-      transform: translateX(0);
-      opacity: 1;
-    }
+        /* Jab show class add hogi */
+        .left.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
 
-    .right.show {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  </style>
+        .right.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    </style>
 
 
-  <!-- GSAP Scripts -->
+    <!-- GSAP Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-   
-     <style>
-       
 
 
+    <style>
         /* Main Spinner Structure - Horizontal to Circle Animation */
         .track-6 {
             background-color: #c25050;
@@ -482,8 +497,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Scroll Progress Indicator */
@@ -579,53 +599,59 @@
 </head>
 
 <body>
- <div class="page-wrapper"></div>
-     <section>
-            <div data-w-id="c748335d-73e4-01c0-0597-b91fbde102b6" class="hero-track-l">
-                <div class="hero-wrapper-image">
-                    
-                    <div class="hero-card-image">
-                        <div class="inner-content-col">
-                            <div style="font-size: 55px; margin-left: -300px;" class="h-m">What good <br>is living long, <br> if you don’t <br> live well? </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-wrapper-content">
-                    <div class="sub-hero">
-                        <div class="sub-col">
-                            <div style="position: relative;" class="sub-card">
-                                <div style="position: absolute; bottom: 100px; left: 0px; color: #fff; z-index: 10000;" class="inner-content-col">
-                                    <div class="h-m">Wouldn’t you <br>rather avoid <br> the pill than <br>swallow it?
-</div>
-                                </div>
-                                
-                                <img src="images/side1.png" loading="lazy" sizes="100vw"
-                                    srcset="images/side1-500.png 500w, images/side1.png 1425w" alt=""
-                                    class="cover-image" />
-                            </div>
-                            <div class="sub-card">
-                                <div style="position: absolute; bottom: 80px; left: 0px; color: #fff; z-index: 10000;" class="inner-content-col">
-                                    <div class="h-m" style="color: #801B53;">Why just own <br>a home, when <br>you can live<br> in one that<br>  serves you? 
-</div>
-                                </div>
-                                <img src="images/side2.png" loading="lazy" sizes="(max-width: 1600px) 100vw, 1600px"
-                                    srcset="images/side2-500.png 500w, images/side2-800.png 800w, images/side2.png 1080w, images/side2.png 1600w"
-                                    alt="" class="cover-image" />
-                            </div>
-                        </div>
-                        <div class="sub-col-right">
-                            <div class="video-wrap">
-                                 <div style="position: absolute; bottom: 0px; left: 0px; color: #fff; z-index: 10000;" class="inner-content-col">
-                                 <div style="text-align: center!important; font-size: 45px; color: #801B53;" class="h-m">Welcome to Primus</div>
-                            </div>
-                                <video src="./video/video.mp4" autoplay muted loop playsinline></video>
-                            </div>
+    <div class="page-wrapper"></div>
+    <section>
+        <div data-w-id="c748335d-73e4-01c0-0597-b91fbde102b6" class="hero-track-l">
+            <div class="hero-wrapper-image">
 
+                <div class="hero-card-image">
+                    <div class="inner-content-col">
+                        <div style="font-size: 55px; margin-left: -300px;" class="h-m">What good <br>is living long,
+                            <br> if you don’t <br> live well?
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="hero-wrapper-content">
+                <div class="sub-hero">
+                    <div class="sub-col">
+                        <div style="position: relative;" class="sub-card">
+                            <div style="position: absolute; bottom: 100px; left: 0px; color: #fff; z-index: 10000;"
+                                class="inner-content-col">
+                                <div class="h-m">Wouldn’t you <br>rather avoid <br> the pill than <br>swallow it?
+                                </div>
+                            </div>
+
+                            <img src="images/side1.png" loading="lazy" sizes="100vw"
+                                srcset="images/side1-500.png 500w, images/side1.png 1425w" alt="" class="cover-image" />
+                        </div>
+                        <div class="sub-card">
+                            <div style="position: absolute; bottom: 80px; left: 0px; color: #fff; z-index: 10000;"
+                                class="inner-content-col">
+                                <div class="h-m" style="color: #801B53;">Why just own <br>a home, when <br>you can
+                                    live<br> in one that<br>  serves you?
+                                </div>
+                            </div>
+                            <img src="images/side2.png" loading="lazy" sizes="(max-width: 1600px) 100vw, 1600px"
+                                srcset="images/side2-500.png 500w, images/side2-800.png 800w, images/side2.png 1080w, images/side2.png 1600w"
+                                alt="" class="cover-image" />
+                        </div>
+                    </div>
+                    <div class="sub-col-right">
+                        <div class="video-wrap">
+                            <div style="position: absolute; bottom: 0px; left: 0px; color: #fff; z-index: 10000;"
+                                class="inner-content-col">
+                                <div style="text-align: center!important; font-size: 45px; color: #801B53;" class="h-m">
+                                    Welcome to Primus</div>
+                            </div>
+                            <video src="./video/video.mp4" autoplay muted loop playsinline></video>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- <div class="page-wrapper only-desktop">
         <div class="section">
@@ -826,107 +852,109 @@
         </section>
     </div> -->
 
-   
+
     <div data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c00e9" class="track-6">
         <div class="main-spinner">
             <div class="spinner-l-wrapper">
                 <div class="spinner-container">
                     <!-- Card 1 -->
                     <div class="spinner-c" data-rotation="0">
-                        <div class="spinner-cards"> <h3>Safe Haven</h3>
-                            <p>Grab bars, anti-slip tiles, and thoughtful design in every corner. A home that protects you
-                            as you move through life.</p>
-                            <img src="images/card1.png" loading="lazy" alt="Card 1" class="cover-image"/>
+                        <div class="spinner-cards">
+                            <h3>Safe Haven</h3>
+                            <p>Grab bars, anti-slip tiles, and thoughtful design in every corner. A home that protects
+                                you
+                                as you move through life.</p>
+                            <img src="images/card1.png" loading="lazy" alt="Card 1" class="cover-image" />
                         </div>
                     </div>
-                    
+
                     <!-- Card 2 -->
                     <div class="spinner-c" data-rotation="40">
                         <div class="spinner-cards">
                             <h3>Seamless Access</h3>
-                             <p>Wide corridors, ramps, and wheelchair-ready spaces at every turn. Freedom of movement
+                            <p>Wide corridors, ramps, and wheelchair-ready spaces at every turn. Freedom of movement
                                 built into your home.</p>
-                            <img src="images/card2.png" loading="lazy" alt="Card 2" class="cover-image"/>
+                            <img src="images/card2.png" loading="lazy" alt="Card 2" class="cover-image" />
                         </div>
                     </div>
-                    
+
                     <!-- Card 3 -->
                     <div class="spinner-c" data-rotation="80">
                         <div class="spinner-cards">
-                             <h3>Smart Comfort</h3>
-                             <p>Motion-sensor lights and voice-enabled controls that respond with ease. Technology that
+                            <h3>Smart Comfort</h3>
+                            <p>Motion-sensor lights and voice-enabled controls that respond with ease. Technology that
                                 quietly works for you.</p>
-                            <img src="images/card3.png" loading="lazy" alt="Card 3" class="cover-image"/>
+                            <img src="images/card3.png" loading="lazy" alt="Card 3" class="cover-image" />
                         </div>
                     </div>
-                    
+
                     <!-- Card 4 -->
                     <div class="spinner-c" data-rotation="120">
                         <div class="spinner-cards">
-                             <h3>Effortless Cooking</h3>
-                             <p>Easy-reach counters, ergonomic layouts, and clever storage. Cooking that feels simple,
+                            <h3>Effortless Cooking</h3>
+                            <p>Easy-reach counters, ergonomic layouts, and clever storage. Cooking that feels simple,
                                 safe, and joyful again.</p>
-                            <img src="images/card4.png" loading="lazy" alt="Card 4" class="cover-image"/>
+                            <img src="images/card4.png" loading="lazy" alt="Card 4" class="cover-image" />
                         </div>
                     </div>
-                    
+
                     <!-- Card 5 -->
                     <div class="spinner-c" data-rotation="160">
                         <div class="spinner-cards">
-                             <h3>Safe Bathroom</h3>
-                             <p>Slip-resistant tiles, sturdy rails, and spacious showers. Bathrooms reimagined for
+                            <h3>Safe Bathroom</h3>
+                            <p>Slip-resistant tiles, sturdy rails, and spacious showers. Bathrooms reimagined for
                                 comfort and dignity.</p>
-                            <img src="images/card5.png" loading="lazy" alt="Card 5" class="cover-image"/>
+                            <img src="images/card5.png" loading="lazy" alt="Card 5" class="cover-image" />
                         </div>
                     </div>
-                    
+
                     <!-- Card 6 -->
                     <div class="spinner-c" data-rotation="200">
                         <div class="spinner-cards">
-                             <h3>Restfull Nights</h3>
-                             <p>Beds designed for posture, healing, and deep sleep. Wake up refreshed, every single
+                            <h3>Restfull Nights</h3>
+                            <p>Beds designed for posture, healing, and deep sleep. Wake up refreshed, every single
                                 morning.</p>
-                            <img src="images/card6.png" loading="lazy" alt="Card 6" class="cover-image"/>
+                            <img src="images/card6.png" loading="lazy" alt="Card 6" class="cover-image" />
                         </div>
                     </div>
-                    
+
                     <!-- Card 7 -->
                     <div class="spinner-c" data-rotation="240">
                         <div class="spinner-cards">
-                             <h3>Endless Learning</h3>
-                             <p>Expert-led talks and online sessions that open new doors. Because curiosity
+                            <h3>Endless Learning</h3>
+                            <p>Expert-led talks and online sessions that open new doors. Because curiosity
                                 has no age limit.</p>
-                            <img src="images/card7.png" loading="lazy" alt="Card 7" class="cover-image"/>
+                            <img src="images/card7.png" loading="lazy" alt="Card 7" class="cover-image" />
                         </div>
                     </div>
-                    
+
                     <!-- Card 8 -->
                     <div class="spinner-c" data-rotation="280">
                         <div class="spinner-cards">
-                             <h3>Emergency Ready</h3>
-                             <p>Ambulance and medical support ready at a moment’s call. Care that never keeps you
+                            <h3>Emergency Ready</h3>
+                            <p>Ambulance and medical support ready at a moment’s call. Care that never keeps you
                                 waiting.</p>
-                            <img src="images/card8.png" loading="lazy" alt="Card 8" class="cover-image"/>
+                            <img src="images/card8.png" loading="lazy" alt="Card 8" class="cover-image" />
                         </div>
                     </div>
-                    
+
                     <!-- Card 9 -->
                     <div class="spinner-c" data-rotation="320">
-                        <div class="spinner-cards"> 
-                             <h3>Day Assistance</h3>
-                             <p>Wide corridors, ramps, and wheelchair-ready spaces at every turn. Freedom of movement
+                        <div class="spinner-cards">
+                            <h3>Day Assistance</h3>
+                            <p>Wide corridors, ramps, and wheelchair-ready spaces at every turn. Freedom of movement
                                 built into your home.</p>
-                            <img src="images/card9.png" loading="lazy" alt="Card 9" class="cover-image"/>
+                            <img src="images/card9.png" loading="lazy" alt="Card 9" class="cover-image" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c0110" class="content-spinner-wrapper">
             <div class="content-spinner">
                 <div class="inner-heading-s">
-                     
+
                     <div class="h-l">Active living,<br>
                         built into every<br>
                         corner of your life
@@ -1077,7 +1105,7 @@
 
                 console.log('✅ Interactive effects added to all cards');
             }
-            
+
             // Control methods for scroll-based animation
             play() {
                 ScrollTrigger.getAll().forEach(st => st.enable());
@@ -1181,7 +1209,7 @@
             document.addEventListener('keydown', (e) => {
                 if (!window.spinnerAnimation) return;
 
-                switch(e.key) {
+                switch (e.key) {
                     case ' ': // Spacebar - toggle pause/play
                         e.preventDefault();
                         if (window.spinnerAnimation.scrollRotation?.scrollTrigger?.isActive) {
@@ -1527,7 +1555,8 @@
             <div class="menu-header collapsed">
                 <div class="logo"><img src="./assets/images/primus-logo.png" alt=""></div>
                 <div class="menu-icon" onclick="toggleMenu(this)">
-                    <img src="./assets/images/Home/mb/menu-open.png" alt="">
+                    <img src="./f2/assets/images/menu-open.png" alt="Menu" class="menu-img menu-open-icon">
+                    <img src="./f2/assets/images/menu-close.png" alt="Close" class="menu-img menu-close-icon">
                 </div>
             </div>
             <div class="menu-content">
@@ -1561,7 +1590,7 @@
                         <img src="./assets/images/primus-gallery/primusglr-2.png" alt="Cheerful man in blue shirt">
                         <div class="overlay">
                             <h3>Cultural Delights s</h3>
-                            <p>Film nights, music shows, and cultural evenings to cherish. Fun is always close to home. 
+                            <p>Film nights, music shows, and cultural evenings to cherish. Fun is always close to home.
                             </p>
                         </div>
                     </div>
@@ -1570,7 +1599,8 @@
                         <img src="./assets/images/primus-gallery/primusglr-3.png" alt="Woman cooking with joy">
                         <div class="overlay">
                             <h3>Mindful Moments </h3>
-                            <p>Morning stretches in sunlit lawns with friends by your side. Strength and serenity in every breath. </p>
+                            <p>Morning stretches in sunlit lawns with friends by your side. Strength and serenity in
+                                every breath. </p>
                         </div>
                     </div>
 
@@ -1578,16 +1608,18 @@
                         <img src="./assets/images/primus-gallery/primusglr-4.png" alt="Man with warm smile">
                         <div class="overlay">
                             <h3>Social Connections </h3>
-                            <p>Lounges, activity rooms, and shared spaces for conversation. Homes that keep loneliness at bay. </p>
+                            <p>Lounges, activity rooms, and shared spaces for conversation. Homes that keep loneliness
+                                at bay. </p>
                         </div>
                     </div>
 
                     <div class="gallery-item" data-index="4">
                         <img src="./assets/images/primus-gallery/primusglr-5.png" alt="Woman with bright smile">
                         <div class="overlay">
-                             <h3>Creative Corners </h3>
-                            <p>Rooms for dancing, music, and everything in between. Spaces that keep passion alive every day. </p>
-                           
+                            <h3>Creative Corners </h3>
+                            <p>Rooms for dancing, music, and everything in between. Spaces that keep passion alive every
+                                day. </p>
+
                         </div>
                     </div>
 
@@ -1595,7 +1627,8 @@
                         <img src="./assets/images/primus-gallery/primusglr-6.png" alt="Man in casual wear">
                         <div class="overlay">
                             <h3>Shared Moments </h3>
-                            <p>Festivals, events, and celebrations that bring everyone closer. A community where life is shared. </p>
+                            <p>Festivals, events, and celebrations that bring everyone closer. A community where life is
+                                shared. </p>
                         </div>
                     </div>
                 </div>
@@ -1685,21 +1718,18 @@
                     <div class="tab-indicator"></div>
                     <button class="tab active" data-slide="0">SENIOR LIVING</button>
                     <button class="tab" data-slide="1">MULTIGENERATIONAL LIVING</button>
-
                     <div class="tab dd">
-                        <div class="dd__btn" aria-haspopup="true">
-                            <button style="background: none;" data-slide="2">ALL REGIONS</button>
-                            <!-- <svg class="dd__chev" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                            </svg> -->
+                        <div class="dd__btn" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" style="background:none;">ALL REGIONS</button>
                             <i class="fa-solid fa-angle-right btnarrwtab"></i>
                         </div>
                         <div class="dd__panel" role="menu">
-                            <div class="dd__item" data-slide="3" role="menuitem"><a href="">Bangalore</a></div>
-                            <div class="dd__item" data-slide="4" role="menuitem"><a href="">Chennai</a></div>
-                            <div class="dd__item" data-slide="5" role="menuitem"><a href="">Kolkata</a></div>
+                            <div class="dd__item" data-slide="2" role="menuitem"><a href="">Bangalore</a></div>
+                            <div class="dd__item" data-slide="3" role="menuitem"><a href="">Chennai</a></div>
+                            <div class="dd__item" data-slide="4" role="menuitem"><a href="">Kolkata</a></div>
                         </div>
                     </div>
+
                 </div>
             </div>
             <div class="slider-container">
@@ -1766,14 +1796,13 @@
                     </div>
                 </div>
             </div>
-
             <div class="dots-container">
                 <div class="dot active" data-slide="0"></div>
                 <div class="dot" data-slide="1"></div>
                 <div class="dot" data-slide="2"></div>
                 <div class="dot" data-slide="3"></div>
                 <div class="dot" data-slide="4"></div>
-                <div class="dot" data-slide="5"></div>
+                <!-- <div class="dot" data-slide="5"></div> -->
             </div>
         </div>
     </section>
@@ -1794,12 +1823,12 @@
                     <div class="contgriddiv">
                         <h2>5000+</h2>
                         <p>Residents Under Our Care
-</p>
+                        </p>
                     </div>
                     <div class="contgriddiv">
                         <h2>12+</h2>
                         <p>Years of Pioneering Experience
-</p>
+                        </p>
                     </div>
                     <div class="contgriddiv">
                         <h2>30</h2>
@@ -1861,16 +1890,28 @@
         <div class="primusvideocont main-container">
             <div class="primusvideocontcontainer left">
                 <div class="videosecdiv">
-                    <video src="./assets/images/Home/Luxury retirement homes.mp4" muted loop autoplay></video>
+                    <blockquote class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/reel/DL9dUXBSJVt/?utm_source=ig_embed&amp;utm_campaign=loading"
+                        data-instgrm-version="14">
+                    </blockquote>
                 </div>
                 <div class="videosecdiv">
-                    <video src="./assets/images/Home/2.mp4" muted loop autoplay></video>
+                    <blockquote class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/reel/DL9dUXBSJVt/?utm_source=ig_embed&amp;utm_campaign=loading"
+                        data-instgrm-version="14">
+                    </blockquote>
                 </div>
                 <div class="videosecdiv">
-                    <video src="./assets/images/Home/3.mp4" muted loop autoplay></video>
+                   <blockquote class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/reel/DL9dUXBSJVt/?utm_source=ig_embed&amp;utm_campaign=loading"
+                        data-instgrm-version="14">
+                    </blockquote>
                 </div>
                 <div class="videosecdiv">
-                    <video src="./assets/images/Home/5.mp4" muted loop autoplay></video>
+                    <blockquote class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/reel/DL9dUXBSJVt/?utm_source=ig_embed&amp;utm_campaign=loading"
+                        data-instgrm-version="14">
+                    </blockquote>
                 </div>
             </div>
         </div>
@@ -2244,25 +2285,86 @@
 
     <!-- tab -->
     <script>
-        /* When the user clicks on the button,
-        toggle between hiding and showing the dropdown content */
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
+        (function () {
+            const sliderWrapper = document.querySelector('.slider-wrapper');
+            const slides = Array.from(document.querySelectorAll('.slide'));
+            const dots = Array.from(document.querySelectorAll('.dot'));
 
-        // Close the dropdown if the user clicks outside of it
-        window.hover = function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
+            // sirf top-level tabs jinpe data-slide ho (dropdown ko exclude)
+            const directTabs = Array.from(document.querySelectorAll('.tabs > .tab[data-slide]'));
+
+            const ddRoot = document.querySelector('.tab.dd');
+            const ddBtn = ddRoot?.querySelector('.dd__btn');
+            const ddPanel = ddRoot?.querySelector('.dd__panel');
+            const ddItems = Array.from(ddPanel?.querySelectorAll('[data-slide]') || []);
+
+            let current = 0;
+
+            function clamp(i) { return Math.max(0, Math.min(i, slides.length - 1)); }
+
+            function goTo(index) {
+                const i = clamp(Number(index));
+                current = i;
+                sliderWrapper.style.transform = `translateX(-${i * 100}%)`;
+                dots.forEach(d => d.classList.remove('active'));
+                if (dots[i]) dots[i].classList.add('active');
+
+                // active state sirf direct tabs par
+                directTabs.forEach(t => t.classList.remove('active'));
+                const matchTab = directTabs.find(t => Number(t.dataset.slide) === i);
+                if (matchTab) matchTab.classList.add('active');
             }
-        }
+
+            // SENIOR / MULTI tabs
+            directTabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = tab.dataset.slide;
+                    if (target != null) goTo(target);
+                });
+            });
+
+            // dots
+            dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+            // dropdown toggle only (ALL REGIONS par click karne se slide nahi badlega)
+            function openDD() { if (ddPanel) { ddPanel.classList.add('show'); ddBtn?.setAttribute('aria-expanded', 'true'); } }
+            function closeDD() { if (ddPanel) { ddPanel.classList.remove('show'); ddBtn?.setAttribute('aria-expanded', 'false'); } }
+            function toggleDD() { if (!ddPanel) return; ddPanel.classList.contains('show') ? closeDD() : openDD(); }
+
+            if (ddBtn) {
+                ddBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleDD();
+                });
+            }
+
+            // DD items → slide change + close
+            ddItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const target = item.dataset.slide;
+                    if (target != null) goTo(target);
+                    closeDD();
+                });
+            });
+
+            // bahar click par close
+            document.addEventListener('click', (e) => {
+                if (ddRoot && !ddRoot.contains(e.target)) closeDD();
+            });
+
+            // Esc par close + arrows navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeDD();
+                if (e.key === 'ArrowRight') goTo(current + 1);
+                if (e.key === 'ArrowLeft') goTo(current - 1);
+            });
+
+            goTo(0);
+        })();
     </script>
 
     <!-- tab -->
@@ -2281,75 +2383,7 @@
         });
     </script>
 
-    <!-- mobile menu responsive design js code start -->
-    <script>
-        function toggleMenu(menuIcon) {
-            const header = menuIcon.parentElement;
-            const menuContent = header.nextElementSibling;
-            const isExpanded = menuContent.classList.contains('expanded');
-            const overlay = document.querySelector('.overlay');
-            const demoContent = document.querySelector('.demo-content');
-            const body = document.body;
 
-            if (isExpanded) {
-                // Collapse
-                menuContent.classList.remove('expanded');
-                menuIcon.classList.remove('active');
-                header.classList.add('collapsed');
-                overlay.classList.remove('active');
-                demoContent.classList.remove('blur');
-                body.classList.remove('menu-open');
-            } else {
-                // Expand
-                menuContent.classList.add('expanded');
-                menuIcon.classList.add('active');
-                header.classList.remove('collapsed');
-                overlay.classList.add('active');
-                demoContent.classList.add('blur');
-                body.classList.add('menu-open');
-            }
-        }
-
-        function closeMenu() {
-            const menuIcon = document.querySelector('.menu-icon');
-            const header = menuIcon.parentElement;
-            const menuContent = header.nextElementSibling;
-            const overlay = document.querySelector('.overlay');
-            const demoContent = document.querySelector('.demo-content');
-            const body = document.body;
-
-            // Collapse menu when clicking overlay
-            menuContent.classList.remove('expanded');
-            menuIcon.classList.remove('active');
-            header.classList.add('collapsed');
-            overlay.classList.remove('active');
-            demoContent.classList.remove('blur');
-            body.classList.remove('menu-open');
-        }
-
-        // Add click handlers to menu items
-        document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                // Remove active state from all items
-                document.querySelectorAll('.menu-item').forEach(i => i.style.background = '');
-
-                // Add active state to clicked item
-                this.style.background = '#f0f0f0';
-                this.style.color = '#8B4A8C';
-
-                console.log('Navigating to:', this.textContent);
-            });
-        });
-
-        // Add click handler to enquiry button
-        document.querySelector('.enquiry-btn').addEventListener('click', function () {
-            console.log('Opening enquiry form...');
-            // Add your enquiry logic here
-        });
-    </script>
-    <!-- mobile menu responsive design js code end -->
 
 
     <!-- code for the animate index js Sarthak code -->
@@ -2358,6 +2392,7 @@
     <script src="js/zuno-template.schunk.0cdb6b34a288adb8.js" type="text/javascript"></script>
     <script src="js/zuno-template.schunk.e33c2e4e3f6eefd5.js" type="text/javascript"></script>
     <script src="js/zuno-template.90fbf1f2.6d3c9651cc9246e6.js" type="text/javascript"></script>
+    <script src="./mobmenujs.js"></script>
     <script>
         (function () {
             var PAGE_A = '67eff3c056f51058375a5547'; // index.html page-id
@@ -2529,64 +2564,64 @@
     </script>
 
     <!-- section scrolling js code -->
-       <script>
-    const elements = document.querySelectorAll('.left, .right');
+    <script>
+        const elements = document.querySelectorAll('.left, .right');
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.2 }); // 20% visible hote hi trigger
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 }); // 20% visible hote hi trigger
 
-    elements.forEach(el => observer.observe(el));
-  </script>
-  <!-- count-up on scroll for proof section -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const counters = document.querySelectorAll('.buildontrustbackbyproofcontgrid .contgriddiv h2');
-      // Initialize display to 0 (preserving any suffix like +)
-      counters.forEach(el => {
-        const raw = (el.textContent || '').trim();
-        const m = raw.match(/^(\d+)(\D*)$/);
-        const target = m ? parseInt(m[1], 10) : parseInt(raw.replace(/[^0-9]/g, ''), 10) || 0;
-        const suffix = m ? m[2] : raw.replace(/[0-9]/g, '');
-        el.dataset.target = String(target);
-        el.dataset.suffix = suffix;
-        el.textContent = '0' + (suffix || '');
-      });
+        elements.forEach(el => observer.observe(el));
+    </script>
+    <!-- count-up on scroll for proof section -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const counters = document.querySelectorAll('.buildontrustbackbyproofcontgrid .contgriddiv h2');
+            // Initialize display to 0 (preserving any suffix like +)
+            counters.forEach(el => {
+                const raw = (el.textContent || '').trim();
+                const m = raw.match(/^(\d+)(\D*)$/);
+                const target = m ? parseInt(m[1], 10) : parseInt(raw.replace(/[^0-9]/g, ''), 10) || 0;
+                const suffix = m ? m[2] : raw.replace(/[0-9]/g, '');
+                el.dataset.target = String(target);
+                el.dataset.suffix = suffix;
+                el.textContent = '0' + (suffix || '');
+            });
 
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target;
-          if (el.dataset.done === '1') { io.unobserve(el); return; }
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    if (el.dataset.done === '1') { io.unobserve(el); return; }
 
-          const target = parseInt(el.dataset.target || '0', 10);
-          const suffix = el.dataset.suffix || '';
-          const duration = 1200; // ms
-          const start = performance.now();
+                    const target = parseInt(el.dataset.target || '0', 10);
+                    const suffix = el.dataset.suffix || '';
+                    const duration = 1200; // ms
+                    const start = performance.now();
 
-          function tick(now) {
-            const p = Math.min((now - start) / duration, 1);
-            const value = Math.floor(target * p);
-            el.textContent = value.toLocaleString() + suffix;
-            if (p < 1) {
-              requestAnimationFrame(tick);
-            } else {
-              el.dataset.done = '1';
-              io.unobserve(el);
-            }
-          }
+                    function tick(now) {
+                        const p = Math.min((now - start) / duration, 1);
+                        const value = Math.floor(target * p);
+                        el.textContent = value.toLocaleString() + suffix;
+                        if (p < 1) {
+                            requestAnimationFrame(tick);
+                        } else {
+                            el.dataset.done = '1';
+                            io.unobserve(el);
+                        }
+                    }
 
-          requestAnimationFrame(tick);
+                    requestAnimationFrame(tick);
+                });
+            }, { threshold: 0.35 });
+
+            counters.forEach((el) => io.observe(el));
         });
-      }, { threshold: 0.35 });
-
-      counters.forEach((el) => io.observe(el));
-    });
-  </script>
+    </script>
 
     <!-- section scrolling js code -->
 
