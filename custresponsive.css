@@ -267,6 +267,9 @@
      flex-direction: column;
      height: auto;
    }
+   .dd__item {
+    height: 3rem;
+   }
 
    .gallery-item {
      flex: none;
