@@ -7642,14 +7642,14 @@ color: #fff;
 }
 
 .p-image {
-  background-color: #ff0f0f;
+  /* background-color: #ff0f0f;
   border-radius: 8px;
   flex: none;
   width: 8em;
   height: 10em;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 12px #0003;
+  box-shadow: 0 2px 12px #0003; */
 }
 
 .stats-block {
