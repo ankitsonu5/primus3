@@ -436,10 +436,11 @@
         padding-left: 0;
     }
       .tab {
-        padding: 0rem 0rem;
+        padding: 5px 0rem;
         font-size: 0.5rem;
         font-weight: 900;
         border-radius: 4px;
+        line-height: 16px;
     }
     #mbactivelivinglifesec .swiper-slider-cont p {
     padding-right: 2rem;
@@ -494,9 +495,6 @@
 }
 #mobileprimusdifferencesec .swiper-slide img {
     max-width: 80%;
-}
-.tab {
-    line-height: 24px;
 }
  }
  @media (max-width: 350px) {

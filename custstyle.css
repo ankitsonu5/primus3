@@ -823,6 +823,27 @@ body {
   width: 100%;
 }
 
+/* Section wrapper */
+#primusvideosec .primusvideocontcontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* auto adjust karega */
+  gap: 20px; /* videos ke beech spacing */
+}
+
+/* Each video box */
+#primusvideosec .videosecdiv {
+  width: 100%;
+  max-width: 300px;   /* video ka maximum width */
+  margin: 0 auto;
+}
+
+/* Instagram embed ko force responsive */
+#primusvideosec .instagram-media {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: unset !important;
+}
+
 /* primus video section style end */
 
 /* Backed by Visionaries. style start */
