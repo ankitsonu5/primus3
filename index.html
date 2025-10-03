@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-wf-page="67eff3c056f51058375a5547" data-wf-site="675c8e48ca0e0fb5ab421239"  lang="en">
+<html data-wf-page="67e9bbb7f7941818f92110ae" data-wf-site="675c8e48ca0e0fb5ab421239" lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -236,12 +236,12 @@
     
    
      <style>
-       
+        
 
 
         /* Main Spinner Structure - Horizontal to Circle Animation */
         .track-6 {
-            background-color: #c25050;
+            background-color:rgba(130, 26, 81, 0.2) !important;
             border-radius: 10px;
             width: 100%;
             height: 600vh;
@@ -292,8 +292,8 @@
         .spinner-cards {
             background-color: #8f8f8f;
             border-radius: 22px;
-            width: 100%;
-            height: 11vw;
+            width: 120%;
+            height: 13vw;
             overflow: hidden;
             cursor: pointer;
             will-change: transform;
@@ -324,7 +324,7 @@
             left: 50%;
             transform: translateX(-50%);
             color: white;
-            font-size: 14px;
+            font-size: 18px;
             font-weight: 600;
             margin: 0;
             z-index: 3;
@@ -339,7 +339,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: #333;
-            font-size: 12px;
+            font-size: 14px;
             line-height: 1.5;
             margin: 0;
             padding: 15px;
@@ -421,6 +421,7 @@
             font-weight: 700;
             color: #333;
             line-height: 1.2;
+             text-align: center;
         }
 
         /* Loading State */
@@ -562,6 +563,7 @@
 
             .h-l {
                 font-size: 1.4rem;
+               
             }
 
             .inner-heading-s {
@@ -579,54 +581,47 @@
 </head>
 
 <body>
- <div class="page-wrapper"></div>
-     <section>
-            <div data-w-id="c748335d-73e4-01c0-0597-b91fbde102b6" class="hero-track-l">
-                <div class="hero-wrapper-image">
-                    
-                    <div class="hero-card-image">
-                        <div class="inner-content-col">
-                            <div style="font-size: 55px; margin-left: -300px;" class="h-m">What good <br>is living long, <br> if you don’t <br> live well? </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-wrapper-content">
-                    <div class="sub-hero">
-                        <div class="sub-col">
-                            <div style="position: relative;" class="sub-card">
-                                <div style="position: absolute; bottom: 100px; left: 0px; color: #fff; z-index: 10000;" class="inner-content-col">
-                                    <div class="h-m">Wouldn’t you <br>rather avoid <br> the pill than <br>swallow it?
-</div>
-                                </div>
-                                
-                                <img src="images/side1.png" loading="lazy" sizes="100vw"
-                                    srcset="images/side1-500.png 500w, images/side1.png 1425w" alt=""
-                                    class="cover-image" />
-                            </div>
-                            <div class="sub-card">
-                                <div style="position: absolute; bottom: 80px; left: 0px; color: #fff; z-index: 10000;" class="inner-content-col">
-                                    <div class="h-m" style="color: #801B53;">Why just own <br>a home, when <br>you can live<br> in one that<br>  serves you? 
-</div>
-                                </div>
-                                <img src="images/side2.png" loading="lazy" sizes="(max-width: 1600px) 100vw, 1600px"
-                                    srcset="images/side2-500.png 500w, images/side2-800.png 800w, images/side2.png 1080w, images/side2.png 1600w"
-                                    alt="" class="cover-image" />
-                            </div>
-                        </div>
-                        <div class="sub-col-right">
-                            <div class="video-wrap">
-                                 <div style="position: absolute; bottom: 0px; left: 0px; color: #fff; z-index: 10000;" class="inner-content-col">
-                                 <div style="text-align: center!important; font-size: 45px; color: #801B53;" class="h-m">Welcome to Primus</div>
-                            </div>
-                                <video src="./video/video.mp4" autoplay muted loop playsinline></video>
-                            </div>
 
+    <iframe class="only-desktop mainifr" id="mainifr" scrolling="yes" src="iframe.html"></iframe>
+
+      <!-- mobile hero section start -->
+    <section class="section only-mobile">
+        <div class="sticky-cards-wrapper">
+            <div class="sticky-card">
+                <div class="s-card-image first">
+                    <div class="s-card-content">
+
+                        <div class="p-content">
+                            <!-- <div class="title-tag small">Personal Growth</div> -->
+                            <div class="p-m">What good is living long, if you don’t live well? </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+            <div data-w-id="912aa387-5411-7d4c-e73c-01509f134f2e" class="sticky-card">
+                <div class="s-card-image _002">
+                    <div class="s-card-content">
 
+                        <div class="p-content">
+                            <!-- <div class="title-tag small">Personal Growth</div> -->
+                            <div class="p-m">Wouldn’t you rather avoid the pill than swallow it? </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-w-id="f92ba5ac-7736-6113-fa2a-de37dbf2da05" class="sticky-card">
+                <div class="s-card-image _003">
+                    <div class="s-card-content">
+                        <div class="p-content">
+                            <!-- <div class="title-tag small">Personal Growth</div> -->
+                            <div class="p-m">Why not own a home that serves you?</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- mobile hero section end -->
     <!-- <div class="page-wrapper only-desktop">
         <div class="section">
             <div data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c00e9" class="track-6">
@@ -831,6 +826,13 @@
         <div class="main-spinner">
             <div class="spinner-l-wrapper">
                 <div class="spinner-container">
+
+
+                     <div class="h-l">Active living,<br>
+                        built into every<br>
+                        corner of your life
+                    </div>
+
                     <!-- Card 1 -->
                     <div class="spinner-c" data-rotation="0">
                         <div class="spinner-cards"> <h3>Safe Haven</h3>
@@ -923,17 +925,7 @@
             </div>
         </div>
         
-        <div data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c0110" class="content-spinner-wrapper">
-            <div class="content-spinner">
-                <div class="inner-heading-s">
-                     
-                    <div class="h-l">Active living,<br>
-                        built into every<br>
-                        corner of your life
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
     <script>
@@ -1220,45 +1212,7 @@
         });
     </script>
 
-
-    <!-- mobile hero section start -->
-    <section class="section only-mobile">
-        <div class="sticky-cards-wrapper">
-            <div class="sticky-card">
-                <div class="s-card-image first">
-                    <div class="s-card-content">
-
-                        <div class="p-content">
-                            <!-- <div class="title-tag small">Personal Growth</div> -->
-                            <div class="p-m">What good is living long, if you don’t live well? </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div data-w-id="912aa387-5411-7d4c-e73c-01509f134f2e" class="sticky-card">
-                <div class="s-card-image _002">
-                    <div class="s-card-content">
-
-                        <div class="p-content">
-                            <!-- <div class="title-tag small">Personal Growth</div> -->
-                            <div class="p-m">Wouldn’t you rather avoid the pill than swallow it? </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div data-w-id="f92ba5ac-7736-6113-fa2a-de37dbf2da05" class="sticky-card">
-                <div class="s-card-image _003">
-                    <div class="s-card-content">
-                        <div class="p-content">
-                            <!-- <div class="title-tag small">Personal Growth</div> -->
-                            <div class="p-m">Why not own a home that serves you?</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- mobile hero section end -->
+  
 
     <div class="main-container only-desktop">
         <section id="header" class="home-header">
