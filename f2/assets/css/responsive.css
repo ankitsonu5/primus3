@@ -352,10 +352,11 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    padding: 3rem 0 0 0;
+    padding: 4rem 0 4rem 0;
 }
   .footer-policy-sec {
   justify-self: flex-start;
+  padding: 12px 0 !important;
   }
     .footer-social-media {
         grid-column: auto;

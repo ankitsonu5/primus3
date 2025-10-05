@@ -5,35 +5,340 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primus</title>
+    <!-- shoelac cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+
     <!-- <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> -->
     <script src="https://kit.fontawesome.com/0823a66b46.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+    <link rel="stylesheet" href="../custstyle.css">
+    <link rel="stylesheet" href="./custresponsive.css">
     <link rel="stylesheet" href="./assets/css/livinghub.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/about.css">
+    <link rel="stylesheet" href="../mobmenustyle.css">
+
+
+
+        <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+        <!-- // Register GSAP plugins -->
+    <script>
+        // Register GSAP plugins
+        gsap.registerPlugin(ScrollTrigger);
+
+        class CircularSpinnerAnimation {
+            constructor() {
+                this.container = document.querySelector('[data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c00e9"]');
+                this.spinnerContainer = this.container.querySelector('.spinner-container');
+                this.columns = Array.from(this.container.querySelectorAll('.spinner-c'));
+                this.cards = Array.from(this.container.querySelectorAll('.spinner-cards'));
+                this.timeline = null;
+                this.isReversed = false;
+                this.currentSpeed = 1;
+
+                this.init();
+            }
+
+            init() {
+                this.setupInitialPositions();
+                this.createScrollAnimation();
+                this.animateCenterTextFade();
+                this.addInteractivity();
+                console.log('🎡 Horizontal to Circle Animation initialized with 9 cards!');
+            }
+
+            setupInitialPositions() {
+                // Set initial horizontal positions (like in index.html)
+                // Cards will be positioned in a horizontal line initially
+                const totalCards = this.columns.length;
+                const angleStep = 360 / totalCards;
+
+                this.columns.forEach((column, index) => {
+                    const initialAngle = index * angleStep;
+
+                    // Set initial state - horizontal line
+                    gsap.set(column, {
+                        rotation: initialAngle,
+                        transformOrigin: 'center center',
+                        willChange: 'transform'
+                    });
+                });
+
+                console.log(`✅ Initial positions set for ${this.columns.length} cards`);
+            }
+
+            createScrollAnimation() {
+                const totalCards = this.columns.length;
+                const radius = 250; // Radius of the circle in pixels
+
+                // Create scroll-triggered animation for each card
+                this.columns.forEach((column, index) => {
+                    const angleStep = 360 / totalCards;
+                    const finalAngle = index * angleStep;
+                    const radian = (finalAngle * Math.PI) / 180;
+
+                    // Calculate final circular position
+                    const finalX = Math.cos(radian) * radius;
+                    const finalY = Math.sin(radian) * radius;
+
+                    // Animate from horizontal line to circle position
+                    gsap.to(column, {
+                        x: finalX,
+                        y: finalY,
+                        rotation: finalAngle + 360, // Rotate while moving to circle
+                        ease: "power2.inOut",
+                        scrollTrigger: {
+                            trigger: this.container,
+                            start: "top bottom",
+                            end: "center center",
+                            scrub: 1,
+                            onUpdate: (self) => {
+                                if (index === 0) {
+                                    console.log(`🎯 Circle formation: ${Math.round(self.progress * 100)}%`);
+                                }
+                            }
+                        }
+                    });
+                });
+
+                // Rotate the entire circle after formation
+                gsap.to(this.spinnerContainer, {
+                    rotation: 360,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: this.container,
+                        start: "center center",
+                        end: "bottom top",
+                        scrub: 1,
+                        onUpdate: (self) => {
+                            console.log(`🔄 Circle rotation: ${Math.round(self.progress * 100)}%`);
+                        }
+                    }
+                });
+
+                // Add floating effect to cards
+                this.cards.forEach((card, index) => {
+                    gsap.to(card, {
+                        y: "+=10",
+                        duration: 2 + (index * 0.2),
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: index * 0.1
+                    });
+                });
+
+                console.log('🎯 Scroll-based circle formation animation created!');
+            }
+
+            animateCenterTextFade() {
+                const centerText = document.querySelector('.content-spinner-wrapper');
+
+                if (centerText) {
+                    // Fade out center text as user scrolls down
+                    gsap.to(centerText, {
+                        opacity: 0,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: this.container,
+                            start: "top top",
+                            end: "30% top",
+                            scrub: 1,
+                            onUpdate: (self) => {
+                                console.log(`✨ Center text opacity: ${Math.round((1 - self.progress) * 100)}%`);
+                            }
+                        }
+                    });
+                }
+
+                console.log('✨ Center text fade out animation created!');
+            }
+
+            addInteractivity() {
+                this.cards.forEach((card, index) => {
+                    card.addEventListener('click', () => {
+                        console.log(`🎯 Card ${index + 1} clicked!`);
+                    });
+                });
+
+                console.log('✅ Interactive effects added to all cards');
+            }
+
+            // Control methods for scroll-based animation
+            play() {
+                ScrollTrigger.getAll().forEach(st => st.enable());
+                console.log('▶️ Animation enabled');
+            }
+
+            pause() {
+                ScrollTrigger.getAll().forEach(st => st.disable());
+                console.log('⏸️ Animation paused');
+            }
+
+            setSpeed(speed) {
+                this.currentSpeed = speed;
+                ScrollTrigger.getAll().forEach(st => {
+                    st.vars.scrub = speed;
+                    st.refresh();
+                });
+                console.log(`⚡ Speed set to ${speed}x`);
+            }
+
+            reset() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                console.log('🔄 Scrolled to top');
+            }
+
+            toggleDirection() {
+                this.isReversed = !this.isReversed;
+                console.log(`🔄 Direction toggle (feature coming soon)`);
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for images to load
+            const images = document.querySelectorAll('.cover-image');
+            const progressBar = document.getElementById('loadingProgressBar');
+            let loadedImages = 0;
+            const totalImages = images.length;
+
+            const updateProgress = () => {
+                const progress = (loadedImages / totalImages) * 100;
+                if (progressBar) {
+                    progressBar.style.width = `${progress}%`;
+                }
+            };
+
+            const checkAllImagesLoaded = () => {
+                loadedImages++;
+                updateProgress();
+
+                if (loadedImages === totalImages) {
+                    // All images loaded, initialize animation
+                    window.spinnerAnimation = new CircularSpinnerAnimation();
+
+                    // Hide loading overlay
+                    setTimeout(() => {
+                        const loadingOverlay = document.getElementById('loadingOverlay');
+                        if (loadingOverlay) {
+                            loadingOverlay.classList.add('hidden');
+                            console.log(`✅ All ${totalImages} images loaded, animation ready!`);
+                        }
+                    }, 500);
+                }
+            };
+
+            // Add load event listeners to all images
+            images.forEach(img => {
+                if (img.complete) {
+                    checkAllImagesLoaded();
+                } else {
+                    img.addEventListener('load', checkAllImagesLoaded);
+                    img.addEventListener('error', () => {
+                        console.warn('⚠️ Image failed to load:', img.src);
+                        checkAllImagesLoaded(); // Handle errors gracefully
+                    });
+                }
+            });
+
+            // Fallback: If no images or all already loaded
+            if (totalImages === 0) {
+                window.spinnerAnimation = new CircularSpinnerAnimation();
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                }
+            }
+
+            // Add scroll progress tracking
+            window.addEventListener('scroll', () => {
+                const scrollProgressBar = document.getElementById('scrollProgressBar');
+                if (scrollProgressBar) {
+                    const windowHeight = window.innerHeight;
+                    const documentHeight = document.documentElement.scrollHeight;
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+                    scrollProgressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
+                }
+            });
+
+            // Add keyboard controls
+            document.addEventListener('keydown', (e) => {
+                if (!window.spinnerAnimation) return;
+
+                switch (e.key) {
+                    case ' ': // Spacebar - toggle pause/play
+                        e.preventDefault();
+                        if (window.spinnerAnimation.scrollRotation?.scrollTrigger?.isActive) {
+                            window.spinnerAnimation.pause();
+                        } else {
+                            window.spinnerAnimation.play();
+                        }
+                        console.log('⌨️ Spacebar pressed - toggled animation');
+                        break;
+                    case 'r':
+                    case 'R': // R - reset
+                        window.spinnerAnimation.reset();
+                        console.log('⌨️ R pressed - reset animation');
+                        break;
+                    case 'd':
+                    case 'D': // D - toggle direction
+                        window.spinnerAnimation.toggleDirection();
+                        console.log('⌨️ D pressed - toggled direction');
+                        break;
+                    case '1': // 1 - slow speed
+                        window.spinnerAnimation.setSpeed(0.5);
+                        console.log('⌨️ 1 pressed - slow speed');
+                        break;
+                    case '2': // 2 - normal speed
+                        window.spinnerAnimation.setSpeed(1);
+                        console.log('⌨️ 2 pressed - normal speed');
+                        break;
+                    case '3': // 3 - fast speed
+                        window.spinnerAnimation.setSpeed(2);
+                        console.log('⌨️ 3 pressed - fast speed');
+                        break;
+                }
+            });
+
+            console.log('⌨️ Keyboard controls enabled: Space (pause/play), R (reset), D (direction), 1/2/3 (speed)');
+        });
+    </script>
 </head>
 
 <body>
+    <!-- desktop menu code -->
     <div class="main-container">
-        <section id="header" class=" only-desktop">
+        <section id="header" class="home-header">
             <div class="banner">
+                <div class="banner-tagline">
+                    <h1>What's the point<br>of living long if you<br>aren't living well?</h1>
+                </div>
+
                 <div class="bannerimg">
-                    <img src="./assets/images/livinghub images/Living Well Hub Banner 1.png" />
+                    <img class="bannerimgdesktop" src="./assets/images/livinghub images/Living-Well-Hub-Banner.png" />
+                    <img class="bannerimgmobile" src="./assets/images/livinghub images/Living-Well-Hub-Mobile.png" />
                 </div>
             </div>
-
             <div class="navbar">
                 <div class="logo">
                     <img src="./assets/images/primus-logo.png" alt="logo">
                 </div>
                 <div class="menu">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Communities </a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Our Communities</a></li>
                         <li><a href="#">The Primus Lifestyle</a></li>
-                        <li><a href="#">Living Well Hub</a></li>
+                        <li><a href="./livinghub.html">Living Well Hub</a></li>
                         <li><a href="#">Partner With Us</a></li>
-                        <li><a href="#">Contact Us </a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -55,9 +360,80 @@
                     </details>
                 </div>
             </div>
-
-
         </section>
+    </div>
+
+    <!-- mobile menu design start -->
+    <section id="mobilemenudesignsec" class="only-mobile">
+        <div class="overlay" onclick="closeMenu()"></div>
+
+        <div class="menu-container">
+            <div class="menu-header collapsed">
+                <div class="logo"><img src="./assets/images/primus-logo.png" alt=""></div>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <img src="./assets/images/menu-open.png" alt="Menu" class="menu-img menu-open-icon">
+                    <img src="./assets/images/menu-close.png" alt="Close" class="menu-img menu-close-icon">
+                </div>
+
+            </div>
+            <div class="menu-content">
+                <a href="index.html" class="menu-item">Home</a>
+                <a href="./f2/about.html" class="menu-item">About Us</a>
+                <a href="#" class="menu-item">Our Communities</a>
+                <a href="#" class="menu-item">The Primus Lifestyle</a>
+                <a href="#" class="menu-item">Living Well Hub</a>
+                <a href="#" class="menu-item">Partner With Us</a>
+                <a href="#" class="menu-item">Contact Us</a>
+                <button class="enquiry-btn">ENQUIRY <i class="fa-solid fa-angle-down"></i></button>
+            </div>
+        </div>
+    </section>
+    <!-- mobile menu design end -->
+
+
+    <div class="main-container">
+        <!-- <section id="header" class=" only-desktop">
+            <div class="banner">
+                <div class="bannerimg">
+                    <img src="./assets/images/livinghub images/Living Well Hub Banner 1.png" />
+                </div>
+            </div>
+
+            <div class="navbar">
+                <div class="logo">
+                    <img src="./assets/images/primus-logo.png" alt="logo">
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Communities</a></li>
+                        <li><a href="#">The Primus Lifestyle</a></li>
+                        <li><a href="#">Living Well Hub</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="enquiry-wrap">
+                    <details class="enquiry">
+                        <summary>
+                            ENQUIRY
+                            <svg class="caret" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </summary>
+
+                        <ul class="enquiry-menu" role="menu" aria-label="Enquiry options">
+                            <li role="menuitem"><a href="email">EMAIL</a></li>
+                            <li role="menuitem"><a href="whatsapp">WHATSAPP</a></li>
+                            <li role="menuitem"><a href="form">FORM</a></li>
+                        </ul>
+                    </details>
+                </div>
+            </div>
+        </section> -->
 
         <!--The living hub start-->
         <!--For Desktop-->
@@ -81,10 +457,10 @@
             <div class="theliving">
                 <div class="theliving-txt-mob">
                     <h1>The Living Well Hub</h1>
-                    <p>The Living Well Hub at Primus<br> combines thoughtful design, smart<br> technology, and global
-                        practices<br>
-                        to create wellness-focused homes for<br> every generation.<br><br>
-                        From slip-free floors to safe play<br> zones, Primus homes adapt to every<br> stage of life.</p>
+                    <p>The Living Well Hub at Primus combines thoughtful design, smart technology, and global
+                        practices
+                        to create wellness-focused homes for every generation.<br> <br>
+                        From slip-free floors to safe play zones, Primus homes adapt to every stage of life.</p>
                 </div>
                 <div class="theliving-img-mob">
                     <img src="./assets/images/livinghub images/living hub 1.png" alt="Image">
@@ -111,7 +487,6 @@
         </section>
 
         <!--For Mobile-->
-
         <section id="the-living" class="only-mobile">
             <div class="theliving">
                 <div class="theliving-txt-mob">
@@ -142,19 +517,12 @@
                         </svg>
 
                         <!-- <div class="badge" aria-hidden="true">14 × 7</div> -->
-
-
-
-
-                        <button class="item simple-item" role="listitem" tabindex="0"
-                            aria-label="Personalised settings">
+                        <button class="item simple-item" role="listitem" tabindex="0" aria-label="Movement friendly">
                             <div class="leading">
                                 <div class="title">
                                     <h2>Voice-enabled comfort</h2>
                                 </div>
-                                <div class="subtitle">
-                                    Alexa for lights, fans, curtains
-                                </div>
+                                <div class="subtitle">Easily accessible and intuitive for all movement needs.</div>
                             </div>
                             <div class="meta">
                                 <span class="chev" aria-hidden="true">
@@ -168,12 +536,12 @@
                         </button>
 
 
-                        <button class="item simple-item" role="listitem" tabindex="0" aria-label="Future-ready">
+                        <button class="item simple-item" role="listitem" tabindex="0" aria-label="Movement friendly">
                             <div class="leading">
                                 <div class="title">
-                                    <h2>Personalised settings</h2>
+                                    <h2>Personalised Setting</h2>
                                 </div>
-                                <div class="subtitle">Technology that adapts to upcoming trends and standards.</div>
+                                <div class="subtitle">Easily accessible and intuitive for all movement needs.</div>
                             </div>
                             <div class="meta">
                                 <span class="chev" aria-hidden="true">
@@ -208,7 +576,7 @@
                         <button class="item simple-item" role="listitem" tabindex="0" aria-label="Movement friendly">
                             <div class="leading">
                                 <div class="title">
-                                    <h2>Movement friendly
+                                    <h2>Movement friendly</h2>
                                 </div>
                                 <div class="subtitle">Easily accessible </h2>and intuitive for all movement needs.</div>
                             </div>
@@ -229,52 +597,54 @@
                 </div>
             </div>
         </section>
-
         <!--For Mobile-->
-
-
         <section id="the-living" class="only-mobile">
             <div class="theliving">
                 <div class="theliving-txt-mob">
                     <h1>Smart Homes,<br> Smart Living</h1>
+                    <div class="mouse-dragging">
+                        <sl-carousel pagination class="sl-carousel-mob-smarthome">
+                            <sl-carousel-item>
+                                <img alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
+                                    src="./assets/images/livinghub images/Mob-smart-homes.png" />
+                                    
+                                    <h3 class="smarthomeheadsl">Voice-enabled comfort</h3>
+                                    <p class="smarthomeparasl">Alexa for lights, fans, curtains</p>
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A waterfall in the middle of a forest (by Thomas Kelly on Unsplash)"
+                                    src="./assets/images/livinghub images/Mob-smart-homes.png" />
+                                    <h3 class="smarthomeheadsl">Voice-enabled comfort</h3>
+                                    <p class="smarthomeparasl">Alexa for lights, fans, curtains</p>
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
+                                   src="./assets/images/livinghub images/Mob-smart-homes.png" />
+                                  <h3 class="smarthomeheadsl">Voice-enabled comfort</h3>
+                                    <p class="smarthomeparasl">Alexa for lights, fans, curtains</p>
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
+                                    src="./assets/images/livinghub images/Mob-smart-homes.png" />
+                                    <h3 class="smarthomeheadsl">Voice-enabled comfort</h3>
+                                    <p class="smarthomeparasl">Alexa for lights, fans, curtains</p>
+                            </sl-carousel-item>
+                        </sl-carousel>
 
-                    <div class="carousel">
-                        <div class="carousel-slide active">
-                            <img src="./assets/images/livinghub images/smart homes.png" alt="">
-                            <div class="carousel-text">
-                                <h3>Voice-enabled comfort</h3>
-                                <p>Alexa for lights, fans, curtains</p>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./assets/images/livinghub images/Mob smart homes.png" alt="">
-                            <div class="carousel-text">
-                                <h3>Voice-enabled comfort</h3>
-                                <p>Alexa for lights, fans, curtains</p>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./assets/images/livinghub images/Mob smart homes.png" alt="">
-                            <div class="carousel-text">
-                                <h3>Voice-enabled comfort</h3>
-                                <p>Alexa for lights, fans, curtains</p>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./assets/images/livinghub images/Mob smart homes.png" alt="">
-                            <div class="carousel-text">
-                                <h3>Voice-enabled comfort</h3>
-                                <p>Alexa for lights, fans, curtains</p>
-                            </div>
-                        </div>
+
+                        
                     </div>
 
-                    <div class="carousel-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
+                    <script>
+                        const container = document.querySelector('.mouse-dragging');
+                        const carousel = container.querySelector('sl-carousel');
+                        const toggle = container.querySelector('sl-switch');
+
+                        toggle.addEventListener('sl-change', () => {
+                            carousel.toggleAttribute('mouse-dragging', toggle.checked);
+                        });
+                    </script>
+
                 </div>
             </div>
         </section>
@@ -307,32 +677,31 @@
             <div class="theliving">
                 <div class="theliving-txt-mob">
                     <h1>Kitchens that<br> Work for All</h1>
+                    <div class="mouse-dragging">
+                        <sl-carousel pagination class="sl-carousel-mob">
+                            <sl-carousel-item>
+                                <img alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
+                                    src="./assets/images/livinghub images/kitchen work 1.png" />
+                                    
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A waterfall in the middle of a forest (by Thomas Kelly on Unsplash)"
+                                    src="./assets/images/livinghub images/kitchen work 2.png" />
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
+                                   src="./assets/images/livinghub images/kitchen work 3.png" />
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
+                                    src="./assets/images/livinghub images/mob kitchen work 1.png" />
+                            </sl-carousel-item>
+                        </sl-carousel>
 
-                    <div class="carousel">
-                        <div class="carousel-slide active">
-                            <img src="./assets/images/livinghub images/mob kitchen work 1.png" alt="">
 
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./assets/images/livinghub images/mob kitchen work 1.png" alt="">
-
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./assets/images/livinghub images/mob kitchen work 1.png" alt="">
-
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./assets/images/livinghub images/mob kitchen work 1.png" alt="">
-
-                        </div>
+                        
                     </div>
 
-                    <div class="carousel-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
                 </div>
             </div>
         </section>
@@ -350,42 +719,40 @@
             </div>
             <div class="multigenerationalsectwo">
                 <div class="secboxdiv">
-                    <div class="secboxdiv-1"><img src="./assets/images/livinghub images/icon one.png" alt=""></div>
+                    <div class="secboxdiv-1"><img src="./assets/images/livinghub images/icon-one.png" alt=""></div>
                     <h3>Smart toilets<br> & grab bars</h3>
                 </div>
                 <div class="secboxdiv">
-                    <div><img src="./assets/images/livinghub images/icon two.png" alt=""></div>
+                    <div><img src="./assets/images/livinghub images/icon-two.png" alt=""></div>
                     <h3>Nightlight<br> sensors</h3>
                 </div>
                 <div class="secboxdiv">
-                    <div><img src="./assets/images/livinghub images/icon three.png" alt=""></div>
+                    <div><img src="./assets/images/livinghub images/icon-three.png" alt=""></div>
                     <h3>Heated<br> towel racks</h3>
                 </div>
             </div>
         </div>
     </section>
-
     <!--For Mobile-->
-
     <section id="thinkaheadsec-mob" class="only-mobile">
         <div class="multigenerationalcont main-container">
             <div class="multigenerationalsecone">
-                <h1 class="primary-heading">Bathrooms that<br> Think Ahead</h1>
+                <h1 class="primary-heading">Bathrooms that Think Ahead</h1>
             </div>
             <div class="multigenerationalsectwo">
                 <div class="secboxdiv">
-                    <div class="secboxdiv-1"><img src="./assets/images/livinghub images/icon one.png" alt=""></div>
+                    <div class="secboxdiv-1"><img src="./assets/images/livinghub images/icon-one.png" alt=""></div>
                     <h3>Smart toilets<br> & grab bars</h3>
                 </div>
                 <div class="secboxdiv">
-                    <div><img src="./assets/images/livinghub images/icon two.png" alt=""></div>
-                    <h3>Nightlight<br> sensors</h3>
+                    <div class="secboxdiv-1"><img src="./assets/images/livinghub images/icon-two.png" alt=""></div>
+                    <h3>Nightlight sensors</h3>
                 </div>
                 <div class="secboxdiv">
-                    <div><img src="./assets/images/livinghub images/icon three.png" alt=""></div>
-                    <h3>Heated<br> towel racks</h3>
+                    <div class="secboxdiv-1"><img src="./assets/images/livinghub images/icon-three.png" alt=""></div>
+                    <h3>Smart toilets<br> & grab bars</h3>
                 </div>
-            </div> 
+            </div>
         </div>
     </section>
     <!-- Think Ahead end -->
@@ -461,7 +828,6 @@
                 </div>
             </div>
         </section>
-
         <!--for Mobile-->
 
         <section id="kitchenwork" class="only-mobile">
@@ -469,77 +835,81 @@
                 <div class="kitchenwork-txt-mob">
                     <h1>It's More Than a<br> Home. It's a Lifestyle.</h1>
 
-                    <div class="carousel">
-                        <div class="carousel-slide activees">
-                            <img src="./assets/images/livinghub images/mob more 1.png" alt="">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./assets/images/livinghub images/mob more 1.png" alt="">
+                   <div class="mouse-dragging">
+                        <sl-carousel pagination class="sl-carousel-mob-itsmoreh">
+                            <sl-carousel-item>
+                                <img alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
+                                    src="./assets/images/livinghub images/kitchen work 1.png" />
+                                    
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A waterfall in the middle of a forest (by Thomas Kelly on Unsplash)"
+                                    src="./assets/images/livinghub images/kitchen work 2.png" />
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
+                                   src="./assets/images/livinghub images/kitchen work 3.png" />
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
+                                    src="./assets/images/livinghub images/mob kitchen work 1.png" />
+                            </sl-carousel-item>
+                        </sl-carousel>
 
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./assets/images/livinghub images/mob more 1.png" alt="">
 
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./assets/images/livinghub images/mob more 1.png" alt="">
-
-                        </div>
-                    </div>
-
-                    <div class="carousel-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+                        
                     </div>
                 </div>
             </div>
         </section>
         <!--It's more than home end-->
 
-        <!--Stay connect start-->
-        <section id="stayconnectsec" class="only-desktop">
+        <!--Stay connect start desktop & Mobiile-->
+        <section id="stayconnectsec" class="">
             <div class="stayconnebtn">
                 <div class="stay-connect">
                     <h1>Stay Connected</h1>
                 </div>
-                <!-- Tabs -->
-                <div class="tabs">
-                    <div class="readbtn">
-                        <button class="tab active" data-target="card1">
-                            <h3>Read</h3>
-                        </button>
-                    </div>
+               
+                    <div class="staycontainerdesk">
+        <div class="tabs-header">
+            <button class="tab-button active" onclick="switchTab(0)">Read</button>
+            <button class="tab-button" onclick="switchTab(1)">Subscribe</button>
+            <button class="tab-button" onclick="switchTab(2)">Connect</button>
+        </div>
 
-                    <div class="readbtn">
-                        <button class="tab" data-target="card2">
-                            <h3>Subscribe</h3>
-                        </button>
-                    </div>
-                    <div class="readbtn">
-                        <button class="tab" data-target="card3">
-                            <h3>Connect</h3>
-                        </button>
-                    </div>
+        <div class="tabs-content">
+            <div class="tab-panel active" onclick="switchTab(0)">
+                <img src="./assets/images/livinghub images/stayconneone.png" alt="" class="tab-image">
+                <div class="tab-overlay">
+                    <p>Explore articles on living well</p>
                 </div>
             </div>
 
-            <!-- Carousel -->
-            <div class="carousel">
-                <div class="card" id="card1"><img src="./assets/images/livinghub images/stay conne 1.png" alt="">
-                </div>
-                <div class="card" id="card2"><img src="./assets/images/livinghub images/stay conne 2.png" alt=""></div>
-                <div class="card" id="card3"><img src="./assets/images/livinghub images/stay conne 3.png" alt="">
+            <div class="tab-panel" onclick="switchTab(1)">
+                <img src="./assets/images/livinghub images/stayconnetwo.png" alt="" class="tab-image">
+                <div class="tab-overlay">
+                   
+                    <p>Get tips and updates</p>
                 </div>
             </div>
+
+            <div class="tab-panel" onclick="switchTab(2)">
+                <img src="./assets/images/livinghub images/stayconnethree.png" alt="Community Forum" class="tab-image">
+                <div class="tab-overlay">
+                    
+                    <p>Join our community forum</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
         </section>
-        <!--Stay connect end-->
+        <!--Stay connect desktop end-->
     </div>
 
     <!-- footer page design tab section start -->
-    <footer id="footersec" class="only-desktop">
+    <footer id="footersec">
         <div class="footercont main-container">
             <div class="mainfootercontup">
                 <div class="footer-logo-sec">
@@ -556,7 +926,7 @@
                 <div class="footer-about-us">
                     <ul>
                         <li><a href="">About Us</a></li>
-                        <li><a href="">terms & Conditions</a></li>
+                        <li><a href="">Terms & Conditions</a></li>
                         <li><a href="">Contact Us</a></li>
                     </ul>
                 </div>
@@ -575,7 +945,6 @@
         </div>
     </footer>
     <!-- footer page design tab section end -->
-
 
     <!--For Mobile Slider-->
     <script>
@@ -601,7 +970,7 @@
 
     </script>
 
-    <script>
+    <!-- <script>
         const tabs = document.querySelectorAll(".tab");
         const cards = document.querySelectorAll(".card");
 
@@ -622,7 +991,7 @@
 
         // Default expand first card
         document.getElementById("card1").classList.add("expanded");
-    </script>
+    </script> -->
 
 
     <script>
@@ -658,14 +1027,45 @@
 
 
                 el.animate([
-                    {transform: 'scale(1)', backgroundColor: 'transparent'},
-                    {transform: 'scale(0.97)', backgroundColor: 'rgba(14,165,233,0.08)'},
-                    {transform: 'scale(1)', backgroundColor: 'transparent'}
-                ], {duration: 300, easing: 'ease-in-out'});
+                    { transform: 'scale(1)', backgroundColor: 'transparent' },
+                    { transform: 'scale(0.97)', backgroundColor: 'rgba(14,165,233,0.08)' },
+                    { transform: 'scale(1)', backgroundColor: 'transparent' }
+                ], { duration: 300, easing: 'ease-in-out' });
             });
         });
     </script>
+<!-- Stay connected desktop & Mobile js code start -->
+     <script>
+        function switchTab(index) {
+            const buttons = document.querySelectorAll('.tab-button');
+            const panels = document.querySelectorAll('.tab-panel');
+
+            buttons.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            panels.forEach((panel, i) => {
+                if (i === index) {
+                    panel.classList.add('active');
+                } else {
+                    panel.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            switchTab(0);
+        });
+    </script>
+<!-- Stay connected desktop & Mobile js code end -->
+
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../mobmenujs.js"></script>
 
 </body>
 

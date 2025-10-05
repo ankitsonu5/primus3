@@ -24,6 +24,66 @@
     color: #000000;
 }
 
+/* hero section design style start */
+.banner {
+    position: relative;
+}
+
+.banner-tagline {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: left;
+    /* width: 80%;  */
+}
+
+.banner-tagline h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 3rem !important;
+    line-height: 64px !important;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    /* margin: 0; */
+}
+
+
+.bannerimg {
+    overflow: hidden;
+    width: 100%;
+}
+
+.bannerimg img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    border-radius: 1.5rem;
+}
+
+.herobannerdwn {
+    background-color: #E6D1DC;
+    padding: 6rem 3rem 3rem 3rem;
+    border-radius: 0 0 4rem 4rem;
+    text-align: left;
+    margin-bottom: 5rem;
+    /* transform: translateY(-4rem); */
+    margin-top: -3rem;
+    /* z-index: 100 !important; */
+}
+
+.herobannerdwn p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    width: 50%;
+}
+/* hero section design style end */
+
 /*The living hub start*/
 
 #the-living {
@@ -34,14 +94,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* gap: 40px; */
+    gap: 40px;
+    padding: 0 2rem;
 }
 
+.theliving-txt {
+    flex: 1 !important;
+}
 .theliving-txt h1 {
     font-family: Montserrat;
     font-weight: 700;
     font-style: Bold;
-    font-size: 80px;
+    font-size: 4rem;
     line-height: 75px;
     letter-spacing: -5%;
     color: #801B53;
@@ -56,6 +120,9 @@
     margin-top: 50px;
 }
 
+.theliving-img {
+    flex: 2 !important;
+}
 .theliving-img img {
     border-radius: 30px;
     width: 100%;
@@ -66,6 +133,7 @@
 /*Talk to us start*/
 #desigen-safety {
     margin: 110px 0px;
+    padding: 0 2rem;
 }
 
 .desigensafety {
@@ -74,10 +142,17 @@
     gap: 30px;
 }
 
-/* 
-.desigen-safetyimg img {
+
+#desigen-safety .desigen-safetyimg {
+    flex: 1;
+}
+#desigen-safety .desigen-safetyimg img{
     width: 100%;
-} */
+}
+#desigen-safety .theliving-txt {
+    flex: 2;
+}
+
 
 /*Talk to us end*/
 
@@ -119,7 +194,9 @@
     cursor: pointer;
     background: transparent;
     transition: background 0.3s, transform 0.25s;
+    padding-left: 0 !important;
 }
+
 
 .item+.item {
     /* border-top: 1px solid var(--divider); */
@@ -237,6 +314,7 @@
     max-height: 200px;
     opacity: 1;
     margin-top: 6px;
+    text-align: left;
 }
 
 .expanded .chev {
@@ -373,7 +451,7 @@ button.item {
     display: flex;
     padding: 2rem 4rem;
     align-items: center;
-    gap: 2rem;
+    gap: 5px;
 }
 
 #thinkaheadsec .multigenerationalsectwo .secboxdiv:not(:last-child) {
@@ -420,7 +498,7 @@ button.item {
     display: flex;
     align-items: center;
     justify-content: center !important;
-    gap: 300px;
+    gap: 5rem;
 }
 
 #homecaresec .homecaresec-img {
@@ -452,13 +530,10 @@ button.item {
 }
 
 /*Stay connect start*/
-
-#stayconnectsec {
-    margin-top: 90px;
-    margin-bottom: 100px;
+#stayconnectsec  {
+       margin: 5rem 0 5rem 0;
 }
-
-.stay-connect h1 {
+#stayconnectsec .stay-connect h1 {
     font-family: Montserrat;
     font-weight: 700;
     font-style: Bold;
@@ -467,79 +542,105 @@ button.item {
     letter-spacing: -5%;
     text-align: center;
     color: #801B53;
+    margin-bottom: 4rem;
 }
 
-/* Tabs */
-.tabs {
-    display: flex;
-    justify-content: center;
-    gap: 180px;
-    margin-bottom: 20px;
-    margin-top: 50px;
-}
+#stayconnectsec .staycontainerdesk {
+            /* max-width: 1200px; */
+            margin: 0 auto;
+        }
 
-.tab {
-    font-family: Montserrat;
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 25px;
-    line-height: 30px;
-    padding: 15px 50px;
-    border-radius: 20px;
-    border: none;
-    background: #e5d7df;
-    cursor: pointer;
-    color: #333;
-    transition: all 0.3s ease;
-}
+        #stayconnectsec .tabs-header {
 
-.tab.active {
-    background: #6b2142;
-    color: white;
-}
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        #stayconnectsec .tab-button {
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+            margin: 0 auto;
+            background: #E6D1DC;
+            color: #000000;
+            font-family: Montserrat;
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 30px;
+            letter-spacing: 0%;
+        }
 
-/* Carousel */
-.carousel {
-    display: flex;
-    gap: 20px;
-    /* max-width: 100%; */
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
+        #stayconnectsec .tab-button:nth-child(1) {
+            margin-right: 2rem !important;
+        }
 
-.card {
-    flex: 0 0 300px;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: width 0.7s ease;
-    margin-top: 50px;
-    padding: 0px 15px;
-    transition: all 0.7s ease;
-    /* smooth expand */
-    transform-origin: left right;
-    /* expand from left */
-}
+        #stayconnectsec .tab-button:nth-child(2) {
+            margin-right: 2rem !important;
+        }
 
-.card img {
-    /* width: 100%; */
-    border-radius: 16px;
-    display: block;
-}
 
-/* Expanded card */
-.card.expanded {
-    /* width: 1400px !important; */
-    flex: 0 0 60%;
-    transform: scale(1.05);
-    z-index: 10;
-}
+        #stayconnectsec .tab-button.active {
+            background: #801B53;
+            color: #fff;
+        }
+        #stayconnectsec .tabs-content {
+            display: flex;
+            gap: 10px;
+            /* height: 500px; */
+            transition: all 0.5s ease;
+        }
 
-.card:not(.expanded) {
-    opacity: 0.7;
-    transform: scale(0.9);
-}
+        #stayconnectsec .tab-panel {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            height: 40rem;
+        }
 
+        #stayconnectsec .tab-panel.active {
+            flex: 0 0 80%;
+        }
+
+        #stayconnectsec .tab-panel:not(.active) {
+            flex: 0 0 10%;
+        }
+
+        #stayconnectsec .tab-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        #stayconnectsec .tab-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+            padding: 30px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #stayconnectsec .tab-panel.active .tab-overlay {
+            opacity: 1;
+        }
+
+        #stayconnectsec .tab-overlay p {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 25px;
+            line-height: 30px;
+            letter-spacing: 0%;
+        }
 /*Stay connect end*/
 
 
@@ -581,8 +682,8 @@ button.item {
         font-family: Montserrat;
         font-weight: 700;
         font-style: Bold;
-        font-size: 67px;
-        line-height: 75px;
+        font-size: 3.5rem;
+        line-height: 64px;
         letter-spacing: -5%;
         color: #801B53;
     }
@@ -591,13 +692,13 @@ button.item {
         font-family: Lato;
         font-weight: 400;
         font-style: Regular;
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 13px;
+        line-height: 16px;
         margin-top: 30px;
     }
 
     .theliving-img {
-        width: 880px
+        /* width: 880px */
     }
 
     .theliving-img img {
@@ -618,7 +719,7 @@ button.item {
     }
 
     .desigen-safetyimg {
-        width: 780px;
+        /* width: 780px; */
     }
 
     .desigen-safetyimg img {
@@ -735,7 +836,7 @@ button.item {
     #homecaresec .homecaresecimg-group {
         padding: 0rem 4rem;
 
-        gap: 230px;
+        /* gap: 230px; */
     }
 
     #homecaresec .homecaresec-img {
@@ -761,7 +862,7 @@ button.item {
 
     /*Stay connect start*/
 
-    #stayconnectsec {
+    /* #stayconnectsec {
         margin-top: 50px;
     }
 
@@ -774,8 +875,6 @@ button.item {
         letter-spacing: -5%;
 
     }
-
-    /* Tabs */
     .tabs {
         margin-top: 40px;
     }
@@ -789,7 +888,6 @@ button.item {
         padding: 15px 35px;
     }
 
-    /* Carousel */
     .carousel {
         gap: 10px;
     }
@@ -799,43 +897,285 @@ button.item {
     }
 
     .card img {
-        /* width: 100%; */
         border-radius: 16px;
         display: block;
     }
-
-    /* Expanded card */
     .card.expanded {
-        /* width: 1400px !important; */
         flex: 0 0 70%;
         transform: scale(1.05);
         z-index: 10;
-    }
+    } */
+/* 
+     .staycontainerdesk {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
+        .tabs-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 0;
+        }
 
+        .tab-button {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+        }
+
+        .tab-button:nth-child(1) {
+            background: #e8d5e8;
+            color: #6b4d6b;
+        }
+
+        .tab-button:nth-child(2) {
+            background: #f0e5f0;
+            color: #7a5d7a;
+        }
+
+        .tab-button:nth-child(3) {
+            background: #5a2d5a;
+            color: white;
+        }
+
+        .tab-button.active:nth-child(1) {
+            background: #d4b5d4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 77, 107, 0.3);
+        }
+
+        .tab-button.active:nth-child(2) {
+            background: #dcc5dc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(122, 93, 122, 0.3);
+        }
+
+        .tab-button.active:nth-child(3) {
+            background: #6b3d6b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(90, 45, 90, 0.4);
+        }
+
+        .tabs-content {
+            display: flex;
+            gap: 10px;
+            height: 500px;
+            transition: all 0.5s ease;
+        }
+
+        .tab-panel {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .tab-panel.active {
+            flex: 0 0 80%;
+        }
+
+        .tab-panel:not(.active) {
+            flex: 0 0 10%;
+        }
+
+        .tab-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tab-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+            padding: 30px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .tab-panel.active .tab-overlay {
+            opacity: 1;
+        }
+
+        .tab-overlay h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .tab-overlay p {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .tab-label {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-90deg);
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .tab-panel:not(.active) .tab-label {
+            opacity: 1;
+        }
+ */
 
     /*Stay connect end*/
 
     #footersec {
         margin-top: 100px;
     }
+        #the-living .theliving-txt h1 {
+        font-size: 3rem;
+        line-height: 55px;
+    }
+}
 
+@media screen and (max-width: 1024px) {
+    .title h2 {
+    font-size: 24px;
+    line-height: 32px;
+}
+    .banner-tagline h1 {
+        font-size: 35px !important;
+        line-height: 40px !important;
+    }
+    .kitchenwhork-txt h1 {
+    font-size: 50px;
+    line-height: 64px;
+}
+#stayconnectsec .stay-connect h1 {
+    font-size: 5    0px;
+}
+    .theliving-txt h1 {
+        font-size: 3rem;
+        line-height: 54px;
+    }
+        .theliving-txt h1 {
+        font-size: 2rem;
+    }
+        .theliving-txt p {
+        font-size: 12px;
+        line-height: 14px;
+        margin-top: 14px;
+    }
+    .theliving-img {
+    flex: 1.5 !important;
+}
+#homecaresec .homecaresecimg-group {
+    gap: 5rem;
+}
+#homecaresec div img{
+    width: 3rem;
+}
+    #homecaresec .homecaresec-img h2 {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    #homecaresec .homecaresec-img {
+    gap: 22px;
+}
+#stayconnectsec .tab-button {
+    padding: 0.5rem 3rem;
+}
+}
+
+ @media (min-width: 769px) {
+   
+.bannerimgmobile {
+    display: none !important;
+}
+#thinkaheadsec .multigenerationalsectwo .secboxdiv {
+    padding: 5px 5px !important;
+}
+#thinkaheadsec .multigenerationalsecone h1 {
+    margin-bottom: 2rem;
+    color: #fff;
+    padding-right: 3rem;
+    font-size: 2rem;
+    line-height: 4rem;
+}
+#thinkaheadsec .multigenerationalsectwo .secboxdiv h3 {
+    font-size: 15px;
+    line-height: 22px;
+}
 }
 
 @media screen and (max-width: 768px) {
+    .main-container {
+    width: 90% !important;
+}
+    
+#the-living .sl-carousel-mob-smarthome{
+    min-height: 30rem !important;
+}
+.sl-carousel-mob-itsmoreh {
+    min-height: 30rem !important;
+}
+            #stayconnectsec .tabs-content {
+                flex-direction: column;
+                height: 500px;
+            }
+                #stayconnectsec .tab-button {
+        padding: 5px 2rem;
+        font-size: 1rem;
+    }
+    #stayconnectsec .tab-button:nth-child(1) {
+    margin-right: 0.5rem !important;
+}
+    #stayconnectsec .tab-button:nth-child(2) {
+    margin-right: 0.5rem !important;
+}
+            #stayconnectsec .tab-panel.active {
+                flex: 0 0 100%;
+            }
+            #stayconnectsec .tab-panel:not(.active) {
+                display: none;
+            }
+            #stayconnectsec .tab-label {
+                transform: translateX(-50%) rotate(0deg);
+                bottom: 50%;
+                transform: translate(-50%, 50%);
+            }
+            #stayconnectsec .stay-connect h1 {
+    display: none;
+}
 
     /*The living hub start*/
 
     /* #the-living {
     margin-top: 40px;
 }*/
-
+.multigenerationalsectwo {
+    width: 100% !important;
+}
+    .bannerimgdesktop {
+        display: none !important;
+    }
     .theliving {
         flex-direction: column;
         align-items: flex-start;
-        padding: 45px;
+        padding: 1rem !important;
     }
-
 
     .theliving-txt-mob h1 {
         font-family: Montserrat;
@@ -851,19 +1191,24 @@ button.item {
         font-family: Lato;
         font-weight: 400;
         font-style: Regular;
-        font-size: 3vw;
-        line-height: 30px;
-        margin-top: 30px;
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 0%;
+    }
+    .theliving-txt-mob p {
+        margin-left: 0 !important;
+    }
+    .theliving-txt-mob h1 {
+        margin-bottom: 1.5rem;
     }
 
     .theliving-img-mob {
-        max-width: 670px;
+        width: 100%;
     }
-
-
     .theliving-img-mob img {
         width: 100%;
         margin-top: 20px;
+        border-radius: 10px;
     }
 
     /*The living hub end*/
@@ -877,24 +1222,36 @@ button.item {
     /*Design Safety end*/
 
     /*Think Ahead start*/
-
     #thinkaheadsec-mob .multigenerationalsecone h1 {
     /* margin-bottom: 2rem; */
     color: #fff;
     font-family: Montserrat;
-font-weight: 700;
-font-style: Bold;
-font-size: 17px;
-line-height: 30px;
-letter-spacing: -5%;
-padding: 40px;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 2rem;
+    line-height: 30px;
+    letter-spacing: -5%;
+    /* padding: 40px; */
 }
+#thinkaheadsec-mob .multigenerationalsecone {
+    width: 100% !important;
+    /* margin-bottom: 2rem; */
+}
+    .secboxdiv {
+        display: flex;
+        align-items: center;
+        gap: 1rem !important;
+        margin:  0 !important;
+        padding: 3rem 0 !important;
+    }
 
+#homecaresec .homecaresec-heading-mob {
+    padding: 0 !important;
+}
 #thinkaheadsec-mob {
-    padding: 1rem !important;
     background: #801B53;
     margin-bottom: 1rem;
-    /* margin-top: 120px; */
+    padding: 7rem 1rem !important;
 }
 
 #thinkaheadsec-mob .multigenerationalcont {
@@ -955,7 +1312,9 @@ color: white;
         font-size: 20px;
         line-height: 25px;
     } */
-
+.sl-carousel-mob {
+    min-height: 30rem !important;
+}
 
     .carousel {
         width: 100%;
@@ -1060,6 +1419,7 @@ color: white;
 
     #kitchenwork {
         margin-top: 0px;
+        margin-bottom: 2rem;
     }
 
     .primary-heading {
@@ -1074,19 +1434,32 @@ color: white;
 
     #homecaresec {
     padding: 0 0 0rem 0;
+    margin: 4rem 0 !important;
 
 }
     #homecaresec .homecaresecimg-group {
         flex-direction: column;
         gap: 50px;
         align-items: flex-start;
-        padding: 0px 50px;
+        padding: 0 0;
+        margin-bottom: 3rem;
+    }
+        #homecaresec div img {
+        width: 4rem;
     }
 
     .homecaresec-img-mob h3 {
-        font-size: 25px;
-        line-height: 30px;
+        font-family: Montserrat;
+font-weight: 700;
+font-style: Bold;
+font-size: 25px;
+line-height: 30px;
+letter-spacing: 0%;
+
     }
+   #kitchenwork sl-carousel-item img {
+        border-radius: 10px;
+   }
 
     .homecaresec-img-mob {
         display: flex;
@@ -1101,6 +1474,7 @@ color: white;
     #homecaresec .homecaresec-heading-mob {
         padding: 50px;
         align-items: flex-start;
+        margin-bottom: 3rem;
     }
 
     /*Homes Care start*/
@@ -1108,24 +1482,77 @@ color: white;
     /*It's more than home start*/
     .kitchenwork-txt-mob h1 {
         font-family: Montserrat;
-font-weight: 700;
-font-style: Bold;
-font-size: 30px;
-line-height: 35px;
-letter-spacing: -5%;
-color: #801B53;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 30px;
+        line-height: 35px;
+        letter-spacing: -5%;
+        color: #801B53;
     }
 
-
-
     /*It's more than home end*/
-
+.smarthomeheadsl {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0%;
+    text-align: left !important;
+    margin-top: 1rem;
+}
+.smarthomeparasl {
+font-family: Lato;
+font-weight: 400;
+font-style: Regular;
+font-size: 20px;
+line-height: 25px;
+letter-spacing: 0%;
+margin-top: 1rem !important;
+}
+sl-carousel::part(pagination-item) {
+  background-color: hsl(0, 0%, 0%);
+  opacity: 1;
+}
+sl-carousel::part(pagination-item--active) {
+  outline: 2px solid black;
+  outline-offset: 3px;
+}
 }
 /*For Mobile*/
+@media screen and (max-width: 650px) {
+.sl-carousel-mob {
+    min-height: 20rem !important;
+}
+.sl-carousel-mob-itsmoreh {
+    min-height: 23rem !important;
+}
+}
+@media screen and (max-width: 550px) {
+        .main-container {
+    width: 95% !important;
+}
+.sl-carousel-mob {
+    min-height: 16rem !important;
+}
+#the-living .sl-carousel-mob-smarthome{
+    min-height: 23rem !important;
+}
+.sl-carousel-mob-itsmoreh {
+    min-height: 20rem !important;
+}
+}
 
 @media screen and (max-width: 480px) {
+    .theliving-txt-mob h1 {
+        margin-bottom: 1rem;
+    }
 
-
+        #stayconnectsec .tab-button {
+        padding: 0px 2rem;
+        font-size: 10px;
+        font-weight: 800;
+    }
     /*The living hub start*/
         .theliving-txt-mob p {
         line-height: 20px;
@@ -1162,9 +1589,69 @@ color: #801B53;
         }
 
             #homecaresec .homecaresecimg-group {
-        gap: 40px;
+        /* gap: 40px; */
         padding: 0px 15px;
         margin-top: 25px;
     }
     /*Think Ahead end*/
+    #the-living .sl-carousel-mob-smarthome{
+    min-height: 20rem !important;
 }
+.sl-carousel-mob-itsmoreh {
+    min-height: 18rem !important;
+}
+.kitchenwork-txt-mob h1 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+.sl-carousel-mob {
+    min-height: 12rem !important;
+}
+.sl-carousel-mob-itsmoreh {
+    min-height: 14rem !important;
+}
+}
+
+
+@media screen and (max-width: 375px) {
+            #stayconnectsec .tab-button {
+        padding: 0px 1.5rem;
+        font-size: 8px;
+        font-weight: 900;
+    }
+        .smarthomeparasl {
+        margin-top: 0.2rem !important;
+        font-size: 18px;
+    }
+    #stayconnectsec .tab-overlay p {
+    font-size: 18px;
+}
+    .smarthomeheadsl {
+        font-size: 22px;
+    }
+}
+
+/* ************** code for desktop and mobile view *****************/
+.only-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .only-mobile {
+    display: block !important;
+  }
+}
+
+.only-desktop {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .only-desktop {
+    display: none !important;
+  }
+}
+
+/* ************** code for desktop and mobile view *****************/

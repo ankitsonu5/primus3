@@ -74,10 +74,10 @@
     gap: 30px;
 }
 
-/* 
+
 .desigen-safetyimg img {
     width: 100%;
-} */
+}
 
 /*Talk to us end*/
 
@@ -819,6 +819,13 @@ button.item {
     #footersec {
         margin-top: 100px;
     }
+
+}
+
+@media screen and (max-width: 1024px) {
+       .desigen-safetyimg img {
+        width: 100%;
+       }
 
 }
 

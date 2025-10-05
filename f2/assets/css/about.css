@@ -32,7 +32,7 @@
 .banner-tagline {
     position: absolute;
     top: 50%;
-    left: 20%;
+    left: 24%;
     transform: translate(-50%, -50%);
     z-index: 10;
     text-align: left;
@@ -42,8 +42,8 @@
 .banner-tagline h1 {
     font-family: Montserrat;
     font-weight: 700;
-    font-size: 3rem !important;
-    line-height: 64px !important;
+    font-size: 4rem !important;
+    line-height: 75px !important;
     color: #fff;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     /* margin: 0; */
@@ -81,9 +81,7 @@
     line-height: 25px;
     letter-spacing: 0%;
     width: 50%;
-
 }
-
 /* hero section design style end */
 
 /* Scroll Animation Styles */
@@ -1066,6 +1064,7 @@ html, body { overflow-x: clip; }
     padding: 6rem 3rem 3rem 3rem;
 }
  }
+
  @media (max-width: 1366px) {
     .main-container {
         /* max-width: calc(1250px - 5%); */
@@ -1091,6 +1090,10 @@ html, body { overflow-x: clip; }
     }
     .herobannerdwn p {
     width: 64%;
+}
+.banner-tagline h1 {
+    font-size: 3rem !important;
+    line-height: 64px !important;
 }
  }
 
@@ -1289,6 +1292,14 @@ letter-spacing: 0%;
 }
 
  @media (max-width: 480px) {
+   
+
+ }
+ @media (max-width: 400px) {
+    .banner-tagline h1 {
+        font-size: 1.5rem !important;
+        line-height: 34px !important;
+    }
 
  }
  /* ***************  breakdown point for other styles end *********************** */
