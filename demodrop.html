@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Living - Primus Sangama</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 14px 32px;
+            border: 2px solid #6b2d5c;
+            background: white;
+            color: #6b2d5c;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .tab.active {
+            background: #6b2d5c;
+            color: white;
+        }
+
+        .tab:hover:not(.active) {
+            background: #f0e6ed;
+        }
+
+        .tab-dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dropdown-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-arrow.open {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu with Stacking Effect */
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            width: 100%;
+            background: white;
+            border: 2px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .dropdown-menu.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 18px 24px;
+            border-bottom: 2px solid #333;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 16px;
+            text-align: center;
+            position: relative;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background: #f5f5f5;
+            transform: translateX(4px);
+        }
+
+        /* Card Container */
+        .card-container {
+            background: linear-gradient(135deg, #e8d5e8 0%, #d4b5d4 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .card-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .image-section {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .info-section {
+            padding: 20px;
+        }
+
+        .info-section h2 {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .info-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 15px;
+            color: #1a1a1a;
+        }
+
+        .location::before {
+            content: "📍";
+            font-size: 18px;
+        }
+
+        .cta-button {
+            background: #6b2d5c;
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #54234a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 45, 92, 0.3);
+        }
+
+        /* Carousel Dots */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #333;
+            width: 12px;
+            height: 12px;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 12px;
+            }
+
+            .tabs {
+                gap: 8px;
+                margin-bottom: 20px;
+            }
+
+            .tab {
+                padding: 10px 16px;
+                font-size: 11px;
+                flex: 1;
+                min-width: fit-content;
+            }
+
+            .dropdown-menu {
+                width: 100%;
+            }
+
+            .card-container {
+                padding: 20px;
+                border-radius: 16px;
+            }
+
+            .card-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .image-section {
+                border-radius: 12px;
+            }
+
+            .info-section {
+                padding: 0;
+            }
+
+            .info-section h2 {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+
+            .info-section p {
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+
+            .location {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            .cta-button {
+                padding: 10px 24px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab active">Senior Living</button>
+            <button class="tab">Multigenerational Living</button>
+            <div class="tab-dropdown">
+                <button class="tab" onclick="toggleDropdown()">
+                    <span class="dropdown-toggle">
+                        All Regions
+                        <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M4 6l4 4 4-4z"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <div class="dropdown-item" onclick="selectRegion('Bangalore', 2)">Bangalore</div>
+                    <div class="dropdown-item" onclick="selectRegion('Chennai', 3)">Chennai</div>
+                    <div class="dropdown-item" onclick="selectRegion('Kolkata', 4)">Kolkata</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card -->
+        <div class="card-container">
+            <div class="card-content">
+                <div class="image-section">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop" alt="Primus Sangama">
+                </div>
+                <div class="info-section">
+                    <h2>Primus Sangama</h2>
+                    <p>Where generations converge in independent homes, shared spaces, and seamless care</p>
+                    <div class="location">Bangalore</div>
+                    <button class="cta-button">Know More</button>
+                </div>
+            </div>
+            
+            <!-- Carousel Dots -->
+            <div class="carousel-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <!-- <div class="dot"></div> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data structure for all 5 slides
+        const slidesData = [
+            {
+                image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
+                title: 'Primus Sangama',
+                description: 'Where generations converge in independent homes, shared spaces, and seamless care',
+                location: 'Bangalore',
+                tab: 'senior-living',
+                tabIndex: 0
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop',
+                title: 'Primus Haven',
+                description: 'Experience luxury senior living with world-class amenities and care',
+                location: 'Chennai',
+                tab: 'multigenerational',
+                tabIndex: 1
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
+                title: 'Primus Harmony',
+                description: 'Bringing families together across generations in one community',
+                location: 'Bangalore',
+                region: 'Bangalore',
+                tabIndex: 2
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop',
+                title: 'Primus Unity',
+                description: 'Spaces designed for multi-generational living and bonding',
+                location: 'Chennai',
+                region: 'Chennai',
+                tabIndex: 2
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop',
+                title: 'Primus Together',
+                description: 'Creating memories in a home that embraces all ages',
+                location: 'Kolkata',
+                region: 'Kolkata',
+                tabIndex: 2
+            }
+        ];
+
+        let currentSlideIndex = 0;
+
+        function updateSlide(slideIndex) {
+            const slide = slidesData[slideIndex];
+            
+            document.querySelector('.image-section img').src = slide.image;
+            document.querySelector('.info-section h2').textContent = slide.title;
+            document.querySelector('.info-section p').textContent = slide.description;
+            document.querySelector('.location').textContent = slide.location;
+            
+            // Update dots - all 5 dots
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === slideIndex) {
+                    dot.classList.add('active');
+                }
+            });
+            
+            // Update active tab
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabs[slide.tabIndex].classList.add('active');
+            
+            currentSlideIndex = slideIndex;
+        }
+
+        function changeSlide(slideIndex) {
+            updateSlide(slideIndex);
+        }
+
+        function switchToFirstTab() {
+            updateSlide(0);
+        }
+
+        function switchToSecondTab() {
+            updateSlide(1);
+        }
+
+        function toggleDropdown() {
+            const menu = document.getElementById('dropdownMenu');
+            const arrow = document.querySelector('.dropdown-arrow');
+            menu.classList.toggle('open');
+            arrow.classList.toggle('open');
+        }
+
+        function selectRegion(region, slideIndex) {
+            updateSlide(slideIndex);
+            toggleDropdown();
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const dropdown = document.querySelector('.tab-dropdown');
+            const menu = document.getElementById('dropdownMenu');
+            
+            if (!dropdown.contains(e.target) && menu.classList.contains('open')) {
+                toggleDropdown();
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSlide(0);
+            
+            // Add click handlers to tabs
+            document.querySelectorAll('.tab')[0].addEventListener('click', switchToFirstTab);
+            document.querySelectorAll('.tab')[1].addEventListener('click', switchToSecondTab);
+            
+            // Add click handlers to dots
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => changeSlide(index));
+            });
+        });
+    </script>
+</body>
+</html>
