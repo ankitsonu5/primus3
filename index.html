@@ -413,6 +413,16 @@
             padding: 2rem 3rem;
         }
 
+        /* Hero text - Initially hidden, fade in on scroll */
+        .main-text {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        .main-text.fade-in {
+            opacity: 1;
+        }
+
         .title-tag {
             background-color: #d2f0a3;
             color: #333;
@@ -718,7 +728,7 @@
 
 </head>
 
-<body>
+<body style="overflow-x: hidden;">
 
     <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease"
         role="banner" class="w-nav">
@@ -1357,6 +1367,24 @@
                 }
             }
 
+            // Hero text fade in on scroll
+            function checkHeroTextVisibility() {
+                const heroText = document.querySelector('.main-text');
+                if (heroText) {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const windowHeight = window.innerHeight;
+
+                    // Calculate opacity based on scroll (0 to 100% over first 500px)
+                    const maxScroll = windowHeight * 0.5; // Fade in over 50% of viewport height
+                    const opacity = Math.min(scrollTop / maxScroll, 1);
+
+                    heroText.style.opacity = opacity;
+                }
+            }
+
+            // Check on page load
+            checkHeroTextVisibility();
+
             // Add scroll progress tracking
             window.addEventListener('scroll', () => {
                 const scrollProgressBar = document.getElementById('scrollProgressBar');
@@ -1367,6 +1395,9 @@
                     const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
                     scrollProgressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
                 }
+
+                // Check hero text visibility on scroll
+                checkHeroTextVisibility();
             });
 
             // Add keyboard controls
