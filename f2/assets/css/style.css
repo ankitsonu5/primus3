@@ -934,7 +934,7 @@ a {
 
 .footer-social-media {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   justify-self: flex-end;
   grid-column: span 3;
   align-self: center;

@@ -1,3 +1,4 @@
+/* this contain only main index.html style code */
 /* Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@400;600;700&display=swap");
 
@@ -1047,7 +1048,7 @@ a {
 
 .footer-social-media {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   justify-self: flex-end;
   grid-column: span 3;
   align-self: center;
@@ -1385,6 +1386,9 @@ margin-bottom: 2rem;
   letter-spacing: 0%;
   color: #fff;
 }
+#mobileprimusdifferencesec .swiper-slide:nth-child(3) div h3 {
+  color: #333 !important;
+}
 #mobileprimusdifferencesec .swiper-slide div p {
   font-family: Lato;
 font-weight: 400;
@@ -1394,7 +1398,9 @@ line-height: 24px;
 letter-spacing: 0%;
 color: #fff;
 }
-
+#mobileprimusdifferencesec .swiper-slide:nth-child(3) div p {
+  color: #333 !important;
+}
 #mobileprimusdifferencesec .swiper-slide .div-auth-cont-para {
   font-family: Montserrat;
   font-weight: 500;

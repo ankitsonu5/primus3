@@ -241,3 +241,14 @@ body.menu-open {
 }
 
 /* mobile menu design style end */
+
+@media screen and (max-width: 350px) {
+    #mobilemenudesignsec .menu-container {
+    width: 80vw !important;
+    top: 1rem !important;
+}
+#mobilemenudesignsec .menu-item {
+    padding: 11px 10px;
+    font-size: 18px;
+}
+}

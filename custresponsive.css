@@ -1,4 +1,5 @@
- /* ------ Breakpoints (mobile-first; use min-width) for main container ------ */
+/* this contain only main index.html responsive style code */
+/* ------ Breakpoints (mobile-first; use min-width) for main container ------ */
  /* Small tablets and up */
  @media (min-width: 576px) {}
 
@@ -270,7 +271,6 @@
    .dd__item {
     height: 3rem;
    }
-
    .gallery-item {
      flex: none;
      height: 100px;
