@@ -63,6 +63,20 @@
 }
  }
  @media (max-width: 1366px) {
+  .exploreourcommunitiessec {
+    padding: 0 2rem;
+  }
+
+  .exploreourcommunitiessec .expltab {
+            padding: 10px 30px;
+            font-size: 18px;
+        }
+
+  .exploreourcommunitiessec .expldropitem{
+        padding: 14px 20px;
+        font-size: 22px;
+}
+  }
    #primusgallerydesignsec .gallery {
      padding: 0 1rem;
    }
@@ -143,9 +157,28 @@
    .navbar .logo img {
      width: 8rem;
    }
- }
+ 
 
  @media (max-width: 1024px) {
+      .exploreourcommunitiessec .expltab {
+        padding: 8px 24px;
+        font-size: 14px;
+    }
+        .exploreourcommunitiessec .expldropitem {
+        padding: 7px 14px;
+        font-size: 16px;
+    }
+  .exploreourcommunitiessec .explcardgrid {
+    gap: 20px;
+}
+.exploreourcommunitiessec .explinfo h2 {
+  font-size: 24px;
+}
+.exploreourcommunitiessec .explpara {
+  font-size: 20px;
+}
+
+
    .tab {
      padding: 1rem 0rem;
      font-size: 0.8rem;
@@ -261,6 +294,21 @@
  }
 
  @media (max-width: 768px) {
+  .exploreourcommunitiessec .explinfo {
+    padding: 0px;
+}
+      .exploreourcommunitiessec .expltab {
+        padding: 5px 16px;
+        font-size: 8px;
+        font-weight: 900;
+    }
+  .exploreourcommunitiessec .explcardgrid {
+    grid-template-columns: 1fr;
+}
+.exploreourcommunitiessec .explcard {
+    padding: 20px;
+}
+  /* Explore Our Communities media style code end  */
   html, body {
     overflow-x: hidden;
   }
@@ -420,7 +468,7 @@
 
     #mobileprimusglrydsgnsec .swiper-slide img {
 
-    height: 24rem;
+    height: 32rem;
 }
  }
 
@@ -458,8 +506,18 @@
     .dd__item {
     height: 3rem;
     }
+    .exploreourcommunitiessec .expldropitem {
+        padding: 1px 10px;
+        font-size: 11px;
+    }
  }
  @media (max-width: 425px) {
+      .exploreourcommunitiessec .expltab {
+        padding: 5px 4px;
+        font-size: 8px;
+        font-weight: 900;
+        font-weight: bolder;
+    }
   .p-content .p-m {
     font-size: 32px !important;
 }
