@@ -43,6 +43,26 @@
             /* full video visible */
             
         }
+
+        .colormainp {color:  #801B53;}
+
+        .main-text{font-size: 55px; margin-left: -300px}
+        .left-text-top {position: absolute; bottom: 100px; left: 0px; color: #fff; z-index: 10000;}
+        .left-text-bottom{position: absolute; bottom: 80px; left: 0px; color: #fff; z-index: 10000;}
+        .video-text { position: absolute; bottom: 0px; left: 0px; color: #fff; z-index: 10000;}
+        .textp-video { text-align: center!important; font-size: 42px;  }
+
+         @media (min-width: 1366px) and (max-width: 1366px) {
+             
+                 .main-text{font-size: 40px; margin-left: -200px!important;}
+        .left-text-top {position: absolute; bottom: 70px; left: 0px; font-size: 12px; color: #fff; z-index: 10000;}
+        .left-text-bottom{position: absolute; bottom: 60px; left: 0px; font-size: 12px; font-weight: bold; color: #fff; z-index: 10000;}
+        .video-text { position: absolute; bottom: 0px; left: 0px; color: #fff; z-index: 10000;}
+        .textp-video { text-align: center!important; font-size: 30px;  }
+            
+           
+        }
+
     </style>
     <!-- below hero section -->
     <script type="text/javascript">
@@ -79,7 +99,7 @@
                     
                     <div class="hero-card-image">
                         <div class="inner-content-col">
-                            <div style="font-size: 55px; margin-left: -300px;" class="h-m">What good <br>is living long, <br> if you don’t <br> live well? </div>
+                            <div  class="h-m main-text">What good <br>is living long, <br> if you don’t <br> live well? </div>
                         </div>
                     </div>
                 </div>
@@ -87,8 +107,8 @@
                     <div class="sub-hero">
                         <div class="sub-col">
                             <div style="position: relative;" class="sub-card">
-                                <div style="position: absolute; bottom: 100px; left: 0px; color: #fff; z-index: 10000;" class="inner-content-col">
-                                    <div class="h-m">Wouldn’t you <br>rather avoid <br> the pill than <br>swallow it?
+                                <div class="inner-content-col left-text-top">
+                                    <div class="h-m ">Wouldn’t you <br>rather avoid <br> the pill than <br>swallow it?
 </div>
                                 </div>
                                 
@@ -97,8 +117,8 @@
                                     class="cover-image" />
                             </div>
                             <div class="sub-card">
-                                <div style="position: absolute; bottom: 80px; left: 0px; color: #fff; z-index: 10000;" class="inner-content-col">
-                                    <div class="h-m" style="color: #801B53;">Why just own <br>a home, when <br>you can live<br> in one that<br>  serves you? 
+                                <div  class="inner-content-col left-text-bottom">
+                                    <div class="h-m colormainp" >Why just own <br>a home, when <br>you can live<br> in one that<br>  serves you? 
 </div>
                                 </div>
                                 <img src="images/side2.png" loading="lazy" sizes="(max-width: 1600px) 100vw, 1600px"
@@ -108,8 +128,8 @@
                         </div>
                         <div class="sub-col-right">
                             <div class="video-wrap">
-                                 <div style="position: absolute; bottom: 0px; left: 0px; color: #fff; z-index: 10000;" class="inner-content-col">
-                                 <div style="text-align: center!important; font-size: 42px; color: #801B53;" class="h-m">Welcome to Primus</div>
+                                 <div  class="inner-content-col video-text">
+                                 <div  class="h-m colormainp textp-video">Welcome to Primus</div>
                             </div>
                                 <video src="./video/video.mp4" autoplay muted loop playsinline></video>
                             </div>
