@@ -13,6 +13,10 @@
 
      <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- shoelac css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+
 
 
   <style>
@@ -150,7 +154,10 @@
 
   <style>
     
-.banner-tagline {
+
+  </style>
+  <style>
+    .banner-tagline {
     position: absolute;
     top: 50%;
     left: 30%;
@@ -171,15 +178,6 @@
 }
 
 @media (max-width:1366px){
-    .banner-tagline {
-    position: absolute;
-    top: 41%;
-    left: 27%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    text-align: left;
-    /* width: 80%; */
-}
     .banner-tagline h1 {
     font-family: Montserrat;
     font-weight: 700;
@@ -188,12 +186,18 @@
     color: #fff;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
-
+.banner-tagline {
+    position: absolute;
+    top: 41%;
+    left: 27%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: left;
+    /* width: 80%; */
+}
 }
   </style>
 </head>
-
-
 
 
 <body>
@@ -370,8 +374,8 @@
 
 
 
-   <!-- Swiper -->
-  <div class="swiper mySwiper">
+   <!-- Swiper desktop start-->
+  <div class="swiper mySwiper only-desktop">
     <div class="swiper-wrapper">
 
       <!-- Card 1 -->
@@ -467,6 +471,15 @@
 
   <!-- Pagination outside -->
   <div class="custom-pagination"></div>
+   <!-- Swiper desktop end-->
+
+
+   <!-- shoelac mobile swiper start -->
+    <div id="mobileadayinlifeofsec">
+        
+
+    </div>
+   <!-- shoelac mobile swiper end -->
 
 
 
@@ -951,10 +964,10 @@
             </div>
             <div class="live-senior">
                 <div class="livesenior-1">
-                    <img src="./assets/images/lifestyle images/Primus Senior Living 1.png" alt="Image">
+                    <iframe class="ytvidseccont" width="560" height="315" src="https://www.youtube.com/embed/VPgQ5_rdWOA?si=cEVxmfidJkH6ZCo6&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 <div class="livesenior-1">
-                    <img src="./assets/images/lifestyle images/Primus Senior Living 1.png" alt="Image">
+                    <iframe class="ytvidseccont" width="560" height="315" src="https://www.youtube.com/embed/CpboPG1C8rI?si=qWPEH72KCOwvirKj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -1066,9 +1079,9 @@
       },
       breakpoints: {
         0: { slidesPerView: 1, slidesPerGroup: 1 },
-        576: { slidesPerView: 2, slidesPerGroup: 2 },
-        768: { slidesPerView: 3, slidesPerGroup: 3 },
-        1024: { slidesPerView: 5, slidesPerGroup: 5 },
+        576: { slidesPerView: 2, slidesPerGroup: 1 },
+        768: { slidesPerView: 3, slidesPerGroup: 2 },
+        1024: { slidesPerView: 5, slidesPerGroup: 4 },
       },
     });
   </script>

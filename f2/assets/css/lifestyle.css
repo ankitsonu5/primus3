@@ -262,6 +262,9 @@
     align-items: center;
     gap: 2rem;
 }
+#apeeksec .multigenerationalsectwo .secboxdiv div img {
+    width: 4rem;
+}
 
 #apeeksec .multigenerationalsectwo .secboxdiv:not(:last-child) {
     border-right: 1px solid #fff;
@@ -310,6 +313,7 @@
     gap: 22px;
     margin-top: 60px;
     margin-bottom: 100px;
+    justify-content: center;
 }
 
 .livesenior-1 img {
@@ -317,6 +321,10 @@
     border-radius: 50px;
 }
 
+.ytvidseccont {
+        width: 650px;
+        height: 415px;
+    }
 /*Hear it from end*/
 
 @media screen and (min-width: 1024px) and (max-width:1366px) {
@@ -500,6 +508,35 @@
 }
 
 
+@media screen and (max-width: 1366px) {
+    .swiper-slide {
+        height: 402px;
+    }
+    .ytvidseccont {
+        width: 500px;
+        height: 315px;
+    }
+
+}
+@media screen and (max-width: 1024px) {
+    .ytvidseccont {
+        width: 450px;
+        /* height: 315px; */
+    }
+    .swiper-slide {
+        /* width: 300px !important; */
+    }
+    .a-day-in-life {
+        padding: 0 2rem;
+    }
+    .swiper-wrapper {
+        padding: 0 2rem !important;
+    }
+        .custom-pagination {
+        margin-top: -144px !important;
+    }
+
+}
 @media screen and (max-width: 768px) {
 
     #header-mobile {
@@ -516,10 +553,6 @@
     }
 
     .navbar {
-        display: none;
-    }
-
-    #footersec {
         display: none;
     }
 
@@ -907,6 +940,13 @@ color: white;
         border: 2px solid #000;
         border-radius: 50%;
     }
+    .banner-tagline{
+                    display: none;
+                }
+    .a-day-in-life {
+        padding: 0;
+    }
+    
 }
 
 
