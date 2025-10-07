@@ -44,11 +44,11 @@ body.menu-open {
     overflow: hidden;
     transition: all 0.3s ease;
     position: fixed;
-    top: 20px;
+    top: 0cm;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
 }
 
 #mobilemenudesignsec .menu-header {

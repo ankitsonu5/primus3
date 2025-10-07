@@ -390,7 +390,7 @@
     #mbbackedbyvisionariessec .backedbyvisionariescont {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 4rem;
+      gap: 0rem;
     }
     #mbbackedbyvisionariessec .backedbyvisionariescont h1{
       font-family: Montserrat;
@@ -435,8 +435,8 @@
     }
     #mbprimusvideosec .primusvideocont {
     width: 90% !important;
-    height: 95vh;
-    margin-bottom: 5rem;
+    height: 80vh;
+    margin-bottom: 0.5rem;
     margin-top: 3rem;
     overflow: hidden !important;
   }
@@ -459,7 +459,7 @@
     width: 100%;
     }
     #mbprimusvideosec .swiper-slider-cont video {
-    height: 76vh;
+    /* height: 76vh; */
 }
 .buildontrustbackbyproofimg img {
         width: 93%;
