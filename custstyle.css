@@ -360,7 +360,7 @@ body {
 
         .exploreourcommunitiessec .expltabs {
             display: flex;
-            gap: 12px;
+            gap: 1px;
             margin-bottom: 30px;
             flex-wrap: wrap;
             justify-content: center;
@@ -1205,11 +1205,12 @@ margin-bottom: 2rem;
 }
 
 #mobileprimusglrydsgnsec .swiper-pagination {
-  margin-top: 7rem !important;
+  margin-top: 18rem !important;
+  margin-right: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 }
 
 #mobileprimusglrydsgnsec .swiper-pagination-bullet {

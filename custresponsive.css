@@ -537,13 +537,13 @@
     font-size: 27px;
 }
 #mobileprimusglrydsgnsec .swiper-slider-cont h2 {
-    bottom: 9.5rem;
+    bottom: 5rem;
     margin-left: 1rem;
 }
     #mobileprimusglrydsgnsec .swiper-slider-cont p {
         padding-right: 1rem;
         margin-left: 1rem;
-        bottom: 5rem;
+        bottom: 1rem;
     }
     .footer-social-media {
         gap: 1.5rem;
