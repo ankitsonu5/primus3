@@ -34,6 +34,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+        video {max-width: 100%; height: auto;}
     </style>
     </style>
 
@@ -51,6 +52,7 @@
     <!-- main index style end -->
 
     <style>
+         
         .mainifr {
             width: 100%;
             height: 100vh !important;
@@ -237,6 +239,87 @@
             opacity: 1;
         }
     </style>
+    <style>
+  :root{
+    --w: 360px;
+    --h: 520px;
+    --dur: 2s;
+    --shadow: rgba(0,0,0,.15);
+  }
+  .flipbook{
+    margin:0; display:grid; place-items:center;
+    min-height:80vh;
+    background:#f7f7f9;
+    margin-top:40px;
+    padding-top: 40px;
+   
+  }
+
+  .text-center-mobile {text-align: center !important;}
+
+  .book-wrap{ perspective:1600px; }
+
+  .book{
+    position:relative;
+    width:var(--w);
+    height:var(--h);
+    box-shadow:0 15px 45px -10px var(--shadow);
+    border-radius:14px;
+    overflow:hidden;
+    background:transparent; /* no black at end */
+  }
+
+  .spine{
+    position:absolute; inset:0;
+    background:
+      linear-gradient(#f2f2f2,#e8e8e8) top/100% 22px no-repeat,
+      linear-gradient(90deg,transparent 49%,rgba(0,0,0,.05) 50%,transparent 51%) top/100% 22px repeat-x;
+    pointer-events:none;
+  }
+
+  .page{
+    position:absolute; inset:0;
+    transform-style:preserve-3d;
+    transform-origin:50% 0%;
+    transition:transform var(--dur) cubic-bezier(.3,.7,.3,1), filter var(--dur);
+  }
+  .page:not(.flipped){ filter:drop-shadow(0 30px 40px rgba(0,0,0,.15)); }
+  .page.flipped{ transform:rotateX(-180deg); filter:none; }
+
+  .face{
+    position:absolute; inset:0;
+    backface-visibility:hidden;
+    overflow:hidden;
+    color:#fff;
+  }
+
+  .front img, .back img{
+    width:100%; height:100%; object-fit:cover;
+    position:absolute; inset:0;
+    z-index:0;
+  }
+
+  .back{ transform:rotateX(180deg); }
+
+  .overlay{
+    position:absolute; bottom:0; left:0; right:0;
+    background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,0.75) 100%);
+    color:#fff; padding:20px; z-index:1;
+  }
+  .overlay h2{ margin:0 0 8px; font-size:22px; }
+  .overlay p{ margin:0; font-size:14px; line-height:1.4; }
+
+  .controls{
+    display:flex; gap:12px; justify-content:center; margin-top:18px;
+  }
+  button{
+    background:#fff; color:#333; border:1px solid #ccc;
+    padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,.05);
+  }
+  button:hover{background:#f3f3f3}
+  button:disabled{opacity:.4; cursor:not-allowed}
+</style>
 
 
     <!-- GSAP Scripts -->
@@ -422,6 +505,8 @@
         .main-text.fade-in {
             opacity: 1;
         }
+
+      
 
         .title-tag {
             background-color: #d2f0a3;
@@ -708,6 +793,8 @@
 
         }
     </style>
+
+    
 
 
     <script type="text/javascript">
@@ -1036,7 +1123,7 @@
             <div class="spinner-l-wrapper">
                 <div class="spinner-container">
 
-                    <div class="h-l">Active living,<br>
+                    <div class="h-l text-center-mobile">Active living,
                         built into every<br>
                         corner of your life
                     </div>
@@ -1046,8 +1133,7 @@
                         <div class="spinner-cards">
                             <h3>Safe Haven</h3>
                             <p>Grab bars, anti-slip tiles, and thoughtful design in every corner. A home that protects
-                                you
-                                as you move through life.</p>
+                                you as you move through life.</p>
                             <img src="images/card1.png" loading="lazy" alt="Card 1" class="cover-image" />
                         </div>
                     </div>
@@ -1531,170 +1617,196 @@
     <!-- mobile hero section end -->
     <!-- hero mobile section end -->
 
-    <!-- Active living, built into every corner of your life start -->
-    <section id="activelivinglifesec" class="only-desktop" style="display: none;">
-        <div class="activelivinglifecont main-container">
-            <div class="headingcont">
-                <h1 class="primary-heading">Open Secrets of Living Well</h1>
-            </div>
-            <div class="opensecretsoflivingimgcont">
-                <div class="imgcontsec">
-                    <img src="./assets/images/About/livingbg-one.png" alt="">
-                    <div class="imgcontsecgradient">
-                    </div>
-                    <div class="imgcontsectext">
-                        <h3>Safe Haven</h3>
-                        <p>Grab bars, anti-slip tiles, and thoughtful design in every corner. A home that protects you
-                            as you move through life.</p>
-                    </div>
-                </div>
-                <div class="imgcontsec">
-                    <img src="./assets/images/About/livingbg-two.png" alt="">
-                    <div class="imgcontsecgradient"></div>
-                    <div class="imgcontsectext">
-                        <h3>Seamless Access</h3>
-                        <p>Wide corridors, ramps, and wheelchair-ready spaces at every turn. Freedom of movement built
-                            into your home.</p>
-                    </div>
-                </div>
-                <div class="imgcontsec">
-                    <img src="./assets/images/About/livingbg-three.png" alt="">
-                    <div class="imgcontsecgradient"></div>
-                    <div class="imgcontsectext">
-                        <h3>Smart Comfort</h3>
-                        <p>Motion-sensor lights and voice-enabled controls that respond with ease. Technology that
-                            quietly works for you.</p>
-                    </div>
-                </div>
-                <div class="imgcontsec">
-                    <img src="./assets/images/About/livingbg-four.png" alt="">
-                    <div class="imgcontsecgradient"></div>
-                    <div class="imgcontsectext">
-                        <h3>Effortless Cooking</h3>
-                        <p>Easy-reach counters, ergonomic layouts, and clever storage. Cooking that feels simple, safe,
-                            and joyful again. </p>
-                    </div>
-                </div>
-                <div class="imgcontsec">
-                    <img src="./assets/images/About/livingbg-four.png" alt="">
-                    <div class="imgcontsecgradient"></div>
-                    <div class="imgcontsectext">
-                        <h3>Endless Learning</h3>
-                        <p>Expert-led talks and online sessions that open new doors. Because curiosity has no age limit.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Active living, built into every corner of your life end -->
-
+   
     <!-- Mobile Active living, built into every corner of your life start -->
-    <section id="mbactivelivinglifesec" class="only-mobile">
-        <div class="swiper mySwiper">
-            <h1>Active living, built into<br>every corner of your life.</h1>
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="swiper-slider-cont">
-                        <img src="./assets/images/card1.png" alt="">
-                        <div class="imgcontsecgradient"></div>
-                        <h2>Safe Haven</h2>
-                        <p>Grab bars, anti-slip tiles, and thoughtful design in every corner. A home that protects you
-                            as you move through life.</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide">
-                        <div class="swiper-slider-cont">
-                            <img src="./assets/images/card2.png" alt="">
-                            <h2>Seamless Access</h2>
+    <section class="flipbook only-mobile"  >
+        <h3>Active living, built into<br>every corner of your life.</h3>
+
+        <div class="book-wrap">
+  <div class="book" id="book">
+    <div class="spine"></div>
+
+    <!-- PAGE 1 -->
+    <section class="page" style="z-index:9">
+      <div class="face front">
+        <img src="./images/card1.png" alt="">
+        <div class="overlay">
+         <h2>Safe Haven</h2>
+                            <p>Grab bars, anti-slip tiles, and thoughtful design in every corner. A home that protects
+                                you as you move through life.</p>
+        </div>
+      </div>
+      <div class="face back">
+        <img src="./images/card1.png" alt="">
+        <div class="overlay">
+          <h2>Safe Haven</h2>
+                            <p>Grab bars, anti-slip tiles, and thoughtful design in every corner. A home that protects
+                                you as you move through life.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section class="page" style="z-index:8">
+      <div class="face front">
+        <img src="./images/card2.png" alt="">
+        <div class="overlay">
+           <h2>Seamless Access</h2>
                             <p>Wide corridors, ramps, and wheelchair-ready spaces at every turn. Freedom of movement
                                 built into your home.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide">
-                        <div class="swiper-slider-cont">
-                            <img src="./assets/images/card3.png" alt="">
-                            <h2>Smart Comfort</h2>
+        </div>
+      </div>
+      <div class="face back">
+        <img src="./images/card2.png" alt="">
+        <div class="overlay">
+           <h2>Seamless Access</h2>
+                            <p>Wide corridors, ramps, and wheelchair-ready spaces at every turn. Freedom of movement
+                                built into your home.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section class="page" style="z-index:7">
+      <div class="face front">
+        <img src="./images/card3.png" alt="">
+        <div class="overlay">
+          <h2>Smart Comfort</h2>
                             <p>Motion-sensor lights and voice-enabled controls that respond with ease. Technology that
                                 quietly works for you.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide">
-                        <div class="swiper-slider-cont">
-                            <img src="./assets/images/card4.png" alt="">
-                            <h2>Effortless Cooking</h2>
+        </div>
+      </div>
+      <div class="face back">
+        <img src="./images/card3.png" alt="">
+        <div class="overlay">
+          <h2>Smart Comfort</h2>
+                            <p>Motion-sensor lights and voice-enabled controls that respond with ease. Technology that
+                                quietly works for you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4 -->
+    <section class="page" style="z-index:6">
+      <div class="face front">
+        <img src="./images/card4.png" alt="">
+        <div class="overlay">
+           <h2>Effortless Cooking</h2>
                             <p>Easy-reach counters, ergonomic layouts, and clever storage. Cooking that feels simple,
                                 safe, and joyful again.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide">
-                        <div class="swiper-slider-cont">
-                            <img src="./assets/images/card5.png" alt="">
-                            <h2>Safe Bathrooms</h2>
+        </div>
+      </div>
+      <div class="face back">
+        <img src="./images/card4.png" alt="">
+        <div class="overlay">
+            <h2>Effortless Cooking</h2>
+                            <p>Easy-reach counters, ergonomic layouts, and clever storage. Cooking that feels simple,
+                                safe, and joyful again.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 5 -->
+    <section class="page" style="z-index:5">
+      <div class="face front">
+        <img src="./images/card5.png" alt="">
+        <div class="overlay">
+           <h2>Safe Bathroom</h2>
                             <p>Slip-resistant tiles, sturdy rails, and spacious showers. Bathrooms reimagined for
                                 comfort and dignity.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide">
-                        <div class="swiper-slider-cont">
-                            <img src="./assets/images/card6.png" alt="">
-                            <h2>Restful Nights</h2>
+        </div>
+      </div>
+      <div class="face back">
+        <img src="./images/card5.png" alt="">
+        <div class="overlay">
+            <h2>Safe Bathroom</h2>
+                            <p>Slip-resistant tiles, sturdy rails, and spacious showers. Bathrooms reimagined for
+                                comfort and dignity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 6 -->
+    <section class="page" style="z-index:4">
+      <div class="face front">
+        <img src="./images/card6.png" alt="">
+        <div class="overlay">
+            <h2>Restful Nights</h2>
                             <p>Beds designed for posture, healing, and deep sleep. Wake up refreshed, every single
                                 morning.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide">
-                        <div class="swiper-slider-cont">
-                            <img src="./assets/images/card7.png" alt="">
-                            <h2>Emergency Ready</h2>
-                            <p>Ambulance and medical support ready at a moment’s call. Care that never keeps you
-                                waiting. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide">
-                        <div class="swiper-slider-cont">
-                            <img src="./assets/images/card8.png" alt="">
-                            <h2>Emergency Ready</h2>
+        </div>
+      </div>
+      <div class="face back">
+        <img src="./images/card6.png" alt="">
+        <div class="overlay">
+           <h2>Restful Nights</h2>
+                            <p>Beds designed for posture, healing, and deep sleep. Wake up refreshed, every single
+                                morning.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 7 -->
+    <section class="page" style="z-index:3">
+      <div class="face front">
+        <img src="./images/card7.png" alt="">
+        <div class="overlay">
+           <h2>Endless Learning</h2>
+                            <p>Expert-led talks and online sessions that open new doors. Because curiosity
+                                has no age limit.</p>
+        </div>
+      </div>
+      <div class="face back">
+        <img src="./images/card7.png" alt="">
+        <div class="overlay">
+             <h2>Endless Learning</h2>
+                            <p>Expert-led talks and online sessions that open new doors. Because curiosity
+                                has no age limit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 8 -->
+    <section class="page" style="z-index:2">
+      <div class="face front">
+        <img src="./images/card8.png" alt="">
+        <div class="overlay">
+          <h2>Emergency Ready</h2>
                             <p>Ambulance and medical support ready at a moment’s call. Care that never keeps you
                                 waiting.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide">
-                        <div class="swiper-slider-cont">
-                            <img src="./assets/images/card9.png" alt="">
-                            <h2>Everyday Assistance</h2>
-                            <p>A concierge who runs errands, books tickets, remembers details. Service that makes daily
-                                life effortless.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide">
-                        <div class="swiper-slider-cont">
-                            <img src="./assets/images/card9.png" alt="">
-                            <h2>Endless Learning</h2>
+        </div>
+      </div>
+      <div class="face back">
+        <img src="./images/card8.png" alt="">
+        <div class="overlay">
+         <h2>Emergency Ready</h2>
+                            <p>Ambulance and medical support ready at a moment’s call. Care that never keeps you
+                                waiting.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 9 (TERMINAL: ONLY FRONT FACE) -->
+    <section class="page" style="z-index:1" data-terminal="true">
+      <div class="face front">
+        <img src="./images/card9.png" alt="">
+        <div class="overlay">
+          <h2>Day Assistance</h2>
                             <p>Wide corridors, ramps, and wheelchair-ready spaces at every turn. Freedom of movement
                                 built into your home.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
+      </div>
+      <!-- no back face here -->
+    </section>
+
+  </div>
+
+  <div class="controls">
+    <button id="prev">Prev</button>
+    <button id="next">Next</button>
+  </div>
+</div>
+        
     </section>
     <!-- Mobile Active living, built into every corner of your life end-->
 
@@ -2441,12 +2553,45 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Initialize Swiper code -->
     <script>
+        // Check if mobile device
+        const isMobile = window.innerWidth <= 768;
+
+        // Initialize Swiper with different settings for mobile
         var swiper = new Swiper(".mySwiper", {
+            // Mobile: Vertical flip effect
+            // Desktop: Default horizontal
+            effect: isMobile ? 'flip' : 'slide',
+            direction: isMobile ? 'vertical' : 'horizontal',
+
+            // Flip effect settings (only for mobile)
+            flipEffect: {
+                slideShadows: true,
+                limitRotation: true,
+            },
+
             spaceBetween: 30,
+
+            // Enable touch/swipe
+            touchRatio: 1,
+            touchAngle: 45,
+
+            // Pagination
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
             },
+
+            // Navigation arrows (optional)
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // Smooth transitions
+            speed: 600,
+
+            // Allow touch move
+            allowTouchMove: true,
         });
     </script>
 
@@ -2704,6 +2849,55 @@
     </script>
 
     <!-- section scrolling js code -->
+
+    <!-- Mobile Vertical Flip Book -->
+    <script src="mobile-flipbook.js"></script>
+
+
+    <script>
+  const pages = [...document.querySelectorAll('.page')];
+  let i = 0;
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+
+  function isTerminal(idx){
+    return pages[idx]?.dataset.terminal === 'true';
+  }
+
+  function update(){
+    prev.disabled = i === 0;
+    // stop on last page FRONT (don't allow flipping it)
+    next.disabled = i === pages.length - 1 || isTerminal(i);
+  }
+
+  function flipNext(){
+    // block flipping if current page is terminal or it's the last index
+    if (i < pages.length - 1 && !isTerminal(i)) {
+      pages[i].classList.add('flipped');
+      i++;
+      update();
+    }
+  }
+
+  function flipPrev(){
+    if (i > 0) {
+      i--;
+      // if the page we moved to was flipped, unflip it
+      pages[i].classList.remove('flipped');
+      update();
+    }
+  }
+
+  next.onclick = flipNext;
+  prev.onclick = flipPrev;
+
+  window.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') flipNext();
+    if (e.key === 'ArrowUp'   || e.key === 'PageUp')   flipPrev();
+  });
+
+  update();
+</script>
 
 </body>
 
