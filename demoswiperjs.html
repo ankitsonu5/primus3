@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper Image Overlay Cards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      color: #fff;
+    }
+
+    .swiper {
+      width: 90%;
+      height: 450px;
+      margin: 50px auto 0;
+    }
+
+    .swiper-slide {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .swiper-slide:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Gradient overlay for text readability */
+    .overlay-swiper-sl {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .overlay-swiper-sl h3 {
+      margin: 0 0 5px;
+      font-size: 20px;
+      color: #fff;
+      background: #C42785;
+      padding: 0.5rem 1.5rem;
+      border-radius: 1rem;
+      text-align: left !important;
+    }
+
+    .overlay-swiper-sl p {
+      margin: 0;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    /* Pagination outside */
+    .custom-pagination {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .custom-pagination .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background: #777;
+      opacity: 0.6;
+      margin: 0 6px;
+      transition: 0.3s;
+    }
+
+    .custom-pagination .swiper-pagination-bullet-active {
+      background: #fff;
+      opacity: 1;
+      transform: scale(1.3);
+    }
+
+    /* Responsive breakpoints */
+    @media (max-width: 992px) {
+      .swiper {
+        height: 400px;
+      }
+
+      .swiper-slide h3 {
+        font-size: 18px;
+      }
+
+      .swiper-slide p {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .swiper {
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .swiper {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Card 1 -->
+      <div class="swiper-slide">
+        <img src="./assets/images/lifestyle images/card1.png" alt="Image">
+        <div class="overlay-swiper-sl">
+          <h3>Morning Yoga</h3>
+          <p>Start your day with calm and energy.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="swiper-slide">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80" alt="Breakfast">
+        <div class="overlay">
+          <h3>Healthy Breakfast</h3>
+          <p>Boost your mood with a nutritious meal.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="swiper-slide">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80" alt="Workout">
+        <div class="overlay">
+          <h3>Workout Session</h3>
+          <p>Stay fit and focused throughout the day.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="swiper-slide">
+        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea?auto=format&fit=crop&w=900&q=80" alt="Reading">
+        <div class="overlay">
+          <h3>Reading Hour</h3>
+          <p>Expand your mind with peaceful reading.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="swiper-slide">
+        <img src="https://images.unsplash.com/photo-1523906630133-f6934a1ab2b9?auto=format&fit=crop&w=900&q=80" alt="Tea">
+        <div class="overlay">
+          <h3>Evening Tea</h3>
+          <p>End the day with relaxation and gratitude.</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="swiper-slide">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Night Sky">
+        <div class="overlay">
+          <h3>Stargazing</h3>
+          <p>Reflect and dream under the stars.</p>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="swiper-slide">
+        <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80" alt="Nature Walk">
+        <div class="overlay">
+          <h3>Nature Walk</h3>
+          <p>Rejuvenate your soul with nature’s beauty.</p>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="swiper-slide">
+        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=900&q=80" alt="Music">
+        <div class="overlay">
+          <h3>Music Therapy</h3>
+          <p>Relax and recharge with your favorite tunes.</p>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="swiper-slide">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="Meditation">
+        <div class="overlay">
+          <h3>Meditation</h3>
+          <p>Focus inward and find your balance.</p>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="swiper-slide">
+        <img src="https://images.unsplash.com/photo-1499696010181-30e99cfd0e1e?auto=format&fit=crop&w=900&q=80" alt="Travel">
+        <div class="overlay">
+          <h3>Adventure</h3>
+          <p>Explore new places and make memories.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination outside -->
+  <div class="custom-pagination"></div>
+
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 5,
+      slidesPerGroup: 5,
+      spaceBetween: 15,
+      loop: false,
+      pagination: {
+        el: ".custom-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        0: { slidesPerView: 1, slidesPerGroup: 1 },
+        576: { slidesPerView: 2, slidesPerGroup: 2 },
+        768: { slidesPerView: 3, slidesPerGroup: 3 },
+        1024: { slidesPerView: 5, slidesPerGroup: 5 },
+      },
+    });
+  </script>
+
+</body>
+</html>
