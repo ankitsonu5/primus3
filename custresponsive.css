@@ -1,4 +1,3 @@
-/* this contain only main index.html responsive style code */
 /* ------ Breakpoints (mobile-first; use min-width) for main container ------ */
  /* Small tablets and up */
  @media (min-width: 576px) {}
@@ -21,7 +20,7 @@
  /* Large desktops (1440+) */
  @media (min-width: 1440px) {
    .main-container {
-     max-width: 1296px;
+     /* max-width: 1296px;   */
    }
 
    /* already set, but explicit is fine */
@@ -31,10 +30,11 @@
  }
 
  /* Ultra-wide (≥1920px): only if you really want wider content */
- @media (min-width: 1920px) {
+ @media (max-width: 1920px) {
    .main-container {
      max-width: 1850px;
      padding: 0 1rem;
+     margin: 0 auto;
    }
 
    /* gentle upscale, optional */
@@ -81,10 +81,10 @@
      padding: 0 1rem;
    }
   #buildontrustbackbyproofsec {
-    padding: 0 1rem;
+    padding: 0 2rem;
   }
   #backedbyvisionariessec {
-    /* padding: 0 1rem; */
+    padding: 0 2rem;
   }
    #activelivinglifesec .imgcontsectext p {
     transform: translateY(8.5rem);
@@ -159,7 +159,54 @@
    }
  
 
+   @media screen and (max-width: 1920px){
+    .navbar {
+        max-width: calc(1750px - 15%);
+    }
+   }
+   @media screen and (max-width: 1700px){
+    .navbar {
+        max-width: calc(1400px - 10%);
+    }
+   }
+   @media screen and (max-width: 1366px){
+    .navbar {
+        max-width: 1024px;
+    }
+    .menu ul li a {
+    font-size: 12px;
+}
+.enquiry-menu
+ {
+    min-width: 148px;
+}
+   }
+   @media screen and (max-width: 1200px){
+    .navbar {
+        width: 90%;
+        max-width: 912px;
+        margin: 0 auto;
+    }
+    .menu ul li a {
+    font-size: 10px;
+}
+   }
  @media (max-width: 1024px) {
+  .navbar {
+        width: 90%;
+        width: 769px;
+        margin: 0 auto;
+    }
+    .navbar .logo img {
+        width: 6rem;
+    }
+   ol, ul {
+    padding-left: 0;
+}
+.menu ul li a {
+        font-size: 8px;
+        font-weight: 800;
+    }
       .exploreourcommunitiessec .expltab {
         padding: 8px 24px;
         font-size: 14px;
@@ -287,13 +334,64 @@
      font-size: 17px;
      line-height: 26px;
    }
-   .menu ul li a {
-    font-size: 11px !important;
+   .enquiry-menu {
+    min-width: 147px;
 }
-
+.enquiry-menu li a {
+    padding: 9px 13px;
+}
+ }
+ @media (max-width: 900px) {
+  .navbar {
+        width: 90%;
+        width: 650px;
+        margin: 0 auto;
+    }
+    .enquiry>summary {
+    padding: 7px 11px;
+    gap: 4px;
+}
+    .menu ul li a {
+        font-size: 6px;
+        font-weight: 800;
+    }
+    .menu ul
+ {
+    margin-top: 0;
+    margin-bottom: 0rem !important;
+    line-height: 0;
+}
+.enquiry-menu {
+    min-width: 133px;
+}
+.enquiry-menu li a {
+    padding: 8px 14px;
+}
  }
 
+ @media screen and (min-width:768px) and (max-width: 768px) {
+#mbprimusvideosec .swiper {
+    width: 100%;
+    max-height: 49rem;
+    padding: 1rem;
+}
+  #mbprimusvideosec .swiper-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    top: 52rem;
+    left: 0px;
+    position: absolute;
+}
+#mobileprimusdifferencesec {
+  margin-top: 8rem;
+}
+ }
  @media (max-width: 768px) {
+  .exploreourcommunitiessec .expltabs {
+    gap: 2rem;
+  }
   .exploreourcommunitiessec .explinfo {
     padding: 0px;
 }
@@ -379,7 +477,8 @@
     grid-template-columns: 1fr;
   }
   #mbbackedbyvisionariessec {
-    margin-right: 3rem;
+    margin: 0;
+    padding-bottom: 3rem;
   }
       #mbbackedbyvisionariessec .backedbyvisionariestext h1 {
         margin-bottom: 2rem;
@@ -433,25 +532,6 @@
         margin-top: 3rem;
         margin-bottom: 3rem;
     }
-    #mbprimusvideosec .primusvideocont {
-    width: 90% !important;
-    height: 80vh;
-    margin-bottom: 0.5rem;
-    margin-top: 3rem;
-    overflow: hidden !important;
-  }
-#mbprimusvideosec .primusvideocont {
-    border-radius: 30px;
-    background: none;
-}
-  #mbprimusvideosec .swiper {
-  background-color: rgba(130, 26, 81, 0.2);
-  border-radius: 42px;
-  overflow: visible;
-  }
-  #mbprimusvideosec .swiper-pagination {
-  bottom: -2rem;
-}
    .mainfootercontdown {
     padding: 5px 0;
 }

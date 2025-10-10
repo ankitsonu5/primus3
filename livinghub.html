@@ -1,0 +1,2685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primus</title>
+    <!-- shoelac cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+    <script src="https://kit.fontawesome.com/0823a66b46.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./custstyle.css">
+    <link rel="stylesheet" href="./custresponsive.css">
+    <link rel="stylesheet" href="../mobmenustyle.css">
+
+        <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+        <!-- // Register GSAP plugins -->
+    <script>
+        // Register GSAP plugins
+        gsap.registerPlugin(ScrollTrigger);
+
+        class CircularSpinnerAnimation {
+            constructor() {
+                this.container = document.querySelector('[data-w-id="5ddf7355-c46a-8dde-174c-106bcc7c00e9"]');
+                this.spinnerContainer = this.container.querySelector('.spinner-container');
+                this.columns = Array.from(this.container.querySelectorAll('.spinner-c'));
+                this.cards = Array.from(this.container.querySelectorAll('.spinner-cards'));
+                this.timeline = null;
+                this.isReversed = false;
+                this.currentSpeed = 1;
+
+                this.init();
+            }
+
+            init() {
+                this.setupInitialPositions();
+                this.createScrollAnimation();
+                this.animateCenterTextFade();
+                this.addInteractivity();
+                console.log('🎡 Horizontal to Circle Animation initialized with 9 cards!');
+            }
+
+            setupInitialPositions() {
+                // Set initial horizontal positions (like in index.html)
+                // Cards will be positioned in a horizontal line initially
+                const totalCards = this.columns.length;
+                const angleStep = 360 / totalCards;
+
+                this.columns.forEach((column, index) => {
+                    const initialAngle = index * angleStep;
+
+                    // Set initial state - horizontal line
+                    gsap.set(column, {
+                        rotation: initialAngle,
+                        transformOrigin: 'center center',
+                        willChange: 'transform'
+                    });
+                });
+
+                console.log(`✅ Initial positions set for ${this.columns.length} cards`);
+            }
+
+            createScrollAnimation() {
+                const totalCards = this.columns.length;
+                const radius = 250; // Radius of the circle in pixels
+
+                // Create scroll-triggered animation for each card
+                this.columns.forEach((column, index) => {
+                    const angleStep = 360 / totalCards;
+                    const finalAngle = index * angleStep;
+                    const radian = (finalAngle * Math.PI) / 180;
+
+                    // Calculate final circular position
+                    const finalX = Math.cos(radian) * radius;
+                    const finalY = Math.sin(radian) * radius;
+
+                    // Animate from horizontal line to circle position
+                    gsap.to(column, {
+                        x: finalX,
+                        y: finalY,
+                        rotation: finalAngle + 360, // Rotate while moving to circle
+                        ease: "power2.inOut",
+                        scrollTrigger: {
+                            trigger: this.container,
+                            start: "top bottom",
+                            end: "center center",
+                            scrub: 1,
+                            onUpdate: (self) => {
+                                if (index === 0) {
+                                    console.log(`🎯 Circle formation: ${Math.round(self.progress * 100)}%`);
+                                }
+                            }
+                        }
+                    });
+                });
+
+                // Rotate the entire circle after formation
+                gsap.to(this.spinnerContainer, {
+                    rotation: 360,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: this.container,
+                        start: "center center",
+                        end: "bottom top",
+                        scrub: 1,
+                        onUpdate: (self) => {
+                            console.log(`🔄 Circle rotation: ${Math.round(self.progress * 100)}%`);
+                        }
+                    }
+                });
+
+                // Add floating effect to cards
+                this.cards.forEach((card, index) => {
+                    gsap.to(card, {
+                        y: "+=10",
+                        duration: 2 + (index * 0.2),
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: index * 0.1
+                    });
+                });
+
+                console.log('🎯 Scroll-based circle formation animation created!');
+            }
+
+            animateCenterTextFade() {
+                const centerText = document.querySelector('.content-spinner-wrapper');
+
+                if (centerText) {
+                    // Fade out center text as user scrolls down
+                    gsap.to(centerText, {
+                        opacity: 0,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: this.container,
+                            start: "top top",
+                            end: "30% top",
+                            scrub: 1,
+                            onUpdate: (self) => {
+                                console.log(`✨ Center text opacity: ${Math.round((1 - self.progress) * 100)}%`);
+                            }
+                        }
+                    });
+                }
+
+                console.log('✨ Center text fade out animation created!');
+            }
+
+            addInteractivity() {
+                this.cards.forEach((card, index) => {
+                    card.addEventListener('click', () => {
+                        console.log(`🎯 Card ${index + 1} clicked!`);
+                    });
+                });
+
+                console.log('✅ Interactive effects added to all cards');
+            }
+
+            // Control methods for scroll-based animation
+            play() {
+                ScrollTrigger.getAll().forEach(st => st.enable());
+                console.log('▶️ Animation enabled');
+            }
+
+            pause() {
+                ScrollTrigger.getAll().forEach(st => st.disable());
+                console.log('⏸️ Animation paused');
+            }
+
+            setSpeed(speed) {
+                this.currentSpeed = speed;
+                ScrollTrigger.getAll().forEach(st => {
+                    st.vars.scrub = speed;
+                    st.refresh();
+                });
+                console.log(`⚡ Speed set to ${speed}x`);
+            }
+
+            reset() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                console.log('🔄 Scrolled to top');
+            }
+
+            toggleDirection() {
+                this.isReversed = !this.isReversed;
+                console.log(`🔄 Direction toggle (feature coming soon)`);
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for images to load
+            const images = document.querySelectorAll('.cover-image');
+            const progressBar = document.getElementById('loadingProgressBar');
+            let loadedImages = 0;
+            const totalImages = images.length;
+
+            const updateProgress = () => {
+                const progress = (loadedImages / totalImages) * 100;
+                if (progressBar) {
+                    progressBar.style.width = `${progress}%`;
+                }
+            };
+
+            const checkAllImagesLoaded = () => {
+                loadedImages++;
+                updateProgress();
+
+                if (loadedImages === totalImages) {
+                    // All images loaded, initialize animation
+                    window.spinnerAnimation = new CircularSpinnerAnimation();
+
+                    // Hide loading overlay
+                    setTimeout(() => {
+                        const loadingOverlay = document.getElementById('loadingOverlay');
+                        if (loadingOverlay) {
+                            loadingOverlay.classList.add('hidden');
+                            console.log(`✅ All ${totalImages} images loaded, animation ready!`);
+                        }
+                    }, 500);
+                }
+            };
+
+            // Add load event listeners to all images
+            images.forEach(img => {
+                if (img.complete) {
+                    checkAllImagesLoaded();
+                } else {
+                    img.addEventListener('load', checkAllImagesLoaded);
+                    img.addEventListener('error', () => {
+                        console.warn('⚠️ Image failed to load:', img.src);
+                        checkAllImagesLoaded(); // Handle errors gracefully
+                    });
+                }
+            });
+
+            // Fallback: If no images or all already loaded
+            if (totalImages === 0) {
+                window.spinnerAnimation = new CircularSpinnerAnimation();
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                }
+            }
+
+            // Add scroll progress tracking
+            window.addEventListener('scroll', () => {
+                const scrollProgressBar = document.getElementById('scrollProgressBar');
+                if (scrollProgressBar) {
+                    const windowHeight = window.innerHeight;
+                    const documentHeight = document.documentElement.scrollHeight;
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+                    scrollProgressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
+                }
+            });
+
+            // Add keyboard controls
+            document.addEventListener('keydown', (e) => {
+                if (!window.spinnerAnimation) return;
+
+                switch (e.key) {
+                    case ' ': // Spacebar - toggle pause/play
+                        e.preventDefault();
+                        if (window.spinnerAnimation.scrollRotation?.scrollTrigger?.isActive) {
+                            window.spinnerAnimation.pause();
+                        } else {
+                            window.spinnerAnimation.play();
+                        }
+                        console.log('⌨️ Spacebar pressed - toggled animation');
+                        break;
+                    case 'r':
+                    case 'R': // R - reset
+                        window.spinnerAnimation.reset();
+                        console.log('⌨️ R pressed - reset animation');
+                        break;
+                    case 'd':
+                    case 'D': // D - toggle direction
+                        window.spinnerAnimation.toggleDirection();
+                        console.log('⌨️ D pressed - toggled direction');
+                        break;
+                    case '1': // 1 - slow speed
+                        window.spinnerAnimation.setSpeed(0.5);
+                        console.log('⌨️ 1 pressed - slow speed');
+                        break;
+                    case '2': // 2 - normal speed
+                        window.spinnerAnimation.setSpeed(1);
+                        console.log('⌨️ 2 pressed - normal speed');
+                        break;
+                    case '3': // 3 - fast speed
+                        window.spinnerAnimation.setSpeed(2);
+                        console.log('⌨️ 3 pressed - fast speed');
+                        break;
+                }
+            });
+
+            console.log('⌨️ Keyboard controls enabled: Space (pause/play), R (reset), D (direction), 1/2/3 (speed)');
+        });
+    </script>
+<!-- All living hub css code -->
+ <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.primary-heading {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 80px;
+    line-height: 75px;
+    letter-spacing: -5%;
+    color: #801B53;
+}
+
+.primary-para {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    color: #000000;
+}
+
+/* hero section design style start */
+.banner {
+    position: relative;
+}
+
+.banner-tagline {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: left;
+    /* width: 80%;  */
+}
+
+.banner-tagline h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 3rem !important;
+    line-height: 64px !important;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    /* margin: 0; */
+}
+
+
+.bannerimg {
+    overflow: hidden;
+    width: 100%;
+}
+
+.bannerimg img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    border-radius: 1.5rem;
+}
+
+.herobannerdwn {
+    background-color: #E6D1DC;
+    padding: 6rem 3rem 3rem 3rem;
+    border-radius: 0 0 4rem 4rem;
+    text-align: left;
+    margin-bottom: 5rem;
+    /* transform: translateY(-4rem); */
+    margin-top: -3rem;
+    /* z-index: 100 !important; */
+}
+
+.herobannerdwn p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    width: 50%;
+}
+/* hero section design style end */
+
+/*The living hub start*/
+
+#the-living {
+    margin-top: 120px;
+}
+
+.theliving {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 0 2rem;
+}
+
+.theliving-txt {
+    flex: 1 !important;
+}
+.theliving-txt h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 4rem;
+    line-height: 75px;
+    letter-spacing: -5%;
+    color: #801B53;
+}
+
+.theliving-txt p {
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 22px;
+    line-height: 25px;
+    margin-top: 50px;
+}
+
+.theliving-img {
+    flex: 2 !important;
+}
+.theliving-img img {
+    border-radius: 30px;
+    width: 100%;
+}
+
+/*The living hub end*/
+
+/*Talk to us start*/
+#desigen-safety {
+    margin: 110px 0px;
+    padding: 0 2rem;
+}
+
+.desigensafety {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+
+#desigen-safety .desigen-safetyimg {
+    flex: 1;
+}
+#desigen-safety .desigen-safetyimg img{
+    width: 100%;
+}
+#desigen-safety .theliving-txt {
+    flex: 2;
+}
+
+
+/*Talk to us end*/
+
+/*features list*/
+:root {
+    --bg: #ffffff;
+    --muted: #6b7280;
+    --accent: #0ea5e9;
+    /* sky-500 */
+    --divider: #e6e9ee;
+    --text: #111827;
+    --radius: 10px;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+
+/* body{background:var(--bg); color:var(--text); padding:28px;} */
+.feature-card {
+    width: 520px;
+    margin-top: 50px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1));
+    border-radius: var(--radius);
+    /* box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06); */
+    /* border: 1px solid var(--divider); */
+    overflow: hidden;
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+
+.list {
+    display: block;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    /* gap: 22px; */
+    padding: 16px 18px;
+    cursor: pointer;
+    background: transparent;
+    transition: background 0.3s, transform 0.25s;
+    padding-left: 0 !important;
+}
+
+
+.item+.item {
+    /* border-top: 1px solid var(--divider); */
+}
+
+
+.leading {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.title h2 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 35px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.subtitle {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.2;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+}
+
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+
+
+.icon-mail {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #f1f9ff;
+    /* border: 1px solid rgba(14, 165, 233, 0.12); */
+    transition: transform 0.3s ease;
+}
+
+.icon-mail svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+.badge {
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    /* box-shadow: 0 2px 6px rgba(14, 165, 233, 0.14); */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 28px;
+}
+
+
+.chev {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+
+/* Hover / focus states */
+.item:hover {
+    /* background: linear-gradient(90deg, rgba(245, 249, 255, 0.6), rgba(255, 255, 255, 0.4)); */
+    transform: translateX(4px);
+}
+
+.item:hover .chev {
+    transform: translateX(3px);
+}
+
+.item:hover .icon-mail {
+    transform: scale(1.1);
+}
+
+.item:focus {
+    /* outline: 3px solid rgba(14, 165, 233, 0.12) */
+}
+
+
+/* .simple-item .title {
+    font-weight: 700;
+    font-size: 15px
+} */
+
+
+.expanded .subtitle {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 6px;
+    text-align: left;
+}
+
+.expanded .chev {
+    transform: rotate(90deg);
+}
+
+
+@media (max-width:520px) {
+    .card {
+        width: 100%;
+    }
+
+    .icon-mail {
+        width: 34px;
+        height: 34px
+    }
+
+    .badge {
+        min-width: 40px;
+        height: 26px;
+        padding: 4px 7px
+    }
+}
+
+
+/* Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.item {
+    border: none;
+    outline: none;
+}
+
+button.item {
+    border: none;
+    outline: none;
+}
+
+/*kitchen that work start*/
+
+#kitchenwork {
+    margin-top: 120px;
+}
+
+.kitchenwhork-txt h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 80px;
+    line-height: 75px;
+    letter-spacing: -5%;
+    text-align: center;
+    color: #801B53;
+}
+
+.kitchenwhork-img {
+    display: flex;
+    gap: 25px;
+    margin-top: 60px;
+}
+
+.kitchen-img-1 {
+    max-width: 595px;
+}
+
+.kitchen-img-1 img {
+    width: 100%;
+}
+
+/*kitchen that work end*/
+
+/* Think Ahead style start */
+#thinkaheadsec {
+    /* padding: 5rem !important; */
+    background: #801B53;
+    margin-bottom: 8rem;
+    margin-top: 120px;
+}
+
+#thinkaheadsec .multigenerationalcont {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 10rem 0; */
+    display: flex;
+    padding: 10rem 0;
+}
+
+.multigenerationalsecone {
+    /* flex: 2; */
+    width: 30%;
+}
+
+.multigenerationalsectwo {
+    /* flex: 1; */
+    width: 70%;
+}
+
+#thinkaheadsec .multigenerationalsecone {
+    border-right: 1px solid #fff;
+}
+
+#thinkaheadsec .multigenerationalsecone h1 {
+    margin-bottom: 2rem;
+    color: #fff;
+    padding-right: 3rem;
+    font-size: 3rem;
+    line-height: 5rem;
+}
+
+#thinkaheadsec .multigenerationalsecone p {
+    color: #fff;
+}
+
+#thinkaheadsec .multigenerationalsectwo {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: palegoldenrod; */
+    padding: 2rem;
+}
+
+#thinkaheadsec .multigenerationalsectwo .secboxdiv {
+    /* background-color: red; */
+    display: flex;
+    padding: 2rem 4rem;
+    align-items: center;
+    gap: 5px;
+}
+
+#thinkaheadsec .multigenerationalsectwo .secboxdiv:not(:last-child) {
+    border-right: 1px solid #fff;
+}
+
+#thinkaheadsec .multigenerationalsectwo .secboxdiv h3 {
+    color: #fff;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 25px;
+    line-height: 30px;
+}
+
+.secboxdiv-1 {
+    width: 81px;
+}
+
+.secboxdiv img {
+    width: 100%;
+}
+
+
+/* Think Ahead style  end */
+
+/* Homes Care start */
+#homecaresec {
+    padding: 0 0 5rem 0;
+
+}
+
+#homecaresec .homecaresec-heading {
+    padding: 0 0 5rem 0;
+    text-align: center;
+}
+
+#homecaresec .homecaresec-heading h1 {
+    margin-bottom: 1rem;
+}
+
+#homecaresec .homecaresecimg-group {
+    padding: 0rem 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    gap: 5rem;
+}
+
+#homecaresec .homecaresec-img {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr; */
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: center;
+
+}
+
+.homecaresec-img h2 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 35px;
+    line-height: 40px;
+}
+
+
+
+/* Homes Care end */
+
+.morethan-img {
+    margin-top: 120px;
+    display: flex;
+    gap: 25px;
+}
+
+/*Stay connect start*/
+#stayconnectsec  {
+       margin: 5rem 0 5rem 0;
+}
+#stayconnectsec .stay-connect h1 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 80px;
+    line-height: 75px;
+    letter-spacing: -5%;
+    text-align: center;
+    color: #801B53;
+    margin-bottom: 4rem;
+}
+
+#stayconnectsec .staycontainerdesk {
+            /* max-width: 1200px; */
+            margin: 0 auto;
+        }
+
+        #stayconnectsec .tabs-header {
+
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        #stayconnectsec .tab-button {
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+            margin: 0 auto;
+            background: #E6D1DC;
+            color: #000000;
+            font-family: Montserrat;
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 30px;
+            letter-spacing: 0%;
+        }
+
+        #stayconnectsec .tab-button:nth-child(1) {
+            margin-right: 2rem !important;
+        }
+
+        #stayconnectsec .tab-button:nth-child(2) {
+            margin-right: 2rem !important;
+        }
+
+
+        #stayconnectsec .tab-button.active {
+            background: #801B53;
+            color: #fff;
+        }
+        #stayconnectsec .tabs-content {
+            display: flex;
+            gap: 10px;
+            /* height: 500px; */
+            transition: all 0.5s ease;
+        }
+
+        #stayconnectsec .tab-panel {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            height: 40rem;
+        }
+
+        #stayconnectsec .tab-panel.active {
+            flex: 0 0 80%;
+        }
+
+        #stayconnectsec .tab-panel:not(.active) {
+            flex: 0 0 10%;
+        }
+
+        #stayconnectsec .tab-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        #stayconnectsec .tab-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+            padding: 30px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #stayconnectsec .tab-panel.active .tab-overlay {
+            opacity: 1;
+        }
+
+        #stayconnectsec .tab-overlay p {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 25px;
+            line-height: 30px;
+            letter-spacing: 0%;
+        }
+/*Stay connect end*/
+
+
+/* Desktops and up */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    /* optional refinements */
+
+    .primary-heading {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 60px;
+        line-height: 75px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    .primary-para {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 0%;
+        color: #000000;
+    }
+
+    /*The living hub start*/
+
+    #the-living {
+        margin-top: 60px;
+    }
+
+    .theliving {
+        gap: 40px;
+    }
+
+    .theliving-txt h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 3.5rem;
+        line-height: 64px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    .theliving-txt p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 13px;
+        line-height: 16px;
+        margin-top: 30px;
+    }
+
+    .theliving-img {
+        /* width: 880px */
+    }
+
+    .theliving-img img {
+        width: 100%;
+    }
+
+    /*The living hub end*/
+
+    /*Talk to us start*/
+    #desigen-safety {
+        margin: 55px 0px;
+    }
+
+    .desigensafety {
+        /* display: flex;
+    align-items: center; */
+        gap: 25px;
+    }
+
+    .desigen-safetyimg {
+        /* width: 780px; */
+    }
+
+    .desigen-safetyimg img {
+        width: 100%;
+    }
+
+    /*Talk to us end*/
+
+    .card {
+        margin-top: 25px;
+    }
+
+    .item {
+        padding: 10px 18px;
+
+    }
+
+
+
+    .title h2 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 25px;
+        line-height: 40px;
+    }
+
+    /*kitchen that work start*/
+
+    #kitchenwork {
+        margin-top: 60px;
+    }
+
+    .kitchenwhork-txt h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 60px;
+        line-height: 75px;
+        letter-spacing: -5%;
+        text-align: center;
+        color: #801B53;
+    }
+
+    .kitchenwhork-img {
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+
+    /*kitchen that work end*/
+    /* Think Ahead style start */
+    #thinkaheadsec {
+        /* padding: 5rem !important; */
+        margin-bottom: 6rem;
+        margin-top: 60px;
+    }
+
+    #thinkaheadsec .multigenerationalcont {
+        align-items: center;
+    }
+
+    #thinkaheadsec .multigenerationalcont {
+        padding: 6rem 0;
+    }
+
+    #thinkaheadsec .multigenerationalsecone h1 {
+        margin-bottom: 2rem;
+        color: #fff;
+        padding-right: 3rem;
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+
+    #thinkaheadsec .multigenerationalsectwo .secboxdiv {
+        padding: 0rem 1rem;
+        /* align-items: center; */
+        /* gap: 2rem;*/
+    }
+
+    #thinkaheadsec .multigenerationalsectwo .secboxdiv h3 {
+        color: #fff;
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .secboxdiv-1 {
+        width: 81px;
+    }
+
+    .secboxdiv img {
+        width: 100%;
+    }
+
+    /* Homes Care start */
+    #homecaresec {
+        padding: 0 0 5rem 0;
+
+    }
+
+    #homecaresec .homecaresec-heading {
+        padding: 0 0 3rem 0;
+        /* text-align: center; */
+    }
+
+    #homecaresec .homecaresec-heading h1 {
+        /* margin-bottom: 1rem; */
+    }
+
+    #homecaresec .homecaresecimg-group {
+        padding: 0rem 4rem;
+
+        /* gap: 230px; */
+    }
+
+    #homecaresec .homecaresec-img {
+        gap: 25px;
+
+    }
+
+    .homecaresec-img h2 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 25px;
+        line-height: 40px;
+    }
+
+    .morethan-img {
+        margin-top: 60px;
+        gap: 15px;
+    }
+
+
+    /* Homes Care end */
+
+    /*Stay connect start*/
+
+    /* #stayconnectsec {
+        margin-top: 50px;
+    }
+
+    .stay-connect h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 60px;
+        line-height: 75px;
+        letter-spacing: -5%;
+
+    }
+    .tabs {
+        margin-top: 40px;
+    }
+
+    .tab {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 20px;
+        line-height: 25px;
+        padding: 15px 35px;
+    }
+
+    .carousel {
+        gap: 10px;
+    }
+
+    .card {
+        flex: 0 0 150px;
+    }
+
+    .card img {
+        border-radius: 16px;
+        display: block;
+    }
+    .card.expanded {
+        flex: 0 0 70%;
+        transform: scale(1.05);
+        z-index: 10;
+    } */
+/* 
+     .staycontainerdesk {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 0;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+        }
+
+        .tab-button:nth-child(1) {
+            background: #e8d5e8;
+            color: #6b4d6b;
+        }
+
+        .tab-button:nth-child(2) {
+            background: #f0e5f0;
+            color: #7a5d7a;
+        }
+
+        .tab-button:nth-child(3) {
+            background: #5a2d5a;
+            color: white;
+        }
+
+        .tab-button.active:nth-child(1) {
+            background: #d4b5d4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 77, 107, 0.3);
+        }
+
+        .tab-button.active:nth-child(2) {
+            background: #dcc5dc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(122, 93, 122, 0.3);
+        }
+
+        .tab-button.active:nth-child(3) {
+            background: #6b3d6b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(90, 45, 90, 0.4);
+        }
+
+        .tabs-content {
+            display: flex;
+            gap: 10px;
+            height: 500px;
+            transition: all 0.5s ease;
+        }
+
+        .tab-panel {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .tab-panel.active {
+            flex: 0 0 80%;
+        }
+
+        .tab-panel:not(.active) {
+            flex: 0 0 10%;
+        }
+
+        .tab-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tab-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+            padding: 30px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .tab-panel.active .tab-overlay {
+            opacity: 1;
+        }
+
+        .tab-overlay h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .tab-overlay p {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .tab-label {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-90deg);
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .tab-panel:not(.active) .tab-label {
+            opacity: 1;
+        }
+ */
+
+    /*Stay connect end*/
+        #the-living .theliving-txt h1 {
+        font-size: 3rem;
+        line-height: 55px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .title h2 {
+    font-size: 24px;
+    line-height: 32px;
+}
+    .banner-tagline h1 {
+        font-size: 35px !important;
+        line-height: 40px !important;
+    }
+    .kitchenwhork-txt h1 {
+    font-size: 50px;
+    line-height: 64px;
+}
+#stayconnectsec .stay-connect h1 {
+    font-size: 5    0px;
+}
+    .theliving-txt h1 {
+        font-size: 3rem;
+        line-height: 54px;
+    }
+        .theliving-txt h1 {
+        font-size: 2rem;
+    }
+        .theliving-txt p {
+        font-size: 12px;
+        line-height: 14px;
+        margin-top: 14px;
+    }
+    .theliving-img {
+    flex: 1.5 !important;
+}
+#homecaresec .homecaresecimg-group {
+    gap: 5rem;
+}
+#homecaresec div img{
+    width: 3rem;
+}
+    #homecaresec .homecaresec-img h2 {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    #homecaresec .homecaresec-img {
+    gap: 22px;
+}
+#stayconnectsec .tab-button {
+    padding: 0.5rem 3rem;
+}
+}
+
+ @media (min-width: 769px) {
+   
+.bannerimgmobile {
+    display: none !important;
+}
+#thinkaheadsec .multigenerationalsectwo .secboxdiv {
+    padding: 5px 5px !important;
+}
+#thinkaheadsec .multigenerationalsecone h1 {
+    margin-bottom: 2rem;
+    color: #fff;
+    padding-right: 3rem;
+    font-size: 2rem;
+    line-height: 4rem;
+}
+#thinkaheadsec .multigenerationalsectwo .secboxdiv h3 {
+    font-size: 15px;
+    line-height: 22px;
+}
+}
+
+@media screen and (max-width: 768px) {
+    .footer-policy-sec {
+        padding: 1rem 0;
+    }
+    .footer-logo-sec img {
+        padding-left: 0;
+    }
+        .footer-social-media {
+        padding-left: 0;
+    }
+    .main-container {
+        padding-inline: 1rem;
+    }    
+#the-living .sl-carousel-mob-smarthome{
+    min-height: 30rem !important;
+}
+.sl-carousel-mob-itsmoreh {
+    min-height: 30rem !important;
+}
+    #stayconnectsec .tabs-content {
+                flex-direction: column;
+                height: 500px;
+            }
+                #stayconnectsec .tab-button {
+        padding: 5px 2rem;
+        font-size: 1rem;
+    }
+    #stayconnectsec .tab-button:nth-child(1) {
+    margin-right: 0.5rem !important;
+}
+    #stayconnectsec .tab-button:nth-child(2) {
+    margin-right: 0.5rem !important;
+}
+            #stayconnectsec .tab-panel.active {
+                flex: 0 0 100%;
+            }
+            #stayconnectsec .tab-panel:not(.active) {
+                display: none;
+            }
+            #stayconnectsec .tab-label {
+                transform: translateX(-50%) rotate(0deg);
+                bottom: 50%;
+                transform: translate(-50%, 50%);
+            }
+            #stayconnectsec .stay-connect h1 {
+    display: none;
+}
+
+    /*The living hub start*/
+
+    /* #the-living {
+    margin-top: 40px;
+}*/
+.multigenerationalsectwo {
+    width: 100% !important;
+}
+    .bannerimgdesktop {
+        display: none !important;
+    }
+    .theliving {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem !important;
+    }
+
+    .theliving-txt-mob h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 7vw;
+        /* line-height: 40px; */
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    .theliving-txt-mob p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 0%;
+    }
+    .theliving-txt-mob p {
+        margin-left: 0 !important;
+    }
+    .theliving-txt-mob h1 {
+        margin-bottom: 1.5rem;
+    }
+
+    .theliving-img-mob {
+        width: 100%;
+    }
+    .theliving-img-mob img {
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+
+    /*The living hub end*/
+
+    /*Design Safety start*/
+
+    #the-living {
+        margin-top: 0px;
+    }
+
+    /*Design Safety end*/
+
+    /*Think Ahead start*/
+    #thinkaheadsec-mob .multigenerationalsecone h1 {
+    /* margin-bottom: 2rem; */
+    color: #fff;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 2rem;
+    line-height: 30px;
+    letter-spacing: -5%;
+    /* padding: 40px; */
+}
+#thinkaheadsec-mob .multigenerationalsecone {
+    width: 100% !important;
+    /* margin-bottom: 2rem; */
+}
+    .secboxdiv {
+        display: flex;
+        align-items: center;
+        gap: 1rem !important;
+        margin:  0 !important;
+        padding: 3rem 0 !important;
+    }
+
+#homecaresec .homecaresec-heading-mob {
+    padding: 0 !important;
+}
+#thinkaheadsec-mob {
+    background: #801B53;
+    margin-bottom: 1rem;
+    padding: 7rem 1rem !important;
+}
+
+#thinkaheadsec-mob .multigenerationalcont {
+flex-direction: column;
+}
+
+.multigenerationalsectwo {
+    width: 100%;
+}
+
+/* #thinkaheadsec .multigenerationalsectwo .secboxdiv {
+    padding: 2rem 4rem;
+    align-items: center;
+    gap: 2rem;
+} */
+
+.secboxdiv {
+    display: flex;
+    align-items: center;
+    gap: 120px;
+    margin: 40px;
+    padding: 10px;
+}
+
+.secboxdiv:not(:last-child) {
+    border-bottom: 1px solid #ffffff;
+}
+
+.secboxdiv h3 {
+    font-family: Montserrat;
+font-weight: 700;
+font-style: Bold;
+font-size: 25px;
+line-height: 30px;
+color: white;
+}
+
+/*Think Ahead end*/
+
+    /*The Smart Homes start*/
+    /* .theliving {
+        flex-direction: column;
+    } */
+
+    /* .title-mob h3 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 25px;
+        line-height: 30px;
+        margin-top: 20px;
+    }
+
+    .subtitle-mob {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 20px;
+        line-height: 25px;
+    } */
+.sl-carousel-mob {
+    min-height: 30rem !important;
+}
+
+    .carousel {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 15px;
+        position: relative;
+        margin-top: 25px;
+    }
+
+    .carousel-slide,
+    .carousel-slide1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        max-width: 670px;
+
+    }
+
+    .carousel-slide.active,
+    .carousel-slide1.actives {
+        opacity: 1;
+        z-index: 1;
+        position: relative;
+    }
+
+    .carousel-slide img,
+    .carousel-slide1 img {
+        width: 100%;
+        object-fit: cover;
+        display: block;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    /* Text under image */
+    .carousel-text h3 {
+        padding: 12px 0px;
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 25px;
+        line-height: 30px;
+        text-align: left;
+    }
+
+    .carousel-text p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 20px;
+        line-height: 25px;
+        text-align: left;
+        margin-top: 0px;
+    }
+
+    /* Dots */
+    .carousel-dots,
+    .carousel-dots1 {
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+    }
+
+    .dot,
+    .dot1 {
+        height: 10px;
+        width: 10px;
+        margin: 0 6px;
+        background-color: #000;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .dot.active,
+    .dot1.actives {
+        background-color: #000;
+    }
+
+    .dot.active::after,
+    .dot1.actives::after {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #000;
+        border-radius: 50%;
+    }
+
+    /*The Smart Homes end*/
+
+    /*kitchen that work start*/
+
+    #kitchenwork {
+        margin-top: 0px;
+        margin-bottom: 2rem;
+    }
+
+    .primary-heading {
+        font-size: 7vw;
+        line-height: 45px;
+        letter-spacing: -5%;
+    }
+
+    /*kitchen that work end*/
+
+    /*Homes Care start*/
+
+    #homecaresec {
+    padding: 0 0 0rem 0;
+    margin: 4rem 0 !important;
+
+}
+    #homecaresec .homecaresecimg-group {
+        flex-direction: column;
+        gap: 50px;
+        align-items: flex-start;
+        padding: 0 0;
+        margin-bottom: 3rem;
+    }
+        #homecaresec div img {
+        width: 4rem;
+    }
+
+    .homecaresec-img-mob h3 {
+        font-family: Montserrat;
+font-weight: 700;
+font-style: Bold;
+font-size: 25px;
+line-height: 30px;
+letter-spacing: 0%;
+
+    }
+   #kitchenwork sl-carousel-item img {
+        border-radius: 10px;
+   }
+
+    .homecaresec-img-mob {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+
+    #homecaresec .homecaresec-heading h1 {
+        margin-bottom: 0rem;
+    }
+
+    #homecaresec .homecaresec-heading-mob {
+        padding: 50px;
+        align-items: flex-start;
+        margin-bottom: 3rem;
+    }
+
+    /*Homes Care start*/
+
+    /*It's more than home start*/
+    .kitchenwork-txt-mob h1 {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 30px;
+        line-height: 35px;
+        letter-spacing: -5%;
+        color: #801B53;
+    }
+
+    /*It's more than home end*/
+.smarthomeheadsl {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0%;
+    text-align: left !important;
+    margin-top: 1rem;
+}
+.smarthomeparasl {
+font-family: Lato;
+font-weight: 400;
+font-style: Regular;
+font-size: 20px;
+line-height: 25px;
+letter-spacing: 0%;
+margin-top: 1rem !important;
+}
+sl-carousel::part(pagination-item) {
+  background-color: hsl(0, 0%, 0%);
+  opacity: 1;
+}
+sl-carousel::part(pagination-item--active) {
+  outline: 2px solid black;
+  outline-offset: 3px;
+}
+}
+/*For Mobile*/
+@media screen and (max-width: 650px) {
+.sl-carousel-mob {
+    min-height: 20rem !important;
+}
+.sl-carousel-mob-itsmoreh {
+    min-height: 23rem !important;
+}
+}
+@media screen and (max-width: 550px) {
+        /* .main-container {
+    width: 95% !important;
+} */
+.sl-carousel-mob {
+    min-height: 16rem !important;
+}
+#the-living .sl-carousel-mob-smarthome{
+    min-height: 23rem !important;
+}
+.sl-carousel-mob-itsmoreh {
+    min-height: 20rem !important;
+}
+}
+
+@media screen and (max-width: 480px) {
+    .theliving-txt-mob h1 {
+        margin-bottom: 1rem;
+    }
+
+        #stayconnectsec .tab-button {
+        padding: 0px 2rem;
+        font-size: 10px;
+        font-weight: 800;
+    }
+    /*The living hub start*/
+        .theliving-txt-mob p {
+        line-height: 20px;
+        margin-top: 20px;
+    }
+
+        .theliving {
+        padding: 15px;
+    }
+
+        .theliving-txt-mob p {
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+
+    /*The living hub End*/
+    /*Think Ahead Start*/
+
+    #thinkaheadsec-mob {
+        margin-top: 50px;
+    }
+
+    .secboxdiv  {
+        gap: 80px;
+        margin: 0px;
+    }
+
+        #kitchenwork {
+        margin-top: 50px;
+    }
+
+        #homecaresec .homecaresec-heading-mob {
+        padding: 10px;
+        }
+
+            #homecaresec .homecaresecimg-group {
+        /* gap: 40px; */
+        padding: 0px 15px;
+        margin-top: 25px;
+    }
+    /*Think Ahead end*/
+    #the-living .sl-carousel-mob-smarthome{
+    min-height: 20rem !important;
+}
+.sl-carousel-mob-itsmoreh {
+    min-height: 18rem !important;
+}
+.kitchenwork-txt-mob h1 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+.sl-carousel-mob {
+    min-height: 12rem !important;
+}
+.sl-carousel-mob-itsmoreh {
+    min-height: 14rem !important;
+}
+}
+
+
+@media screen and (max-width: 375px) {
+            #stayconnectsec .tab-button {
+        padding: 0px 1.5rem;
+        font-size: 8px;
+        font-weight: 900;
+    }
+        .smarthomeparasl {
+        margin-top: 0.2rem !important;
+        font-size: 18px;
+    }
+    #stayconnectsec .tab-overlay p {
+    font-size: 18px;
+}
+    .smarthomeheadsl {
+        font-size: 22px;
+    }
+}
+
+/* ************** code for desktop and mobile view *****************/
+.only-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .only-mobile {
+    display: block !important;
+  }
+}
+
+.only-desktop {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .only-desktop {
+    display: none !important;
+  }
+}
+
+/* ************** code for desktop and mobile view *****************/
+ </style>
+</head>
+
+<body>
+
+<!-- desktop mobile navbar menu start -->
+    <div class="main-container only-desktop">
+        <div class="navbar">
+            <div class="logo">
+                <img src="./assets/images/primus-logo.png" alt="logo">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="#">Our Communities</a></li>
+                    <li><a href="./lifestyle.html">The Primus Lifestyle</a></li>
+                    <li><a href="./livinghub.html">Living Well Hub</a></li>
+                    <li><a href="#">Partner With Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+
+            <div class="enquiry-wrap">
+                <details class="enquiry">
+                    <summary>
+                        ENQUIRY
+                        <svg class="caret" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </summary>
+
+                    <ul class="enquiry-menu" role="menu" aria-label="Enquiry options">
+                        <li role="menuitem"><a href="email">EMAIL</a></li>
+                        <li role="menuitem"><a href="whatsapp">WHATSAPP</a></li>
+                        <li role="menuitem"><a href="form">FORM</a></li>
+                    </ul>
+                </details>
+            </div>
+        </div>
+    </div>
+<!-- desktop mobile navbar menu end -->
+
+<!-- mobile menu design start -->
+    <section id="mobilemenudesignsec" class="only-mobile">
+        <div class="overlay" onclick="closeMenu()"></div>
+
+        <div class="menu-container">
+            <div class="menu-header collapsed">
+                <div class="logo"><img src="./assets/images/primus-logo.png" alt=""></div>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <img src="./assets/images/Home/mb/menu-open.png" alt="Menu" class="menu-img menu-open-icon">
+                    <img src="./assets/images/Home/mb/menu-close.png" alt="Close" class="menu-img menu-close-icon">
+                </div>
+
+            </div>
+            <div class="menu-content">
+                <a href="#" class="menu-item">Home</a>
+                <a href="#" class="menu-item">About Us</a>
+                <a href="#" class="menu-item">Our Communities</a>
+                <a href="#" class="menu-item">The Primus Lifestyle</a>
+                <a href="#" class="menu-item">Living Well Hub</a>
+                <a href="#" class="menu-item">Partner With Us</a>
+                <a href="#" class="menu-item">Contact Us</a>
+                <button class="enquiry-btn">ENQUIRY <i class="fa-solid fa-angle-down"></i></button>
+            </div>
+        </div>
+    </section>
+<!-- mobile menu design end -->
+
+    <!-- desktop banner code -->
+    <div class="main-container">
+        <section id="header" class="home-header">
+            <div class="banner">
+                <div class="banner-tagline">
+                    <h1>What's the point<br>of living long if you<br>aren't living well?</h1>
+                </div>
+
+                <div class="bannerimg">
+                    <img class="bannerimgdesktop" src="./assets/images/livinghub images/LivingWellHubBanner.png" />
+                    <img class="bannerimgmobile" src="./assets/images/livinghub images/LivingWellHubBannermobile.png" />
+                </div>
+            </div>
+        </section>
+    </div>
+        <!--The living hub start-->
+        <!--For Desktop-->
+        <section id="the-living" class="main-container only-desktop">
+            <div class="theliving">
+                <div class="theliving-txt">
+                    <h1>The Living<br> Well Hub</h1>
+                    <p>The Living Well Hub at Primus combines thoughtful design,<br> smart technology, and global
+                        practices
+                        to create wellness-<br>focused homes for every generation.<br><br>
+                        From slip-free floors to safe play zones, Primus homes<br> adapt to every stage of life.</p>
+                </div>
+                <div class="theliving-img">
+                    <img src="./assets/images/livinghub images/living hub 1.png" alt="Image">
+                </div>
+            </div>
+        </section>
+
+        <!--For Mobile-->
+        <section id="the-living" class="only-mobile">
+            <div class="theliving">
+                <div class="theliving-txt-mob">
+                    <h1>The Living Well Hub</h1>
+                    <p>The Living Well Hub at Primus combines thoughtful design, smart technology, and global
+                        practices
+                        to create wellness-focused homes for every generation.<br> <br>
+                        From slip-free floors to safe play zones, Primus homes adapt to every stage of life.</p>
+                </div>
+                <div class="theliving-img-mob">
+                    <img src="./assets/images/livinghub images/living hub 1.png" alt="Image">
+                </div>
+            </div>
+        </section>
+        <!--The living hub end-->
+
+        <!--For Desktop-->
+        <!--Desing Safety  start-->
+        <section id="desigen-safety" class="main-container only-desktop">
+            <div class="desigensafety">
+                <div class="desigen-safetyimg">
+                    <img src="./assets/images/livinghub images/designed safety 1.png" alt="Image">
+                </div>
+                <!-- <div class="desigen-safetytxt"> -->
+                <div class="theliving-txt">
+                    <h1>Designed for Safety.
+                        Built for Peace of Mind.</h1>
+                    <p>Every feature is built to prevent risks and protect you and your loved ones.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--For Mobile-->
+        <section id="the-living" class="only-mobile">
+            <div class="theliving">
+                <div class="theliving-txt-mob">
+                    <h1>Designed for Safety.<br>
+                        Built for Peace of Mind.</h1>
+                    <p>Every feature is built to prevent risks<br> and protect you and your loved ones.</p>
+                </div>
+                <div class="theliving-img-mob">
+                    <img src="./assets/images/livinghub images/Mob designed.png" alt="Image">
+                </div>
+            </div>
+        </section>
+
+        <!--Desgin Safety  end-->
+
+        <!--For Desktop-->
+        <!--The Smart Homes start-->
+        <section id="the-living" class="main-container only-desktop">
+            <div class="theliving">
+                <div class="theliving-txt">
+                    <h1>Smart Homes,<br> Smart Living</h1>
+
+
+                    <!--features list-->
+                    <div class="feature-card" role="list" aria-label="Product features">
+                        <path d="M21 7.5l-9 6-9-6" stroke="#0369a1" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        </svg>
+
+                        <!-- <div class="badge" aria-hidden="true">14 × 7</div> -->
+                        <button class="item simple-item" role="listitem" tabindex="0" aria-label="Movement friendly">
+                            <div class="leading">
+                                <div class="title">
+                                    <h2>Voice-enabled comfort</h2>
+                                </div>
+                                <div class="subtitle">Easily accessible and intuitive for all movement needs.</div>
+                            </div>
+                            <div class="meta">
+                                <span class="chev" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 6l6 6-6 6" stroke="#374151" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </button>
+
+
+                        <button class="item simple-item" role="listitem" tabindex="0" aria-label="Movement friendly">
+                            <div class="leading">
+                                <div class="title">
+                                    <h2>Personalised Setting</h2>
+                                </div>
+                                <div class="subtitle">Easily accessible and intuitive for all movement needs.</div>
+                            </div>
+                            <div class="meta">
+                                <span class="chev" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 6l6 6-6 6" stroke="#374151" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </button>
+
+
+                        <button class="item simple-item" role="listitem" tabindex="0" aria-label="Movement friendly">
+                            <div class="leading">
+                                <div class="title">
+                                    <h2>Future-ready</h2>
+                                </div>
+                                <div class="subtitle">Easily accessible and intuitive for all movement needs.</div>
+                            </div>
+                            <div class="meta">
+                                <span class="chev" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 6l6 6-6 6" stroke="#374151" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </button>
+
+                        <button class="item simple-item" role="listitem" tabindex="0" aria-label="Movement friendly">
+                            <div class="leading">
+                                <div class="title">
+                                    <h2>Movement friendly</h2>
+                                </div>
+                                <div class="subtitle">Easily accessible </h2>and intuitive for all movement needs.</div>
+                            </div>
+                            <div class="meta">
+                                <span class="chev" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 6l6 6-6 6" stroke="#374151" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="theliving-img">
+                    <img src="./assets/images/livinghub images/smart homes.png" alt="Image">
+                </div>
+            </div>
+        </section>
+        <!--For Mobile-->
+        <section id="the-living" class="only-mobile">
+            <div class="theliving">
+                <div class="theliving-txt-mob">
+                    <h1>Smart Homes,<br> Smart Living</h1>
+                    <div class="mouse-dragging">
+                        <sl-carousel pagination class="sl-carousel-mob-smarthome">
+                            <sl-carousel-item>
+                                <img alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
+                                    src="./assets/images/livinghub images/Mobsmarthomes.png" />
+                                    
+                                    <h3 class="smarthomeheadsl">Voice-enabled comfort</h3>
+                                    <p class="smarthomeparasl">Alexa for lights, fans, curtains</p>
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A waterfall in the middle of a forest (by Thomas Kelly on Unsplash)"
+                                    src="./assets/images/livinghub images/Mobsmarthomes.png" />
+                                    <h3 class="smarthomeheadsl">Voice-enabled comfort</h3>
+                                    <p class="smarthomeparasl">Alexa for lights, fans, curtains</p>
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
+                                   src="./assets/images/livinghub images/Mobsmarthomes.png" />
+                                  <h3 class="smarthomeheadsl">Voice-enabled comfort</h3>
+                                    <p class="smarthomeparasl">Alexa for lights, fans, curtains</p>
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
+                                    src="./assets/images/livinghub images/Mobsmarthomes.png" />
+                                    <h3 class="smarthomeheadsl">Voice-enabled comfort</h3>
+                                    <p class="smarthomeparasl">Alexa for lights, fans, curtains</p>
+                            </sl-carousel-item>
+                        </sl-carousel>
+
+
+                        
+                    </div>
+
+                    <script>
+                        const container = document.querySelector('.mouse-dragging');
+                        const carousel = container.querySelector('sl-carousel');
+                        const toggle = container.querySelector('sl-switch');
+
+                        toggle.addEventListener('sl-change', () => {
+                            carousel.toggleAttribute('mouse-dragging', toggle.checked);
+                        });
+                    </script>
+
+                </div>
+            </div>
+        </section>
+
+        <!--The Smart Homes end-->
+
+        <!--For Desktop-->
+        <!--kitchen that work start-->
+        <section id="kitchenwork" class="main-container only-desktop">
+            <div class="kitchen-work">
+                <div class="kitchenwhork-txt">
+                    <h1>Kitchens that Work for All</h1>
+                </div>
+                <div class="kitchenwhork-img">
+                    <div class="kitchen-img-1">
+                        <img src="./assets/images/livinghub images/kitchen work 1.png" alt="Image">
+                    </div>
+                    <div class="kitchen-img-1">
+                        <img src="./assets/images/livinghub images/kitchen work 2.png" alt="Image">
+                    </div>
+                    <div class="kitchen-img-1">
+                        <img src="./assets/images/livinghub images/kitchen work 3.png" alt="Image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--For Mobile-->
+        <section id="kitchenwork" class="only-mobile">
+            <div class="theliving">
+                <div class="theliving-txt-mob">
+                    <h1>Kitchens that<br> Work for All</h1>
+                    <div class="mouse-dragging">
+                        <sl-carousel pagination class="sl-carousel-mob">
+                            <sl-carousel-item>
+                                <img alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
+                                    src="./assets/images/livinghub images/kitchen work 1.png" />
+                                    
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A waterfall in the middle of a forest (by Thomas Kelly on Unsplash)"
+                                    src="./assets/images/livinghub images/kitchen work 2.png" />
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
+                                   src="./assets/images/livinghub images/kitchen work 3.png" />
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
+                                    src="./assets/images/livinghub images/mob kitchen work 1.png" />
+                            </sl-carousel-item>
+                        </sl-carousel>
+
+
+                        
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--kitchen that work end-->
+
+    <!--For Desktop-->
+    <!-- Think Ahead start -->
+    <section id="thinkaheadsec" class="main-container only-desktop">
+        <div class="multigenerationalcont main-container">
+            <div class="multigenerationalsecone">
+                <h1 class="primary-heading">Bathrooms that<br> Think Ahead</h1>
+                <!-- <p class="primary-para">We are't inventing it — just bringing it back, smarter.</p> -->
+            </div>
+            <div class="multigenerationalsectwo">
+                <div class="secboxdiv">
+                    <div class="secboxdiv-1"><img src="./assets/images/livinghub images/iconone.png" alt=""></div>
+                    <h3>Smart toilets<br> & grab bars</h3>
+                </div>
+                <div class="secboxdiv">
+                    <div><img src="./assets/images/livinghub images/icontwo.png" alt=""></div>
+                    <h3>Nightlight<br> sensors</h3>
+                </div>
+                <div class="secboxdiv">
+                    <div><img src="./assets/images/livinghub images/iconthree.png" alt=""></div>
+                    <h3>Heated<br> towel racks</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--For Mobile-->
+    <section id="thinkaheadsec-mob" class="only-mobile">
+        <div class="multigenerationalcont main-container">
+            <div class="multigenerationalsecone">
+                <h1 class="primary-heading">Bathrooms that Think Ahead</h1>
+            </div>
+            <div class="multigenerationalsectwo">
+                <div class="secboxdiv">
+                    <div class="secboxdiv-1"><img src="./assets/images/livinghub images/iconone.png" alt=""></div>
+                    <h3>Smart toilets<br> & grab bars</h3>
+                </div>
+                <div class="secboxdiv">
+                    <div class="secboxdiv-1"><img src="./assets/images/livinghub images/icontwo.png" alt=""></div>
+                    <h3>Nightlight sensors</h3>
+                </div>
+                <div class="secboxdiv">
+                    <div class="secboxdiv-1"><img src="./assets/images/livinghub images/iconthree.png" alt=""></div>
+                    <h3>Smart toilets<br> & grab bars</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Think Ahead end -->
+        <!--For Desktop-->
+        <!-- Homes Care start -->
+        <section id="homecaresec" class="main-container only-desktop">
+            <div class="homecaresec-container">
+                <div class="homecaresec-heading">
+                    <h1 class="primary-heading">Homes that Care for You</h1>
+                </div>
+                <div class="homecaresecimg-group">
+                    <div class="homecaresec-img">
+                        <div><img src="./assets/images/livinghub images/home one.png" alt=""></div>
+                        <h2>Fall sensors</h2>
+                    </div>
+                    <div class="homecaresec-img">
+                        <div><img src="./assets/images/livinghub images/home two.png" alt=""></div>
+                        <h2>Smart entry systems</h2>
+                    </div>
+                    <div class="homecaresec-img">
+                        <div><img src="./assets/images/livinghub images/home three.png" alt=""></div>
+                        <h2>Panic cords</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--for Mobile-->
+        <section id="homecaresec" class="only-mobile">
+            <div class="homecaresec-container">
+                <div class="homecaresec-heading-mob">
+                    <h1 class="primary-heading">Homes that<br> Care for You</h1>
+                </div>
+                <div class="homecaresecimg-group">
+                    <div class="homecaresec-img-mob">
+                        <div><img src="./assets/images/livinghub images/mob home 1.png" alt=""></div>
+                        <h3>Fall<br> sensors</h3>
+                    </div>
+                    <div class="homecaresec-img-mob">
+                        <div><img src="./assets/images/livinghub images/mob home 2.png" alt=""></div>
+                        <h3>Smart entry<br> systems</h3>
+                    </div>
+                    <div class="homecaresec-img-mob">
+                        <div><img src="./assets/images/livinghub images/mob home 3.png" alt=""></div>
+                        <h3>Panic<br> cords</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Home Care  end -->
+
+        <!--For Desktop-->
+        <!--It's more than home start-->
+        <section id="morethan" class="main-container only-desktop">
+            <div class="kitchen-work">
+                <div class="kitchenwhork-txt">
+                    <h1>It's More Than a Home.<br> It's a Lifestyle.</h1>
+                </div>
+                <div class="morethan-img">
+                    <div class="kitchen-img-1">
+                        <img src="./assets/images/livinghub images/more one.png" alt="Image">
+                    </div>
+                    <div class="kitchen-img-1">
+                        <img src="./assets/images/livinghub images/more two.png" alt="Image">
+                    </div>
+                    <div class="kitchen-img-1">
+                        <img src="./assets/images/livinghub images/more three.png" alt="Image">
+                    </div>
+                    <div class="kitchen-img-1">
+                        <img src="./assets/images/livinghub images/more four.png" alt="Image">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--for Mobile-->
+
+        <section id="kitchenwork" class="only-mobile">
+            <div class="theliving">
+                <div class="kitchenwork-txt-mob">
+                    <h1>It's More Than a<br> Home. It's a Lifestyle.</h1>
+
+                   <div class="mouse-dragging">
+                        <sl-carousel pagination class="sl-carousel-mob-itsmoreh">
+                            <sl-carousel-item>
+                                <img alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
+                                    src="./assets/images/livinghub images/kitchen work 1.png" />
+                                    
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A waterfall in the middle of a forest (by Thomas Kelly on Unsplash)"
+                                    src="./assets/images/livinghub images/kitchen work 2.png" />
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
+                                   src="./assets/images/livinghub images/kitchen work 3.png" />
+                            </sl-carousel-item>
+                            <sl-carousel-item>
+                                <img alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
+                                    src="./assets/images/livinghub images/mob kitchen work 1.png" />
+                            </sl-carousel-item>
+                        </sl-carousel>
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--It's more than home end-->
+
+        <!--Stay connect start desktop & Mobiile-->
+        <section id="stayconnectsec" class="main-container">
+            <div class="stayconnebtn">
+                <div class="stay-connect">
+                    <h1>Stay Connected</h1>
+                </div>
+               
+                    <div class="staycontainerdesk">
+        <div class="tabs-header">
+            <button class="tab-button active" onclick="switchTab(0)">Read</button>
+            <button class="tab-button" onclick="switchTab(1)">Subscribe</button>
+            <button class="tab-button" onclick="switchTab(2)">Connect</button>
+        </div>
+
+        <div class="tabs-content">
+            <div class="tab-panel active" onclick="switchTab(0)">
+                <img src="./assets/images/livinghub images/stayconnectone.png" alt="" class="tab-image">
+                <div class="tab-overlay">
+                    <p>Explore articles on living well</p>
+                </div>
+            </div>
+
+            <div class="tab-panel" onclick="switchTab(1)">
+                <img src="./assets/images/livinghub images/stayconnecttwo.png" alt="" class="tab-image">
+                <div class="tab-overlay">
+                   
+                    <p>Get tips and updates</p>
+                </div>
+            </div>
+
+            <div class="tab-panel" onclick="switchTab(2)">
+                <img src="./assets/images/livinghub images/stayconnectthree.png" alt="Community Forum" class="tab-image">
+                <div class="tab-overlay">
+                    
+                    <p>Join our community forum</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </section>
+        <!--Stay connect desktop end-->
+
+    <!-- footer page design tab section start -->
+    <footer id="footersec">
+        <div class="footercont main-container">
+            <div class="mainfootercontup">
+                <div class="footer-logo-sec">
+                    <a href="./index.html">
+                        <img src="./assets/images/primus-logo.png" alt="primus logo">
+                    </a>
+                </div>
+                <div class="footer-policy-sec">
+                    <ul>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Careers Page</a></li>
+                    </ul>
+                </div>
+                <div class="footer-about-us">
+                    <ul>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Terms & Conditions</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social-media">
+                    <div><a href=""><i class="fa-brands fa-x-twitter"></i></a></div>
+                    <div><a href=""><i class="fa-brands fa-instagram"></i></a></div>
+                    <div><a href=""><i class="fa-brands fa-facebook"></i></a></div>
+                    <div><a href=""><i class="fa-brands fa-youtube"></i></a></div>
+                    <div><a href=""><i class="fa-brands fa-linkedin"></i></a></div>
+                    <div><a href=""><i class="fa-brands fa-whatsapp"></i></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="mainfootercontdown">
+            <p>Primus &copy; 2025</p>
+        </div>
+    </footer>
+    <!-- footer page design tab section end -->
+
+    <!--For Mobile Slider-->
+    <script>
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        // Manual dot click
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                updateCarousel(currentIndex);
+            });
+        });
+
+    </script>
+
+    <!-- <script>
+        const tabs = document.querySelectorAll(".tab");
+        const cards = document.querySelectorAll(".card");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                // active button highlight
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                // reset all cards
+                cards.forEach(c => c.classList.remove("expanded"));
+
+                // expand target card
+                const targetId = tab.getAttribute("data-target");
+                document.getElementById(targetId).classList.add("expanded");
+            });
+        });
+
+        // Default expand first card
+        document.getElementById("card1").classList.add("expanded");
+    </script> -->
+
+
+    <script>
+        document.querySelectorAll('.item[role="listitem"]').forEach(el => {
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    el.click?.();
+                }
+            });
+            el.addEventListener('click', () => {
+                const subtitle = el.querySelector('.subtitle');
+                const chev = el.querySelector('.chev');
+
+
+                if (subtitle) {
+                    // Close others
+                    document.querySelectorAll('.simple-item').forEach(item => {
+                        if (item !== el) {
+                            item.classList.remove('expanded');
+                            const otherChev = item.querySelector('.chev');
+                            if (otherChev) {
+                                otherChev.style.transform = 'rotate(0deg)';
+                            }
+                        }
+                    });
+                    // Toggle current
+                    el.classList.toggle('expanded');
+                    if (chev) {
+                        chev.style.transform = el.classList.contains('expanded') ? 'rotate(90deg)' : 'rotate(0deg)';
+                    }
+                }
+
+
+                el.animate([
+                    { transform: 'scale(1)', backgroundColor: 'transparent' },
+                    { transform: 'scale(0.97)', backgroundColor: 'rgba(14,165,233,0.08)' },
+                    { transform: 'scale(1)', backgroundColor: 'transparent' }
+                ], { duration: 300, easing: 'ease-in-out' });
+            });
+        });
+    </script>
+<!-- Stay connected desktop & Mobile js code start -->
+     <script>
+        function switchTab(index) {
+            const buttons = document.querySelectorAll('.tab-button');
+            const panels = document.querySelectorAll('.tab-panel');
+
+            buttons.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            panels.forEach((panel, i) => {
+                if (i === index) {
+                    panel.classList.add('active');
+                } else {
+                    panel.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            switchTab(0);
+        });
+    </script>
+<!-- Stay connected desktop & Mobile js code end -->
+
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../mobmenujs.js"></script>
+
+</body>
+
+</html>

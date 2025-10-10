@@ -1,0 +1,2354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primus</title>
+    <!-- <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> -->
+    <script src="https://kit.fontawesome.com/0823a66b46.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./custstyle.css">
+    <link rel="stylesheet" href="./custresponsive.css">
+    <link rel="stylesheet" href="../mobmenustyle.css">
+
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        .swiper {
+            width: 100%;
+            height: 450px;
+            margin: 50px auto 0;
+        }
+
+        .swiper-slide {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); */
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            /* height: 100%; */
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .swiper-slide:hover img {
+            /* transform: scale(1.05); */
+        }
+
+        /* Gradient overlay for text readability */
+        /* .overlay-swiper-sl {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px;
+      text-align: left;
+      opacity: 0;
+    } */
+
+        /* .overlay-swiper-sl h3 {
+      margin: 0 0 5px;
+      font-size: 20px;
+      color: #fff;
+      background: #C42785;
+      padding: 0.5rem 1.5rem;
+      border-radius: 1rem;
+      text-align: left !important;
+      opacity: 0;
+    } */
+
+        /* .overlay-swiper-sl p {
+      margin: 0;
+      font-size: 14px;
+      color: #ddd;
+      opacity: 0;
+    } */
+
+        /* Pagination outside */
+        .custom-pagination {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+
+
+        .custom-pagination .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: #000000;
+            opacity: 1;
+            margin: 0 6px;
+            transition: 0.3s;
+        }
+
+        .custom-pagination .swiper-pagination-bullet-active {
+            background: #000000;
+            /* opacity: 1; */
+            /* transform: scale(1.3); */
+            outline: 2px solid #000;
+            outline-offset: 4px;
+        }
+
+        /* Responsive breakpoints */
+        @media (max-width: 1366px) {
+            .swiper-slide {
+                height: 300px;
+            }
+
+            .custom-pagination {
+                text-align: center;
+                margin-top: -100px;
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                z-index: 500000;
+                position: relative;
+                top: 10rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .swiper {
+                height: 400px;
+            }
+
+            .swiper-slide h3 {
+                font-size: 18px;
+            }
+
+            .swiper-slide p {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .swiper {
+                /* height: 350px; */
+            }
+
+        }
+
+        @media (max-width: 576px) {
+            .swiper {
+                height: 300px;
+            }
+        }
+    </style>
+
+    <style>
+        .banner-tagline {
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            text-align: left;
+            /* width: 80%;  */
+        }
+
+        .banner-tagline h1 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-size: 4rem !important;
+            line-height: 75px !important;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            /* margin: 0; */
+        }
+
+        @media (max-width:1366px) {
+            .banner-tagline h1 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-size: 3rem !important;
+                line-height: 64px !important;
+                color: #fff;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            }
+
+            .banner-tagline {
+                position: absolute;
+                top: 41%;
+                left: 27%;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+                text-align: left;
+                /* width: 80%; */
+            }
+        }
+    </style>
+
+    <!-- all lifestyle css code -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*A day in life start*/
+
+
+        .adayinlife {
+            display: flex;
+            align-items: end;
+            gap: 121px;
+            margin-top: 82px;
+        }
+
+        .a-day-in-life h1 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 80px;
+            line-height: 75px;
+            letter-spacing: -5%;
+            color: #801B53;
+
+
+        }
+
+        .everydayat p {
+            font-family: Lato;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 22px;
+            line-height: 25px;
+            padding-bottom: 14px;
+        }
+
+        /*A day in life end*/
+
+        /*Card start */
+        /* #card {
+    margin-top: 50px;
+} */
+
+        .card-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 60px;
+        }
+
+        .card1 {
+            max-width: 350px;
+            position: relative;
+        }
+
+        .card1 img {
+            width: 100%;
+            border-radius: 20px;
+            height: 100%;
+            /* background: url('../assets/images/lifestyle images/card1.png');
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%); */
+        }
+
+        .time {
+            border-radius: 10px;
+            background: #C42785;
+            position: absolute;
+            z-index: 1;
+            bottom: 50px;
+            left: 20px;
+        }
+
+        .time p {
+            color: white;
+            font-family: Lato;
+            font-weight: 900;
+            font-style: Black;
+            font-size: 16px;
+            line-height: 18.39px;
+            padding: 8px 15px;
+        }
+
+        .card-para {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .card-para p {
+            font-family: Lato;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 20px;
+            line-height: 25px;
+            color: #fff;
+        }
+
+        /*Card end */
+
+        /*Talk to us start*/
+        #talk-to-us {
+            margin-top: 50px;
+        }
+
+        .talktous {
+            display: flex;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .talktoustxt p {
+            font-family: Lato;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 22px;
+            line-height: 25px;
+        }
+
+        .talktousbtn button {
+            font-family: Montserrat;
+            font-weight: 600;
+            font-style: SemiBold;
+            font-size: 20px;
+            line-height: 25px;
+            color: #fff;
+            padding: 8px 25px;
+            text-align: center;
+            background: #801B53;
+            border: 1px solid #801B53;
+            border-radius: 15px;
+            width: 185px;
+            cursor: pointer;
+            margin-top: 35px;
+        }
+
+        /*Talk to us end*/
+
+        /*From festive start*/
+
+        #fromfestive {
+            margin-top: 60px;
+        }
+
+        .from-festive {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .fromfestive-txt h1 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 67px;
+            line-height: 75px;
+            letter-spacing: -5%;
+            color: #801B53;
+        }
+
+        .fromfestive-txt p {
+            font-family: Lato;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 21px;
+            line-height: 25px;
+            margin-top: 35px;
+        }
+
+        /*From festive end*/
+
+        /*A Peekk Into Our Celebrations style start */
+
+        .vertical {
+            max-height: 400px;
+        }
+
+        .vertical::part(base) {
+            grid-template-areas: 'slides slides pagination';
+        }
+
+        .vertical::part(pagination) {
+            flex-direction: column;
+        }
+
+        .vertical::part(navigation) {
+            transform: rotate(90deg);
+            display: flex;
+        }
+
+        #apeeksec {
+            /* padding: 5rem !important; */
+            background: #801B53;
+            margin-bottom: 8rem;
+            margin-top: 120px;
+        }
+
+        #apeeksec .multigenerationalcont {
+            align-items: center;
+            display: flex;
+            padding: 10rem 0;
+        }
+
+        .multigenerationalsecone {
+            /* flex: 2; */
+            width: 30%;
+        }
+
+        .multigenerationalsectwo {
+            /* flex: 1; */
+            width: 70%;
+        }
+
+        #apeeksec .multigenerationalsecone {
+            border-right: 1px solid #fff;
+        }
+
+        #apeeksec .multigenerationalsecone h1 {
+            margin-bottom: 2rem;
+            color: #fff;
+            padding-right: 3rem;
+            font-size: 3.7rem;
+            line-height: 5rem;
+        }
+
+        #apeeksec .multigenerationalsecone p {
+            color: #fff;
+        }
+
+        #apeeksec .multigenerationalsectwo {
+            display: flex;
+            justify-content: space-between;
+            /* background-color: palegoldenrod; */
+            padding: 2rem;
+        }
+
+        #apeeksec .multigenerationalsectwo .secboxdiv {
+            /* background-color: red; */
+            display: flex;
+            padding: 2rem 4rem;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        #apeeksec .multigenerationalsectwo .secboxdiv div img {
+            width: 4rem;
+        }
+
+        #apeeksec .multigenerationalsectwo .secboxdiv:not(:last-child) {
+            border-right: 1px solid #fff;
+        }
+
+        #apeeksec .multigenerationalsectwo .secboxdiv h3 {
+            color: #fff;
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 25px;
+            line-height: 30px;
+        }
+
+
+        /* A Peekk Into Our Celebrations style  end */
+
+        /*Hear it from start*/
+        #hear-it-from {
+            margin-top: 100px;
+        }
+
+        .hearitfrom h1 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 80px;
+            line-height: 75px;
+            letter-spacing: -5%;
+            text-align: center;
+            color: #801B53;
+        }
+
+        .hearitfrom p {
+            font-family: Lato;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 22px;
+            line-height: 25px;
+            text-align: center;
+            margin-top: 45px;
+        }
+
+        .live-senior {
+            display: flex;
+            gap: 22px;
+            margin-top: 60px;
+            margin-bottom: 100px;
+            justify-content: center;
+        }
+
+        .livesenior-1 img {
+            width: 100%;
+            border-radius: 50px;
+        }
+
+        .ytvidseccont {
+            width: 650px;
+            height: 415px;
+        }
+
+        /*Hear it from end*/
+
+        @media screen and (min-width: 1024px) and (max-width:1366px) {
+
+
+
+            /*A day in life start*/
+
+            .adayinlife {
+                gap: 80px;
+                margin-top: 82px;
+            }
+
+            .a-day-in-life h1 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 50px;
+                line-height: 70px;
+                letter-spacing: -5%;
+                color: #801B53;
+            }
+
+            /* .everydayat {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px;
+        line-height: 20px;
+        padding-bottom: 14px;
+    } */
+
+            /*A day in life end*/
+
+            /*Card start */
+            .time {
+                border-radius: 10px;
+                background: #C42785;
+                position: absolute;
+                z-index: 1;
+                bottom: 35px;
+                left: 20px;
+            }
+
+            .time p {
+                color: white;
+                font-family: Lato;
+                font-weight: 900;
+                font-style: Black;
+                font-size: 10px;
+                line-height: 15px;
+                padding: 5px 10px;
+            }
+
+
+            .card-para {
+                position: absolute;
+                bottom: 15px;
+                left: 20px;
+            }
+
+            .card-para p {
+                font-family: Lato;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 12px;
+                line-height: 15px;
+                color: #fff;
+            }
+
+            /*Card end */
+
+            /* Talk to us start*/
+            /* .talktousimg {
+        width: 725px;
+    } */
+
+            .talktousimg img {
+                width: 100%;
+            }
+
+            .talktoustxt p {
+                font-family: Lato;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 22px;
+                line-height: 25px;
+                letter-spacing: 0%;
+
+            }
+
+            .talktousbtn button {
+                font-family: Montserrat;
+                font-weight: 600;
+                font-style: SemiBold;
+                font-size: 15px;
+                line-height: 20px;
+                color: #fff;
+                padding: 5px 17px;
+                text-align: center;
+                background: #801B53;
+                border: 1px solid #801B53;
+                border-radius: 10px;
+                width: 130px;
+                cursor: pointer;
+                margin-top: 30px;
+            }
+
+            /* Talk to us end*/
+
+            /*From festive start*/
+            /* .fromfestive-img {
+        width: 725px;
+    } */
+
+            .fromfestive-img img {
+                width: 100%;
+            }
+
+            .fromfestive-txt h1 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 50px;
+                line-height: 55px;
+                letter-spacing: -5%;
+                color: #801B53;
+            }
+
+            /* .fromfestive-txt p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px;
+        line-height: 20px;
+        margin-top: 30px;
+    } */
+
+            /*From festive end*/
+
+            /*Hear it from start*/
+            #hear-it-from {
+                margin-top: 60px;
+            }
+
+            #apeeksec .multigenerationalsecone h1 {
+                font-size: 2.2rem;
+                line-height: 4rem;
+            }
+
+            #apeeksec .multigenerationalcont {
+                align-items: center;
+                padding: 0rem 0;
+            }
+
+            #apeeksec .multigenerationalsectwo .secboxdiv {
+                padding: 0rem 1rem;
+
+            }
+
+            .hearitfrom h1 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 60px;
+                line-height: 70px;
+                letter-spacing: -5%;
+                text-align: center;
+                color: #801B53;
+            }
+
+            /* .hearitfrom p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px;
+        line-height: 20px;
+        text-align: center;
+        margin-top: 30px;
+    } */
+        }
+
+
+        @media screen and (max-width: 1366px) {
+            .swiper-slide {
+                height: 402px;
+            }
+
+            .ytvidseccont {
+                width: 500px;
+                height: 315px;
+            }
+
+        }
+
+        @media screen and (max-width: 1024px) {
+            .ytvidseccont {
+                width: 450px;
+                /* height: 315px; */
+            }
+
+            .swiper-slide {
+                /* width: 300px !important; */
+            }
+
+            .a-day-in-life {
+                padding: 0 2rem;
+            }
+
+            .swiper-wrapper {
+                /* padding: 0 2rem !important; */
+            }
+
+            .custom-pagination {
+                margin-top: -144px !important;
+            }
+
+        }
+
+        @media screen and (max-width: 768px) {
+            #talk-to-us-mob {
+                margin-top: 10rem;
+            }
+
+            .footer-logo-sec img {
+                padding-left: 0;
+            }
+
+            .footer-social-media {
+                padding-left: 0;
+            }
+
+            .footer-policy-sec {
+                padding: 1rem 0;
+            }
+
+            #header-mobile {
+                display: none;
+            }
+
+            .banner {
+                display: none;
+            }
+
+            .main-container {
+                padding-inline: 1rem;
+            }
+
+
+            /*A day in life start*/
+
+            .adayinlife {
+                gap: 20px;
+                margin-top: 45px;
+                flex-direction: column;
+                align-items: start;
+                margin: 0px 20px;
+            }
+
+            .a-day-in-life h1 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 50px;
+                line-height: 60px;
+                letter-spacing: -5%;
+                color: #801B53;
+            }
+
+            .everydayat p {
+                font-family: Lato;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 22px;
+                line-height: 25px;
+                padding-bottom: 2px;
+            }
+
+            /*A day in life end*/
+
+            /*Card start */
+            .carousel-main {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card-group {
+                gap: 5px;
+                margin-top: 45px;
+            }
+
+            .time {
+                border-radius: 10px;
+                bottom: 35px;
+                left: 10px;
+            }
+
+            .time p {
+                color: white;
+                font-family: Lato;
+                font-weight: 900;
+                font-style: Black;
+                font-size: 16px;
+                line-height: 20px;
+                padding: 3px 8px;
+            }
+
+            .card-para {
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+            }
+
+            .card-para p {
+                font-family: Lato;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 20px;
+                line-height: 25px;
+                color: #fff;
+            }
+
+            /*Card end */
+
+
+            /* Talk to us start*/
+
+            #talk-to-us {
+                margin-top: 25px;
+            }
+
+            .talktous-mob {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: 20px;
+                margin: 0px 20px;
+            }
+
+            .talktous {
+                gap: 15px;
+            }
+
+
+            .talktousimgmob {
+                max-width: 680px;
+            }
+
+            .talktousimgmob img {
+                width: 100%;
+            }
+
+            .talktoustxtmobile p {
+                font-family: Lato;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 22px;
+                line-height: 25px;
+            }
+
+            .talktousbtnmob button {
+                font-family: Montserrat;
+                font-weight: 600;
+                font-style: SemiBold;
+                font-size: 20px;
+                line-height: 25px;
+                padding: 8px 0px;
+                border-radius: 15px;
+                width: 175px;
+                margin-top: 25px;
+                background: #801B53;
+                border: #801B53;
+                color: white;
+            }
+
+            /* Talk to us end*/
+
+            /*From festive start*/
+
+            #fromfestive {
+                margin-top: 30px;
+            }
+
+            .from-festive {
+                flex-direction: column;
+                align-items: start;
+                gap: 10px;
+                margin: 0px 20px;
+            }
+
+
+            .fromfestive-img {
+                max-width: 680px;
+            }
+
+            .fromfestive-img img {
+                width: 100%;
+            }
+
+            .fromfestive-txt h1 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 50px;
+                line-height: 60px;
+                letter-spacing: -5%;
+                color: #801B53;
+            }
+
+            .fromfestive-txt p {
+                font-family: Lato;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 22px;
+                line-height: 25px;
+                margin-top: 20px;
+            }
+
+            /*From festive end*/
+
+            /*A Peek Section start mobile*/
+
+            #apeeksec-mob {
+                /* padding: 5rem !important; */
+                background: #801B53;
+                margin-bottom: 4rem;
+                margin-top: 60px;
+            }
+
+            .multigenerationalcont {
+                padding: 20px;
+            }
+
+            #apeeksec-mob .multigenerationalsecone h1 {
+                color: white;
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 22px;
+                line-height: 35px;
+                letter-spacing: -5%;
+                margin-left: 25px;
+            }
+
+            .apeekicongrp {
+                /* display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 20px; */
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+                margin: 20px;
+            }
+
+            .apeekicongrp-1 img {
+                max-width: 30px;
+                width: 100%;
+            }
+
+            .apeekicongrp-1 h3 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 8.79px;
+                line-height: 10.55px;
+                color: white;
+            }
+
+            .apeekicongrp h3 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 8.79px;
+                line-height: 10.55px;
+                color: white;
+            }
+
+            .apeekicongrp-1 {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .apeekicongrp-1:not(:last-child) {
+                border-right: 1px solid #fff;
+            }
+
+            /*A Peek Section end mobile*/
+
+            /*Hear it from start*/
+            #hear-it-from {
+                margin-top: 30px;
+            }
+
+            .hearitfrommob {
+                align-items: start;
+                display: flex;
+                flex-direction: column;
+                margin: 0px 20px;
+            }
+
+            .hearitfrommob h1 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 50px;
+                line-height: 60px;
+                letter-spacing: -5%;
+                color: #801B53;
+            }
+
+            .hearitfrommob p {
+                font-family: Lato;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 22px;
+                line-height: 25px;
+                margin-top: 20px;
+            }
+
+            .live-senior {
+                gap: 11px;
+                margin-top: 20px;
+            }
+
+            .live-senior {
+                max-width: 680px;
+            }
+
+            .livesenior-1 img {
+                width: 100%;
+                border-radius: 25px;
+            }
+
+            /*Hear it from end*/
+
+            /*Carousel part*/
+            .carousel {
+                width: 100%;
+                max-width: 250px;
+                overflow: hidden;
+                border-radius: 15px;
+                position: relative;
+                margin-top: 20px;
+            }
+
+            .carousel-slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .carousel-slide.active {
+                opacity: 1;
+                z-index: 1;
+                position: relative;
+            }
+
+            .carousel-slide img {
+                width: 100%;
+                /* height: 200px; */
+                object-fit: cover;
+                display: block;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+            }
+
+            /* Text under image */
+            /* .carousel-text h3 {
+        padding: 12px 0px;
+        font-family: Montserrat;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 25px;
+        line-height: 30px;
+        text-align: left;
+    } */
+
+            /* .carousel-text p {
+        font-family: Lato;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: left;
+    } */
+
+            /* Dots */
+            .carousel-dots {
+                display: flex;
+                justify-content: start;
+                margin-top: 25px;
+                padding: 0px 80px;
+            }
+
+            .dot {
+                height: 10px;
+                width: 10px;
+                margin: 0 6px;
+                background-color: #000;
+                border-radius: 50%;
+                display: inline-block;
+                position: relative;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+
+            .dot.active {
+                background-color: #000;
+            }
+
+            .dot.active::after {
+                content: "";
+                position: absolute;
+                top: -4px;
+                left: -4px;
+                width: 18px;
+                height: 18px;
+                border: 2px solid #000;
+                border-radius: 50%;
+            }
+
+            .banner-tagline {
+                display: none;
+            }
+
+            .a-day-in-life {
+                padding: 0;
+            }
+
+        }
+
+
+        @media screen and (max-width: 480px) {
+            .adayinlife {
+                gap: 30px;
+                margin-top: 72px;
+            }
+
+            .adayinlife {
+                flex-direction: column;
+                align-items: start;
+
+            }
+
+            .a-day-in-life h1 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 30px;
+                line-height: 35px;
+                letter-spacing: -5%;
+            }
+
+            .everydayat p {
+                font-family: Lato;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            /*A day in life end*/
+
+
+            /*Talk to us start*/
+            .talktoustxtmobile p {
+                font-family: Lato;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            .talktous-mob {
+                padding: 10px 20px;
+            }
+
+            .talktousimgmob {
+                max-width: 355px;
+            }
+
+            .talktousimgmob img {
+                width: 100%;
+                margin-top: 25px;
+            }
+
+            .talktousbtnmob button {
+                font-family: Montserrat;
+                font-weight: 600;
+                font-style: SemiBold;
+                font-size: 20px;
+                line-height: 25px;
+                color: #fff;
+                padding: 8px 15px;
+                text-align: center;
+                background: #801B53;
+                border: 1px solid #801B53;
+                border-radius: 15px;
+                width: 185px;
+                cursor: pointer;
+                margin-top: 25px;
+            }
+
+            /*Talk to us end*/
+
+            /*From festive start*/
+
+            #fromfestive {
+                margin-top: 40px;
+            }
+
+            .from-festive {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+
+            .fromfestive-txt h1 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 30px;
+                line-height: 35px;
+                letter-spacing: -5%;
+                color: #801B53;
+            }
+
+            .fromfestive-txt-mob p {
+                font-family: Lato;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 20px;
+                line-height: 25px;
+                margin-top: 22px;
+            }
+
+            .fromfestive-img {
+                max-width: 360px;
+            }
+
+
+            .fromfestive-img img {
+                width: 100%;
+            }
+
+            /*From festive end*/
+
+            /*A Peek Section start mobile*/
+
+            #apeeksec-mob {
+                /* padding: 5rem !important; */
+                background: #801B53;
+                margin-bottom: 4rem;
+                margin-top: 60px;
+            }
+
+            .multigenerationalcont {
+                padding: 20px;
+            }
+
+            #apeeksec-mob .multigenerationalsecone h1 {
+                color: white;
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 30px;
+                line-height: 35px;
+                letter-spacing: -5%;
+                margin-left: 25px;
+                width: 400px;
+            }
+
+            .apeekicongrp {
+                /* display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 20px; */
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                margin: 15px;
+                row-gap: 40px;
+                align-items: center;
+            }
+
+            .apeekicongrp-1 img {
+                max-width: 30px;
+                width: 100%;
+            }
+
+            .apeekicongrp-1 h3 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 8.79px;
+                line-height: 10.55px;
+                color: white;
+            }
+
+            .apeekicongrp-2 h3 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 8.79px;
+                line-height: 10.55px;
+                color: white;
+            }
+
+            .apeekicongrp-1 {
+                display: flex;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .apeekicongrp-1:not(:last-child) {
+                border-right: 1px solid #fff;
+            }
+
+            /*A Peek Section end mobile*/
+            /*Hear it from start*/
+
+            #hear-it-from {
+                margin-top: 62px;
+            }
+
+            .hearitfrommob h1 {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 30px;
+                line-height: 35px;
+                letter-spacing: -5%;
+                text-align: left;
+                color: #801B53;
+            }
+
+            .hearitfrommob p {
+                font-family: Lato;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 20px;
+                line-height: 25px;
+                text-align: left;
+                margin-top: 15px;
+            }
+        }
+
+        @media screen and (max-width: 425px) {
+            .apeekicongrp-1 img {
+                max-width: 24px;
+            }
+
+            .apeekicongrp-1 h3 {
+                font-size: 6px;
+            }
+
+            .apeekicongrp img {
+                max-width: 24px;
+            }
+        }
+
+        /*Hear it from end*/
+        /*Hear mobile it from start*/
+            /* wrapper space so pagination bahar aa sake */
+#hear-it-from-mobile .swiper-wrapper-container{
+  position: relative;
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+/* container fixed height, overflow visible so side peek dikhe */
+#hear-it-from-mobile .swiper{
+  width: 100%;
+  height: 420px;               /* apni need ke hisab se fix height */
+  overflow: visible !important; /* outside pagination/peek visible */
+}
+
+/* slide center + peek ke liye width thodi chhoti */
+#hear-it-from-mobile .swiper-slide{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 56px);   /* 56px = left+right peek (spaceBetween ke sath tweak karein) */
+}
+
+/* youtube iframe responsive */
+#hear-it-from-mobile .ytvidseccont{
+  width: 90%;
+  height: 85%;
+  aspect-ratio: 9 / 16;       /* mobile reel feel; 16/9 chahiye to change */
+  border-radius: 16px;
+}
+/* pagination outside bottom */
+#hear-it-from-mobile .swiper-pagination{
+  position: absolute;
+  bottom: -0.5rem !important;
+  left: 0; width: 100%;
+  display: flex; justify-content: center; gap: 8px;
+}
+#hear-it-from-mobile .swiper-pagination-bullet{
+  width: 10px; height: 10px; background:#000; opacity:1;
+}
+#hear-it-from-mobile .swiper-pagination-bullet-active{
+  outline:2px solid #000; outline-offset:3px;
+}
+
+/* optional: bigger peek on wider screens */
+@media (min-width:480px){
+  #hear-it-from-mobile .swiper{ height: 460px; }
+  #hear-it-from-mobile .swiper-slide{ width: calc(100% - 80px); }
+}
+
+        /*Hear mobile it from end*/
+
+
+        /* ************** code for desktop and mobile view *****************/
+        .only-mobile {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .only-mobile {
+                display: block !important;
+            }
+        }
+
+        .only-desktop {
+            display: block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .only-desktop {
+                display: none !important;
+            }
+        }
+
+        /* ************** code for desktop and mobile view *****************/
+    </style>
+</head>
+
+
+<body>
+    <!-- desktop mobile navbar menu start -->
+    <div class="main-container only-desktop">
+        <div class="navbar">
+            <div class="logo">
+                <img src="./assets/images/primus-logo.png" alt="logo">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="f2/about.html">About Us</a></li>
+                    <li><a href="#">Our Communities</a></li>
+                    <li><a href="#">The Primus Lifestyle</a></li>
+                    <li><a href="./f2/livinghub.html">Living Well Hub</a></li>
+                    <li><a href="#">Partner With Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+
+            <div class="enquiry-wrap">
+                <details class="enquiry">
+                    <summary>
+                        ENQUIRY
+                        <svg class="caret" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </summary>
+
+                    <ul class="enquiry-menu" role="menu" aria-label="Enquiry options">
+                        <li role="menuitem"><a href="email">EMAIL</a></li>
+                        <li role="menuitem"><a href="whatsapp">WHATSAPP</a></li>
+                        <li role="menuitem"><a href="form">FORM</a></li>
+                    </ul>
+                </details>
+            </div>
+        </div>
+    </div>
+<!-- desktop mobile navbar menu end -->
+
+<!-- mobile menu design start -->
+    <section id="mobilemenudesignsec" class="only-mobile">
+        <div class="overlay" onclick="closeMenu()"></div>
+
+        <div class="menu-container">
+            <div class="menu-header collapsed">
+                <div class="logo"><img src="./assets/images/primus-logo.png" alt=""></div>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <img src="./assets/images/Home/mb/menu-open.png" alt="Menu" class="menu-img menu-open-icon">
+                    <img src="./assets/images/Home/mb/menu-close.png" alt="Close" class="menu-img menu-close-icon">
+                </div>
+
+            </div>
+            <div class="menu-content">
+                <a href="#" class="menu-item">Home</a>
+                <a href="#" class="menu-item">About Us</a>
+                <a href="#" class="menu-item">Our Communities</a>
+                <a href="#" class="menu-item">The Primus Lifestyle</a>
+                <a href="#" class="menu-item">Living Well Hub</a>
+                <a href="#" class="menu-item">Partner With Us</a>
+                <a href="#" class="menu-item">Contact Us</a>
+                <button class="enquiry-btn">ENQUIRY <i class="fa-solid fa-angle-down"></i></button>
+            </div>
+        </div>
+    </section>
+<!-- mobile menu design end -->
+    <!--For desktop -->
+    <div class="main-container" class="only-desktop">
+        <section id="header" class="home-header">
+            <div class="banner">
+                <div class="bannerimg">
+                    <img src="./assets/images/lifestyle images/banner.png" />
+                </div>
+            </div>
+            <div class="banner-tagline">
+                <h1>A life full<br> of chapters. Shared <br>across generations.</h1>
+            </div>
+
+        </section>
+
+
+        <!--A day in life start-->
+        <!--For Desktop-->
+        <section id="a-day-in-life" class="only-desktop">
+            <div class="adayinlife">
+                <div class="a-day-in-life">
+                    <h1>A Day in the Life of<br> a Primus Resident</h1>
+                </div>
+                <div class="everydayat">
+                    <p>Every day at Primus is shaped by community, care, and curiosity.<br> Whether in your 30s or 60s,
+                        there’s space for your story here.</p>
+                </div>
+            </div>
+        </section>
+
+        <!--For Mobile-->
+        <!-- 
+        <section id="a-day-in-life" class="only-mobile">
+            <div class="adayinlife">
+                <div class="a-day-in-life">
+                    <h1>A Day in the Life of<br> a Primus Resident</h1>
+                </div>
+                <div class="everydayat">
+                    <p>Every day at Primus is shaped by<br> community, care, and curiosity.<br> Whether in your 30s or
+                        60s,
+                        there’s<br> space for your story here.</p>
+                </div>
+            </div>
+        </section> -->
+        <!--A day in life end-->
+
+        <!--Card start-->
+        <!--For Desktop-->
+        <!-- <section id="card" class="only-desktop">
+            <div class="card-group">
+                <div class="card1">
+                    <img src="./assets/images/lifestyle images/card1.png" alt="Image">
+                    <div class="time">
+                        <p>5 AM to 7 AM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>A Refreshing Start</p>
+                    </div>
+                </div>
+                <div class="card1">
+                    <img src="./assets/images/lifestyle images/card2.png" alt="Image">
+                    <div class="time">
+                        <p>8 AM to 9 AM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Breakfast Together</p>
+                    </div>
+                </div>
+                <div class="card1">
+                    <img src="./assets/images/lifestyle images/card3.png" alt="Image">
+                    <div class="time">
+                        <p>9 AM to 10 AM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Work & Leisure Balance</p>
+                    </div>
+                </div>
+                <div class="card1">
+                    <img src="./assets/images/lifestyle images/card4.png" alt="Image">
+                    <div class="time">
+                        <p>10 AM to 11 AM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Wellness & Care</p>
+                    </div>
+                </div>
+                <div class="card1">
+                    <img src="./assets/images/lifestyle images/card5.png" alt="Image">
+                    <div class="time">
+                        <p>11 AM to 12 PM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Community Connection</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+
+        <!-- Swiper desktop start-->
+        <div class="swiper mySwiper only-desktop">
+            <div class="swiper-wrapper">
+
+                <!-- Card 1 -->
+                <div class="swiper-slide">
+                    <img src="./assets/images/lifestyle images/card2.png" alt="Image">
+                    <div class="overlay">
+                        <!-- <h3>Healthy Breakfast</h3>
+          <p>Boost your mood with a nutritious meal.</p> -->
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="swiper-slide">
+                    <img src="./assets//images/lifestyle images/card3.png" alt="Workout">
+                    <div class="overlay">
+                        <!-- <h3>Workout Session</h3>
+          <p>Stay fit and focused throughout the day.</p> -->
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="swiper-slide">
+                    <img src="./assets/images/lifestyle images/card3.png" alt="Reading">
+                    <div class="overlay">
+                        <!-- <h3>Reading Hour</h3>
+          <p>Expand your mind with peaceful reading.</p> -->
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="swiper-slide">
+                    <img src="./assets/images/lifestyle images/card4.png" alt="Tea">
+                    <div class="overlay">
+                        <!-- <h3>Evening Tea</h3>
+          <p>End the day with relaxation and gratitude.</p> -->
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="swiper-slide">
+                    <img src="./assets/images/lifestyle images/card5.png" alt="Night Sky">
+                    <div class="overlay">
+                        <!-- <h3>Stargazing</h3>
+          <p>Reflect and dream under the stars.</p> -->
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="swiper-slide">
+                    <img src="./assets/images/lifestyle images/card6.png" alt="Nature Walk">
+                    <div class="overlay">
+                        <!-- <h3>Nature Walk</h3>
+          <p>Rejuvenate your soul with nature’s beauty.</p> -->
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="swiper-slide">
+                    <img src="./assets/images/lifestyle images/card7.png" alt="Music">
+                    <div class="overlay">
+                        <!-- <h3>Music Therapy</h3>
+          <p>Relax and recharge with your favorite tunes.</p> -->
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="swiper-slide">
+                    <img src="./assets/images/lifestyle images/card8.png" alt="Meditation">
+                    <div class="overlay">
+                        <!-- <h3>Meditation</h3>
+          <p>Focus inward and find your balance.</p> -->
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="swiper-slide">
+                    <img src="./assets/images/lifestyle images/card9.png" alt="Travel">
+                    <div class="overlay">
+                        <!-- <h3>Adventure</h3>
+          <p>Explore new places and make memories.</p> -->
+                    </div>
+                </div>
+                <!-- Card 10 -->
+                <div class="swiper-slide">
+                    <img src="./assets/images/lifestyle images/card10.png" alt="Travel">
+                    <div class="overlay">
+                        <!-- <h3>Adventure</h3>
+          <p>Explore new places and make memories.</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination outside -->
+        <div class="custom-pagination"></div>
+        <!-- Swiper desktop end-->
+
+
+        <!-- shoelac mobile swiper start -->
+
+        <!-- shoelac mobile swiper end -->
+
+
+
+
+        <!--For Mobile-->
+        <!-- <section id="card" class="only-mobile">
+            <div class="carousel-main">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <img src="./assets/images/lifestyle images/mobile card 1.png" alt="">
+
+                        <div class="time">
+                            <p>5 AM to 7 AM</p>
+                        </div>
+                        <div class="card-para">
+                            <p>A Refreshing Start</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/lifestyle images/mobile card 1.png" alt="">
+                    <div class="time">
+                        <p>8 AM to 9 AM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Breakfast Together</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/lifestyle images/card3.png" alt="">
+                    <div class="time">
+                        <p>9 AM to 10 AM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Work & Leisure Balance</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/lifestyle images/card4.png" alt="">
+                    <div class="time">
+                        <p>10 AM to 11 AM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Wellness & Care</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/lifestyle images/card5.png" alt="">
+                    <div class="time">
+                        <p>11 AM to 12 PM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Community Connection</p>
+                    </div>v
+                </div>
+
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section> -->
+
+
+
+
+        <!-- <div class="card-group">
+                <div class="card1">
+                    <img src="./assets/images/lifestyle images/card1.png" alt="Image">
+                    <div class="time">
+                        <p>5 AM to 7 AM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>A Refreshing Start</p>
+                    </div>
+                </div>
+                <div class="card1">
+                    <img src="./assets/images/lifestyle images/card2.png" alt="Image">
+                    <div class="time">
+                        <p>8 AM to 9 AM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Breakfast Together</p>
+                    </div>
+                </div>
+                <div class="card1">
+                    <img src="./assets/images/lifestyle images/card3.png" alt="Image">
+                    <div class="time">
+                        <p>9 AM to 10 AM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Work & Leisure Balance</p>
+                    </div>
+                </div>
+                <div class="card1">
+                    <img src="./assets/images/lifestyle images/card4.png" alt="Image">
+                    <div class="time">
+                        <p>10 AM to 11 AM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Wellness & Care</p>
+                    </div>
+                </div>
+                <div class="card1">
+                    <img src="./assets/images/lifestyle images/card5.png" alt="Image">
+                    <div class="time">
+                        <p>11 AM to 12 PM</p>
+                    </div>
+                    <div class="card-para">
+                        <p>Community Connection</p>
+                    </div>
+                </div>
+            </div> -->
+        <!--Card end-->
+
+        <!--Talk to us start for desktop-->
+        <section id="talk-to-us" class="only-desktop">
+            <div class="talktous">
+                <div class="talktousimg">
+                    <img src="./assets/images/lifestyle images/talk to us.png" alt="Image">
+                </div>
+                <div class="talktoustxt">
+                    <p>This glimpse is just the beginning. Come visit us and see what makes our homes truly special.
+                    </p>
+                    <div class="talktousbtn">
+                        <button>Talk to Us</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Talk to us start for mobile-->
+
+        <section id="talk-to-us-mob" class="only-mobile">
+            <div class="talktous-mob">
+                <div class="talktoustxtmobile">
+                    <p>This glimpse is just the beginning. Come<br> visit us and see what makes our homes<br> truly
+                        special.
+                    </p>
+                </div>
+                <div class="talktousimgmob">
+                    <img src="./assets/images/lifestyle images/talk to us.png" alt="Image">
+                </div>
+                <div class="talktousbtnmob">
+                    <button>Talk to Us</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!--Talk to us end-->
+
+        <!--From festive start-->
+        <!--For Desktop-->
+        <section id="fromfestive" class="only-desktop">
+            <div class="from-festive">
+                <div class="fromfestive-txt only-desktop">
+                    <h1>From Festive Joy to Everyday Magic</h1>
+                    <p>Our calendar celebrates all generations, from Sankranti feasts<br> and yoga masterclasses to
+                        open-mic
+                        nights and cook-offs.</p>
+                </div>
+                <div class="fromfestive-txt-mob only-mobile">
+                    <p>Our calendar celebrates all generations, from Sankranti feasts and yoga masterclasses to
+                        open-mic
+                        nights and cook-offs.</p>
+                </div>
+                <div class="fromfestive-img">
+                    <img src="./assets/images/lifestyle images/from festive.png" alt="Image">
+                </div>
+            </div>
+
+        </section>
+
+        <!--For Mobile-->
+        <section id="fromfestive" class="only-mobile">
+            <div class="from-festive">
+                <div class="fromfestive-txt ">
+                    <h1>From Festive Joy to<br> Everyday Magic</h1>
+                    <p>Our calendar celebrates all generations,<br> from Sankranti feasts and yoga<br> masterclasses to
+                        open-mic
+                        nights and<br> cook-offs.</p>
+                </div>
+                <div class="fromfestive-txt-mob ">
+                </div>
+                <div class="fromfestive-img">
+                    <img src="./assets/images/lifestyle images/from festive.png" alt="Image">
+                </div>
+            </div>
+
+        </section>
+
+        <!--From festive end-->
+
+    </div>
+    <!-- A Peekk Into Our Celebrations start -->
+    <!--For Desktop-->
+    <section id="apeeksec" class="only-desktop">
+        <div class="multigenerationalcont main-container">
+            <div class="multigenerationalsecone">
+                <h1 class="primary-heading">A Peek into Our<br> Celebrations</h1>
+                <!-- <p class="primary-para">We are't inventing it — just bringing it back, smarter.</p> -->
+            </div>
+
+            <div class="croousel-container">
+                <sl-carousel class="vertical" pagination orientation="vertical">
+                    <sl-carousel-item>
+                        <section id="apeeksec" class="only-desktop">
+                            <div class="multigenerationalcont main-container">
+                                <div class="multigenerationalsectwo">
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 1.png" alt=""></div>
+                                        <h3>Anniversary<br> Celebrations</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 2.png" alt=""></div>
+                                        <h3>Art<br> Classes</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 3.png" alt=""></div>
+                                        <h3>Birthday<br> Celebrations</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </sl-carousel-item>
+                    <sl-carousel-item>
+                        <section id="apeeksec" class="only-desktop">
+                            <div class="multigenerationalcont main-container">
+                                <div class="multigenerationalsectwo">
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/mob icon 3.png" alt=""></div>
+                                        <h3>Dances</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/mob icon 4.png" alt=""></div>
+                                        <h3>Day Trips</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/mob icon 4.png" alt=""></div>
+                                        <h3>Diwali</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </sl-carousel-item>
+                    <sl-carousel-item>
+                        <section id="apeeksec" class="only-desktop">
+                            <div class="multigenerationalcont main-container">
+                                <div class="multigenerationalsectwo">
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/mob icon 5.png" alt=""></div>
+                                        <h3>Fashion Shows</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/mob" alt=""></div>
+                                        <h3>Foundation Day</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 3.png" alt=""></div>
+                                        <h3>Karnataka Rajyotsava</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </sl-carousel-item>
+                    <sl-carousel-item>
+                        <section id="apeeksec" class="only-desktop">
+                            <div class="multigenerationalcont main-container">
+                                <div class="multigenerationalsectwo">
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 1.png" alt=""></div>
+                                        <h3>Mother's Day</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 2.png" alt=""></div>
+                                        <h3>New Year’s Celebrations</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 3.png" alt=""></div>
+                                        <h3>Rummy Tournaments</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </sl-carousel-item>
+                    <sl-carousel-item>
+                        <section id="apeeksec" class="only-desktop">
+                            <div class="multigenerationalcont main-container">
+                                <div class="multigenerationalsectwo">
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 1.png" alt=""></div>
+                                        <h3>Sankranti Celebration</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 2.png" alt=""></div>
+                                        <h3>Singing Competitions</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 3.png" alt=""></div>
+                                        <h3>Women's Day</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </sl-carousel-item>
+                    <sl-carousel-item>
+                        <section id="apeeksec" class="only-desktop">
+                            <div class="multigenerationalcont main-container">
+                                <div class="multigenerationalsectwo">
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 1.png" alt=""></div>
+                                        <h3>Student-led Performances</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 2.png" alt=""></div>
+                                        <h3>Family Cook-Offs</h3>
+                                    </div>
+                                    <div class="secboxdiv">
+                                        <div><img src="./assets/images/lifestyle images/icon 3.png" alt=""></div>
+                                        <h3>Storytime Sessions</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </sl-carousel-item>
+                </sl-carousel>
+            </div>
+            <!-- <div class="multigenerationalsectwo">
+                <div class="secboxdiv">
+                    <div><img src="./assets/images/lifestyle images/icon 1.png" alt=""></div>
+                    <h3>Anniversary<br> Celebrations</h3>
+                </div>
+                <div class="secboxdiv">
+                    <div><img src="./assets/images/lifestyle images/icon 2.png" alt=""></div>
+                    <h3>Art<br> Classes</h3>
+                </div>
+                <div class="secboxdiv">
+                    <div><img src="./assets/images/lifestyle images/icon 3.png" alt=""></div>
+                    <h3>Birthday<br> Celebrations</h3>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!--For Mobile-->
+
+    <section id="apeeksec-mob" class="only-mobile">
+        <div class="multigenerationalcont main-container">
+            <div class="multigenerationalsecone">
+                <h1 class="primary-heading">A Peek into Our<br> Celebrations</h1>
+            </div>
+            <div class="apeekicongrp">
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 1.png" />
+                    <h3>Anniversary<br> Celebrations</h3>
+                </div>
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 2.png" />
+                    <h3>Art<br> Classes</h3>
+                </div>
+                <div class="apeekicongrp">
+                    <img src="./assets/images/lifestyle images/mob icon 3.png" />
+                    <h3>Birthday<br> Celebrations</h3>
+                </div>
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 4.png" />
+                    <h3>Dances</h3>
+                </div>
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 5.png" />
+                    <h3>Day<br> Trips</h3>
+                </div>
+                <div class="apeekicongrp">
+                    <img src="./assets/images/lifestyle images/mob icon 6.png" />
+                    <h3>Diwali</h3>
+                </div>
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 7.png" />
+                    <h3>Fashion<br> Shows</h3>
+                </div>
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 8.png" />
+                    <h3>Foundation<br> Day</h3>
+                </div>
+                <div class="apeekicongrp">
+                    <img src="./assets/images/lifestyle images/mob icon 9.png" />
+                    <h3>Karnataka<br> Rajyotsava</h3>
+                </div>
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 10.png" />
+                    <h3>Mother's<br> Day</h3>
+                </div>
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 11.png" />
+                    <h3>New Year’s<br> Celebrations</h3>
+                </div>
+                <div class="apeekicongrp">
+                    <img src="./assets/images/lifestyle images/mob icon 12.png" />
+                    <h3>Rummy<br> Tournaments</h3>
+                </div>
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 13.png" />
+                    <h3>Sankranti<br> Celebration</h3>
+                </div>
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 14.png" />
+                    <h3>Singing<br> Competitions</h3>
+                </div>
+                <div class="apeekicongrp">
+                    <img src="./assets/images/lifestyle images/mob icon 15.png" />
+                    <h3>Women's<br> Day</h3>
+                </div>
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 16.png" />
+                    <h3>Student-led<br> Performances</h3>
+                </div>
+                <div class="apeekicongrp-1">
+                    <img src="./assets/images/lifestyle images/mob icon 17.png" />
+                    <h3>Family<br> Cook-Offs</h3>
+                </div>
+                <div class="apeekicongrp">
+                    <img src="./assets/images/lifestyle images/mob icon 18.png" />
+                    <h3>Storytime<br> Sessions</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- A Peekk Into Our Celebrations end -->
+
+    <div class="main-container">
+        <!--book visit start-->
+        <!--book visit for Desktop-->
+        <section id="talk-to-us" class="only-desktop">
+            <div class="talktous">
+                <div class="talktousimg">
+                    <img src="./assets/images/lifestyle images/book visit.png" alt="Image">
+                </div>
+                <div class="talktoustxt">
+                    <p>There’s always something happening at Primus —<br>engaging your senses and building bonds every
+                        day.
+                    </p>
+                    <div class="talktousbtn">
+                        <button>Book a Visit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--book visit for mobile-->
+
+        <section id="talk-to-us-mob" class="only-mobile">
+            <div class="talktous-mob">
+                <div class="talktoustxtmobile">
+                    <p>There’s always something happening at<br> Primus — engaging your senses and<br> building bonds
+                        every
+                        day.
+                    </p>
+                </div>
+                <div class="talktousimgmob">
+                    <img src="./assets/images/lifestyle images/book visit.png" alt="Image">
+                </div>
+                <div class="talktousbtnmob">
+                    <button>Book a Visit</button>
+                </div>
+            </div>
+        </section>
+
+        <!--book visit end-->
+
+        <!--for Desktop-->
+        <!--Hear it from start-->
+        <section id="hear-it-from" class="only-desktop">
+            <div class="hearitfrom ">
+                <h1>Hear it from the Heart</h1>
+                <p>From toddlers on cycles to seniors on morning walks, listen to our residents share<br> what it means
+                    to
+                    live the Primus way.</p>
+            </div>
+            <div class="live-senior">
+                <div class="livesenior-1">
+                    <iframe class="ytvidseccont" width="560" height="315"
+                        src="https://www.youtube.com/embed/VPgQ5_rdWOA?si=cEVxmfidJkH6ZCo6&amp;controls=0"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="livesenior-1">
+                    <iframe class="ytvidseccont" width="560" height="315"
+                        src="https://www.youtube.com/embed/CpboPG1C8rI?si=qWPEH72KCOwvirKj" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!--for mobile-->
+
+        <section id="hear-it-from-mobile" class="only-mobile">
+                <div class="swiper-wrapper-container">
+                    <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                        <iframe class="ytvidseccont" src="https://www.youtube.com/embed/VPgQ5_rdWOA?controls=0"
+                            title="YouTube video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="swiper-slide">
+                        <iframe class="ytvidseccont" src="https://www.youtube.com/embed/CpboPG1C8rI"
+                            title="YouTube video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <!-- aur slides yahan -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+</section>
+
+
+        <!--Hear it from end-->
+
+
+    </div>
+    <!-- footer page design tab section start -->
+    <footer id="footersec">
+        <div class="footercont main-container">
+            <div class="mainfootercontup">
+                <div class="footer-logo-sec">
+                    <a href="./index.html">
+                        <img src="./assets/images/primus-logo.png" alt="primus logo">
+                    </a>
+                </div>
+                <div class="footer-policy-sec">
+                    <ul>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Careers Page</a></li>
+                    </ul>
+                </div>
+                <div class="footer-about-us">
+                    <ul>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Terms & Conditions</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social-media">
+                    <div><a href=""><i class="fa-brands fa-x-twitter"></i></a></div>
+                    <div><a href=""><i class="fa-brands fa-instagram"></i></a></div>
+                    <div><a href=""><i class="fa-brands fa-facebook"></i></a></div>
+                    <div><a href=""><i class="fa-brands fa-youtube"></i></a></div>
+                    <div><a href=""><i class="fa-brands fa-linkedin"></i></a></div>
+                    <div><a href=""><i class="fa-brands fa-whatsapp"></i></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="mainfootercontdown">
+            <p>Primus &copy; 2025</p>
+        </div>
+    </footer>
+    <!-- footer page design tab section end -->
+
+    <script>
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        // Manual dot click
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                updateCarousel(currentIndex);
+            });
+        });
+    </script>
+
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+
+
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- script js code for mobile menu -->
+     <script src="./mobmenujs.js"></script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+            spaceBetween: 15,
+            loop: false,
+            pagination: {
+                el: ".custom-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                0: { slidesPerView: 1, slidesPerGroup: 1 },
+                576: { slidesPerView: 2, slidesPerGroup: 1 },
+                768: { slidesPerView: 3, slidesPerGroup: 1 },
+                1024: { slidesPerView: 5, slidesPerGroup: 4 },
+            },
+        });
+    </script>
+
+    <!-- swiper inilizer -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+
+</body>
+
+</html>

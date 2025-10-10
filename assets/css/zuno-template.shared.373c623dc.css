@@ -5012,7 +5012,7 @@ figcaption {
   margin-top: 0;
   margin-bottom: 0;
   font-family: Bdogrotesk Vf, sans-serif;
-  font-size: 2em;
+  font-size: 2.2em;
   font-weight: 600;
   line-height: 1.2;
   color: #fff;
@@ -5524,7 +5524,7 @@ figcaption {
   justify-content: center;
   align-items: center;
   display: flex;
-  position: absolute;
+  position: relative;
 }
 
 .inner-heading-s.w {
@@ -6320,7 +6320,7 @@ figcaption {
 
 .hero-card-image {
   background-color: #aaa;
-  background-image: url("../images/mainhome.png");
+  background-image: url("../images/bannerimg.png");
   background-position: 50%;
   background-size: 105vw;
   border-radius: 18px;
@@ -6331,13 +6331,12 @@ figcaption {
   display: flex;
   position: relative;
   overflow: hidden;
- 
 }
 
 .hero-wrapper-content {
   z-index: 3;
   justify-content: center;
-  align-items: left;
+  align-items: center;
   width: 100%;
   display: flex;
   position: relative;
@@ -6484,7 +6483,7 @@ figcaption {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   background-color: #4d4d4d;
-  background-image: url("../assets/images/Home/mb/hero-banner-bg.png");
+  background-image: url("../images/Home/mb/hero-banner-bg-one.png");
   background-position: 50% 0;
   background-size: cover;
   border-radius: 16px;
@@ -6501,12 +6500,12 @@ figcaption {
 }
 
 .s-card-image._002 {
-  background-image: url("../assets/images/Home/mb/hero-banner-bgtwo.png");
+  background-image: url("../images/Home/mb/hero-banner-bg-two.png");
   /* background-position: 50% 100%; */
 }
 
 .s-card-image._003 {
-  background-image: url("../assets/images/Home/mb/hero-banner-bgthree.png");
+  background-image: url("../images/Home/mb/hero-banner-bg-three.png");
 }
 
 
@@ -6528,7 +6527,7 @@ figcaption {
   order: 0;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 10px 20px 35px;
+  padding: 32px 40px 60px;
   display: flex;
 }
 
