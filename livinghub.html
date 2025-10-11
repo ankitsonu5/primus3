@@ -401,7 +401,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 40px;
-    padding: 0 2rem;
+    /* padding: 0 2rem; */
 }
 
 .theliving-txt {
@@ -438,7 +438,7 @@
 
 /*Talk to us start*/
 #desigen-safety {
-    margin: 110px 0px;
+    /* margin: 110px 0px; */
     padding: 0 2rem;
 }
 
@@ -837,7 +837,7 @@ button.item {
 
 /*Stay connect start*/
 #stayconnectsec  {
-       margin: 5rem 0 5rem 0;
+       padding: 5rem 0 5rem 0;
 }
 #stayconnectsec .stay-connect h1 {
     font-family: Montserrat;
@@ -952,6 +952,8 @@ button.item {
 
 /* Desktops and up */
 @media (min-width: 1024px) and (max-width: 1366px) {
+
+}
     /* optional refinements */
 
     .primary-heading {
@@ -998,8 +1000,8 @@ button.item {
         font-family: Lato;
         font-weight: 400;
         font-style: Regular;
-        font-size: 13px;
-        line-height: 16px;
+        font-size: 22px;
+        line-height: 25px;
         margin-top: 30px;
     }
 
@@ -1015,7 +1017,7 @@ button.item {
 
     /*Talk to us start*/
     #desigen-safety {
-        margin: 55px 0px;
+        padding: 55px 0px;
     }
 
     .desigensafety {
@@ -1347,11 +1349,23 @@ button.item {
 
     /*Stay connect end*/
         #the-living .theliving-txt h1 {
-        font-size: 3rem;
-        line-height: 55px;
+        font-size: 5rem;
+        line-height: 85px;
     }
-}
 
+@media screen and (max-width: 1366px) {
+    #the-living .theliving-txt h1 {
+    font-size: 3rem;
+    line-height: 60px;
+}
+.theliving-txt p {
+    font-size: 18px;
+    line-height: 22px;
+}
+.banner-tagline {
+    left: 25%;
+}
+}
 @media screen and (max-width: 1024px) {
     .title h2 {
     font-size: 24px;
@@ -1363,7 +1377,7 @@ button.item {
     }
     .kitchenwhork-txt h1 {
     font-size: 50px;
-    line-height: 64px;
+    line-height: 64px;  
 }
 #stayconnectsec .stay-connect h1 {
     font-size: 5    0px;
@@ -1408,13 +1422,6 @@ button.item {
 }
 #thinkaheadsec .multigenerationalsectwo .secboxdiv {
     padding: 5px 5px !important;
-}
-#thinkaheadsec .multigenerationalsecone h1 {
-    margin-bottom: 2rem;
-    color: #fff;
-    padding-right: 3rem;
-    font-size: 2rem;
-    line-height: 4rem;
 }
 #thinkaheadsec .multigenerationalsectwo .secboxdiv h3 {
     font-size: 15px;
@@ -2326,10 +2333,10 @@ sl-carousel::part(pagination-item--active) {
 
     <!--For Desktop-->
     <!-- Think Ahead start -->
-    <section id="thinkaheadsec" class="main-container only-desktop">
+    <section id="thinkaheadsec" class="only-desktop">
         <div class="multigenerationalcont main-container">
             <div class="multigenerationalsecone">
-                <h1 class="primary-heading">Bathrooms that<br> Think Ahead</h1>
+                <h1 class="primary-heading">Bathrooms that <br> Think Ahead</h1>
                 <!-- <p class="primary-para">We are't inventing it — just bringing it back, smarter.</p> -->
             </div>
             <div class="multigenerationalsectwo">
