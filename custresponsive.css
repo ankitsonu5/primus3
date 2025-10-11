@@ -356,6 +356,10 @@
 .enquiry-menu li a {
     padding: 9px 13px;
 }
+.footer-logo-sec img {
+    padding-left: 5rem;
+    width: 16rem;
+}
  }
  @media (max-width: 900px) {
   .navbar {
@@ -576,6 +580,9 @@
 
     padding-right: 2rem;
 }
+.footer-logo-sec img {
+        padding-left: 0rem;
+    }
  }
  @media (max-width: 480px) {
   .tabs {
