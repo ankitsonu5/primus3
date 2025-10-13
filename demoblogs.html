@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Living & Family Lifestyle Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .blogcontainercont {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 30px 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: #c2185b;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 35px 10px 15px;
+            border: none;
+            border-radius: 25px;
+            background: white;
+            font-size: 14px;
+        }
+
+        .search-box::after {
+            content: '🔍';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .sidebar h3 {
+            font-size: 16px;
+            color: #c2185b;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .sidebar li:hover {
+            color: #c2185b;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 40px 50px;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-meta {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .article-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1200px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blogcontainercont {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blogcontainercont">
+        <aside class="sidebar">
+            <div class="logo">Blog.</div>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Search">
+            </div>
+
+            <h3>Categories</h3>
+            <ul>
+                <li>Eco-Living Lifestyle</li>
+                <li>Travel</li>
+                <li>Retirement & Aged Information</li>
+                <li>Lifestyle</li>
+                <li>Cost-Of-Retiring In Italy</li>
+                <li>News</li>
+                <li>Health, Information & Technology</li>
+            </ul>
+
+            <h3>Top Articles</h3>
+            <ul>
+                <li>How Smart is Retiring to the Smart Italian Family Home</li>
+                <li>From Joint Family to Smart Communities: Redefining the Indian Family Home</li>
+                <li>Why Mum Senior NHS Are Returning to India</li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="articles-grid">
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop" alt="Family walking" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">FAMILY LIFESTYLE / SENIOR LIVING / DEC 17, 2021</div>
+                        <h2 class="article-title">From Joint Family to Smart Communities: Redefining the Indian Family Home</h2>
+                        <p class="article-excerpt">The values of Joint families is crushed Indian are not what they used to be. Many are shifting towards smaller families and smart communities.</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=400&fit=crop" alt="Senior woman" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">SENIOR LIVING / TRAVEL / JAN 15, 2022</div>
+                        <h2 class="article-title">Why Mum Senior NHS Are Returning to India, and How Welcomes Them Home</h2>
+                        <p class="article-excerpt">An overview how senior citizens returning from abroad are finding comfort and community in India's evolving senior living spaces.</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&h=400&fit=crop" alt="Senior couple" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">RETIREMENT & AGED INFORMATION / FEB 3, 2022</div>
+                        <h2 class="article-title">Why Primus Bangalore is the Future of Urban Senior Living</h2>
+                        <p class="article-excerpt">A healthy, independent and dignified life designed to engage seniors in a caring environment with state-of-the-art facilities.</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop" alt="Family photo" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">FAMILY LIFESTYLE / SENIOR LIVING / FEB 22, 2022</div>
+                        <h2 class="article-title">The Development & Growth Trends & Opportunities in India</h2>
+                        <p class="article-content">India's senior living sector is experiencing unprecedented growth as more families embrace modern retirement communities.</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&h=400&fit=crop" alt="Kayaking" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">TRAVEL / LIFESTYLE / MAR 8, 2022</div>
+                        <h2 class="article-title">A Day in the Life at Primus: Senior Living Redefined</h2>
+                        <p class="article-excerpt">Discover how residents start their days with yoga sessions and end with cultural activities in this vibrant community.</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=600&h=400&fit=crop" alt="Family together" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">FAMILY LIFESTYLE / MAR 20, 2022</div>
+                        <h2 class="article-title">Senior Living Communities: A Celebration to Senior Living</h2>
+                        <p class="article-excerpt">Wandering into joyful community living with like-minded individuals who share similar interests and values.</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=600&h=400&fit=crop" alt="Seniors traveling" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">TRAVEL / SENIOR LIVING / APR 5, 2022</div>
+                        <h2 class="article-title">Meet Lifestyle After 60: Travel, Hobbies & Life on Your Terms</h2>
+                        <p class="article-excerpt">Explore how today's seniors are redefining retirement with adventure travel and pursuing lifelong passions.</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop" alt="Modern building" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">ARCHITECTURE / SENIOR LIVING / APR 18, 2022</div>
+                        <h2 class="article-title">Beyond Beauty: Designing Spaces for Senior Living</h2>
+                        <p class="article-excerpt">How thoughtful architecture and design create safe, accessible, and beautiful environments for aging in place.</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </article>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

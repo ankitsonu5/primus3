@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primus blogs</title>
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/0823a66b46.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./custstyle.css" />
+  <link rel="stylesheet" href="./custresponsive.css" />
+  <link rel="stylesheet" href="./mobmenustyle.css" />
+
+  <!-- GSAP Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- all about css code -->
+  <!-- Google font import -->
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+  </style>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Lato:it.main-containeral,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+  </style>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .primary-heading {
+      font-family: Montserrat;
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 80px;
+      line-height: 90px;
+      letter-spacing: -5%;
+      color: #801b53;
+    }
+
+    .primary-para {
+      font-family: Lato;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 20px;
+      line-height: 25px;
+      letter-spacing: 0%;
+      color: #000000;
+    }
+
+    /* hero section design style start */
+    .banner {
+      position: relative;
+      overflow: visible;
+      min-height: 500px;
+    }
+
+    .banner-tagline {
+      position: absolute;
+      top: 50%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      text-align: left;
+      /* width: 80%; */
+      animation: fadeInLeft 1.2s ease-out 0.3s forwards;
+      width: 25rem;
+    }
+
+    .banner-tagline h1 {
+      font-family: Montserrat;
+      font-weight: 700;
+      font-size: 4rem !important;
+      line-height: 75px !important;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      /* margin: 0; */
+    }
+
+    .bannerimg {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    .bannerimg img {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      border-radius: 1.5rem;
+      animation: zoomIn 1.5s ease-out forwards;
+    }
+
+    .bannerimgdesktop {
+      display: block;
+    }
+
+    .bannerimgmobile {
+      display: none;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeInLeft {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateX(-50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateX(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      0% {
+        opacity: 0.3;
+        transform: scale(1.05);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Media query */
+    @media screen and (min-width: 1920px) {
+      #header {
+        margin: 23px 1rem;
+      }
+    }
+
+    @media screen and (min-width: 1367px) {
+      #header {
+        margin: 23px 1rem;
+      }
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 1366px) {
+      .primary-heading {
+        font-size: 3rem;
+        line-height: 4rem;
+      }
+
+      .howitbegintext p {
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+
+      .bannerimgdesktop {
+        display: none !important;
+      }
+
+      .bannerimg img {
+        width: 100%;
+        height: 100vh;
+        display: block;
+        object-fit: cover;
+      }
+    }
+    /* blogs container style start */
+         #blogcontainersec .blogcontainercont {
+            /* max-width: 1400px; */
+            /* margin: 0 auto; */
+            display: flex;
+            /* min-height: 100vh; */
+        }
+
+        #blogcontainersec .sidebar {
+            width: 300px;
+            /* background: linear-gradient(180deg, #fce4ec 0%, #f8bbd0 100%); */
+            padding: 30px 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        #blogcontainersec .search-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        #blogcontainersec .search-box input {
+            width: 100%;
+           padding: 15px 35px 15px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #EFDFDF;
+            font-size: 14px;
+        }
+
+        #blogcontainersec .search-box::after {
+            content: '🔍';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #blogcontainersec .sidebar h3 {
+            color: #801B53;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 25px;
+            line-height: 30px;
+            letter-spacing: 0%;
+
+        }
+
+        #blogcontainersec .sidebar ul {
+            list-style: none;
+        }
+
+        #blogcontainersec .sidebar li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        #blogcontainersec .sidebar li:not(:last-child) {
+            border-bottom: 1px solid #801B53;
+        }
+
+        #blogcontainersec .sidebar li:hover {
+            color: #c2185b;
+        }
+
+        #blogcontainersec .main-content {
+            flex: 1;
+            padding: 40px 1rem 40px 55px;
+        }
+
+        #blogcontainersec .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        #blogcontainersec .article-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
+            /* transition: transform 0.3s, box-shadow 0.3s; */
+            cursor: pointer;
+        }
+
+        #blogcontainersec .article-card:hover {
+            /* transform: translateY(-5px); */
+            /* box-shadow: 0 8px 20px rgba(0,0,0,0.15); */
+        }
+
+        #blogcontainersec .article-image {
+            width: 100%;
+            height: 36vh;
+            border-radius: 1rem;
+            object-fit: cover;
+        }
+
+        #blogcontainersec .article-content {
+            padding: 20px 0;
+        }
+
+        #blogcontainersec .article-meta {
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-family: Lato;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 16px;
+            line-height: 25px;
+            letter-spacing: 0%;
+        }
+
+        #blogcontainersec .article-title {
+            color: #821A52;
+            margin-bottom: 12px;
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 1.5rem;
+            line-height: 28px;
+            letter-spacing: 0%;
+        }
+
+        #blogcontainersec .article-excerpt {
+            color: #000;
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 1rem;
+            line-height: 24px;
+            letter-spacing: 0%;
+        }
+
+        #blogcontainersec .read-more {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        #blogcontainersec .read-more:hover {
+            text-decoration: underline;
+        }
+        #blogcontainersec .blogcontcategorydiv {
+           background: #EFDFDF;
+           padding: 1rem;
+           border-radius: 5px;
+           margin-bottom: 2rem;
+        }
+        #blogcontainersec .blogtoparticlesdiv {
+           background: #EFDFDF;
+           padding: 1rem;
+           border-radius: 5px;
+        }
+        #blogcontainersec .contheadparadiv h4{
+           font-family: Montserrat;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 1rem;
+            line-height: 1rem;
+            letter-spacing: 0%;
+            margin-bottom: 0.5rem;
+        }
+        #blogcontainersec .contheadparadiv p{
+          font-family: Lato;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 0.8rem;
+            line-height: 25px;
+            letter-spacing: 0%;
+        }
+    /* blogs container style end*/
+
+    /* 1650px, 1366px, 1024px, 768px, 480px, 375px */
+    /* ***************  breakdown point for other styles start *********************** */
+    @media (max-width: 1920px) {
+      .main-container {
+        max-width: 1850px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 1700px) {
+
+      .enquiry>summary {
+        padding: 10px 25px;
+      }
+    }
+
+    @media (max-width: 1366px) {
+
+      .banner-tagline h1 {
+        font-size: 3rem !important;
+        line-height: 64px !important;
+      }
+      .banner-tagline {
+        width: 18rem;
+}
+    }
+
+    @media (max-width: 1300px) {}
+
+    @media (max-width: 1024px) {
+      .banner-tagline {
+        width: 14rem;
+    }
+      .banner-tagline h1 {
+        font-size: 35px !important;
+        line-height: 40px !important;
+      }
+
+
+      .primary-heading {
+        font-size: 2rem;
+        line-height: 3rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .bannerimgmobile {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-social-media {
+        padding-left: 0;
+      }
+
+      .footer-policy-sec {
+        padding: 1rem 0;
+      }
+
+      .banner-tagline {
+        position: absolute;
+        top: 87%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        text-align: left;
+        width: 80%;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 0.5s forwards;
+      }
+
+      .banner-tagline h1 {
+        font-size: 2.2rem !important;
+        line-height: 48px !important;
+      }
+
+      /* Mobile animation adjustments */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -50%) translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%) translateY(0);
+        }
+      }
+
+
+      #mobilemenudesignsec .menu-item {
+        font-size: 22px;
+      }
+
+      #visitussec .visituscont {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-logo-sec img {
+        padding-left: 0;
+      }
+.footer-logo-sec img {
+        padding-left: 0;
+    }
+    .blogcontainercont {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+            .sidebar {
+                display: none;
+            }
+            #blogcontainersec .articles-grid {
+    grid-template-columns: 1fr;
+}
+#blogcontainersec .main-content {
+    flex: 1;
+    padding: 40px 1rem 40px 1rem;
+}
+    }
+
+    @media (max-width: 480px) {
+      .banner-tagline h1 {
+        font-size: 1.5rem !important;
+        line-height: 34px !important;
+      }
+    }
+
+    @media (max-width: 320px) {
+      
+    }
+
+    /* ***************  breakdown point for other styles end *********************** */
+
+    /* ************** code for desktop and mobile view *****************/
+    .only-mobile {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .only-mobile {
+        display: block !important;
+      }
+    }
+
+    .only-desktop {
+      display: block;
+    }
+
+    @media screen and (max-width: 768px) {
+      .only-desktop {
+        display: none !important;
+      }
+    }
+
+    /* ************** code for desktop and mobile view *****************/
+  </style>
+</head>
+
+<body>
+  <!-- desktop banner code -->
+  <div class="main-container">
+    <section id="header" class="home-header">
+      <div class="banner">
+        <div class="banner-tagline">
+          <h1>
+           Good Reads For A Good Life
+          </h1>
+        </div>
+
+        <div class="bannerimg">
+          <img class="bannerimgdesktop" src="./assets/images/blogs/bannerbgblogs.png" />
+          <img class="bannerimgmobile" src="./assets/images/blogs/bannerbgblogsmb.png" />
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- desktop navbar menu start -->
+  <div class="main-container only-desktop">
+    <div class="navbar">
+      <div class="logo">
+        <img src="./assets/images/primus-logo.png" alt="logo" />
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="#">Our Communities</a></li>
+          <li><a href="./lifestyle.html">The Primus Lifestyle</a></li>
+          <li><a href="./livinghub.html">Living Well Hub</a></li>
+          <li><a href="#">Partner With Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="enquiry-wrap">
+        <details class="enquiry">
+          <summary>
+            ENQUIRY
+            <svg class="caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </summary>
+
+          <ul class="enquiry-menu" role="menu" aria-label="Enquiry options">
+            <li role="menuitem"><a href="email">EMAIL</a></li>
+            <li role="menuitem"><a href="whatsapp">WHATSAPP</a></li>
+            <li role="menuitem"><a href="form">FORM</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </div>
+  <!-- desktop navbar menu end -->
+
+  <!-- mobile menu design start -->
+  <section id="mobilemenudesignsec" class="only-mobile">
+    <div class="overlay" onclick="closeMenu()"></div>
+
+    <div class="menu-container">
+      <div class="menu-header collapsed">
+        <div class="logo">
+          <img src="./assets/images/primus-logo.png" alt="" />
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <img src="./assets/images/Home/mb/menu-open.png" alt="Menu" class="menu-img menu-open-icon" />
+          <img src="./assets/images/Home/mb/menu-close.png" alt="Close" class="menu-img menu-close-icon" />
+        </div>
+      </div>
+      <div class="menu-content">
+        <a href="#" class="menu-item">Home</a>
+        <a href="#" class="menu-item">About Us</a>
+        <a href="#" class="menu-item">Our Communities</a>
+        <a href="#" class="menu-item">The Primus Lifestyle</a>
+        <a href="#" class="menu-item">Living Well Hub</a>
+        <a href="#" class="menu-item">Partner With Us</a>
+        <a href="#" class="menu-item">Contact Us</a>
+        <button class="enquiry-btn">
+          ENQUIRY <i class="fa-solid fa-angle-down"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- mobile menu design end -->
+
+  <!-- blogs container start -->
+   <section id="blogcontainersec">
+    <div class="blogcontainercont main-container">
+            <aside class="sidebar">
+            
+            <div class="search-box">
+                <input type="text"  placeholder="Search">
+            </div>
+
+            <div class="blogcontcategorydiv">
+            <h3>Categories</h3>
+            <ul>
+                <li>Eco-Living Lifestyle</li>
+                <li>Travel</li>
+                <li>Retirement & Aged Information</li>
+                <li>Lifestyle</li>
+                <li>Cost-Of-Retiring In Italy</li>
+                <li>News</li>
+                <li>Health, Information & Technology</li>
+            </ul>
+            </div>
+
+            <div class="blogtoparticlesdiv">
+            <h3>Top stories</h3>
+            <div class="contheadparadiv">
+                <a href="" style="text-decoration: none; color: #000"><h4>From Joint Family to Smart Community: Reimagining the Indian Family Home</h4></a>
+                <p>SENIOR LIVING | <span>September 17, 2025</span> | </p>
+            </div>
+            <div class="contheadparadiv">
+                <a href="" style="text-decoration: none; color: #000"><h4>From Joint Family to Smart Community: Reimagining the Indian Family Home</h4></a>
+                <p>SENIOR LIVING | <span>September 17, 2025</span> | </p>
+            </div>
+            <div class="contheadparadiv">
+                <a href="" style="text-decoration: none; color: #000"><h4>From Joint Family to Smart Community: Reimagining the Indian Family Home</h4></a>
+                <p>SENIOR LIVING | <span>September 17, 2025</span> | </p>
+            </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="articles-grid">
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop" alt="Family walking" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">FAMILY LIFESTYLE / SENIOR LIVING / DEC 17, 2021</div>
+                        <h2 class="article-title">From Joint Family to Smart Communities: Redefining the Indian Family Home</h2>
+                        <p class="article-excerpt">The values of Joint families is crushed Indian are not what they used to be. Many are shifting towards smaller families and smart communities.</p>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=400&fit=crop" alt="Senior woman" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">SENIOR LIVING / TRAVEL / JAN 15, 2022</div>
+                        <h2 class="article-title">Why Mum Senior NHS Are Returning to India, and How Welcomes Them Home</h2>
+                        <p class="article-excerpt">An overview how senior citizens returning from abroad are finding comfort and community in India's evolving senior living spaces.</p>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&h=400&fit=crop" alt="Senior couple" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">RETIREMENT & AGED INFORMATION / FEB 3, 2022</div>
+                        <h2 class="article-title">Why Primus Bangalore is the Future of Urban Senior Living</h2>
+                        <p class="article-excerpt">A healthy, independent and dignified life designed to engage seniors in a caring environment with state-of-the-art facilities.</p>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop" alt="Family photo" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">FAMILY LIFESTYLE / SENIOR LIVING / FEB 22, 2022</div>
+                        <h2 class="article-title">The Development & Growth Trends & Opportunities in India</h2>
+                        <p class="article-excerpt">India's senior living sector is experiencing unprecedented growth as more families embrace modern retirement communities.</p>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&h=400&fit=crop" alt="Kayaking" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">TRAVEL / LIFESTYLE / MAR 8, 2022</div>
+                        <h2 class="article-title">A Day in the Life at Primus: Senior Living Redefined</h2>
+                        <p class="article-excerpt">Discover how residents start their days with yoga sessions and end with cultural activities in this vibrant community.</p>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=600&h=400&fit=crop" alt="Family together" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">FAMILY LIFESTYLE / MAR 20, 2022</div>
+                        <h2 class="article-title">Senior Living Communities: A Celebration to Senior Living</h2>
+                        <p class="article-excerpt">Wandering into joyful community living with like-minded individuals who share similar interests and values.</p>
+                        <!-- <a href="#" class="read-more">READ MORE</a> -->
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=600&h=400&fit=crop" alt="Seniors traveling" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">TRAVEL / SENIOR LIVING / APR 5, 2022</div>
+                        <h2 class="article-title">Meet Lifestyle After 60: Travel, Hobbies & Life on Your Terms</h2>
+                        <p class="article-excerpt">Explore how today's seniors are redefining retirement with adventure travel and pursuing lifelong passions.</p>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop" alt="Modern building" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">ARCHITECTURE / SENIOR LIVING / APR 18, 2022</div>
+                        <h2 class="article-title">Beyond Beauty: Designing Spaces for Senior Living</h2>
+                        <p class="article-excerpt">How thoughtful architecture and design create safe, accessible, and beautiful environments for aging in place.</p>
+                    </div>
+                </article>
+            </div>
+        </main>
+    </div>
+   </section>
+  <!-- blogs container end -->
+
+  <!-- footer page design tab section start -->
+  <footer id="footersec">
+    <div class="footercont main-container">
+      <div class="mainfootercontup">
+        <div class="footer-logo-sec">
+          <a href="./index.html">
+            <img src="./assets/images/primus-logo.png" alt="primus logo" />
+          </a>
+        </div>
+        <div class="footer-policy-sec">
+          <ul>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Careers Page</a></li>
+          </ul>
+        </div>
+        <div class="footer-about-us">
+          <ul>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Terms & Conditions</a></li>
+            <li><a href="">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social-media">
+          <div>
+            <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+          <div>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+          </div>
+          <div>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+          </div>
+          <div>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+          </div>
+          <div>
+            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+          <div>
+            <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mainfootercontdown">
+      <p>Primus &copy; 2025</p>
+    </div>
+  </footer>
+  <!-- footer page design tab section end -->
+  <!-- mobile menu js link -->
+  <script src="../mobmenujs.js"></script>
+
+
+
+</body>
+
+</html>
