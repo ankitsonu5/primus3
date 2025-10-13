@@ -570,6 +570,15 @@
 
     height: 32rem;
 }
+.footer-logo-sec img {
+        padding-left: 0rem;
+    }
+        .footer-social-media {
+        padding-left: 0;
+    }
+        .footer-policy-sec {
+        padding: 1rem 0;
+    }
  }
 
  @media (max-width: 630px) {
@@ -580,9 +589,7 @@
 
     padding-right: 2rem;
 }
-.footer-logo-sec img {
-        padding-left: 0rem;
-    }
+
  }
  @media (max-width: 480px) {
   .tabs {
