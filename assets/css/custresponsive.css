@@ -620,7 +620,14 @@
         padding: 1px 10px;
         font-size: 11px;
     }
- }
+    .exploreourcommunitiessec .expltabs {
+    gap: 0;
+  }
+
+.exploreourcommunitiessec .expltab {
+        padding: 1px 4px;
+    }
+  }
  @media (max-width: 425px) {
       .exploreourcommunitiessec .expltab {
         padding: 5px 4px;
@@ -681,7 +688,7 @@
     }
         .contgriddiv p {
         font-size: 12px !important;
-    } 
+    }
  }
  /* ***************  breakdown point for other styles end *********************** */
 

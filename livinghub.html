@@ -10,9 +10,9 @@
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
     <script src="https://kit.fontawesome.com/0823a66b46.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./custstyle.css">
-    <link rel="stylesheet" href="./custresponsive.css">
-    <link rel="stylesheet" href="../mobmenustyle.css">
+    <link rel="stylesheet" href="./assets/css/custstyle.css">
+    <link rel="stylesheet" href="./assets/css/custresponsive.css">
+    <link rel="stylesheet" href="./assets/css/mobmenustyle.css">
 
         <!-- GSAP Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -1413,6 +1413,14 @@ button.item {
 #stayconnectsec .tab-button {
     padding: 0.5rem 3rem;
 }
+#stayconnectsec .tabs-content {
+    padding-left: 1rem;
+    padding-right: 2rem;
+}
+.banner-tagline h1 {
+        font-size: 56px !important;
+        line-height: 68px !important;
+    }
 }
 
  @media (min-width: 769px) {
@@ -1443,6 +1451,8 @@ button.item {
     #stayconnectsec .tabs-content {
                 flex-direction: column;
                 height: 500px;
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
                 #stayconnectsec .tab-button {
         padding: 5px 2rem;
@@ -1827,6 +1837,11 @@ sl-carousel::part(pagination-item--active) {
   outline: 2px solid black;
   outline-offset: 3px;
 }
+.banner-tagline {
+        left: 58%;
+        top: 87%;
+        width: 100%;
+    }
 }
 /*For Mobile*/
 @media screen and (max-width: 650px) {
@@ -1836,6 +1851,7 @@ sl-carousel::part(pagination-item--active) {
 .sl-carousel-mob-itsmoreh {
     min-height: 23rem !important;
 }
+
 }
 @media screen and (max-width: 550px) {
         /* .main-container {
@@ -1912,6 +1928,11 @@ sl-carousel::part(pagination-item--active) {
 .kitchenwork-txt-mob h1 {
         font-size: 24px;
     }
+    .banner-tagline h1
+ {
+        font-size: 30px !important;
+        line-height: 34px !important;
+    }
 }
 
 @media screen and (max-width: 425px) {
@@ -1939,6 +1960,10 @@ sl-carousel::part(pagination-item--active) {
 }
     .smarthomeheadsl {
         font-size: 22px;
+    }
+    .banner-tagline h1 {
+        font-size: 24px !important;
+        line-height: 30px !important;
     }
 }
 
@@ -2677,7 +2702,7 @@ sl-carousel::part(pagination-item--active) {
 <!-- Stay connected desktop & Mobile js code end -->
 
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../mobmenujs.js"></script>
+    <script src="./assets/js/mobmenujs.js"></script>
 
 </body>
 
